@@ -32,9 +32,10 @@ public class MainActivity extends AppCompatActivity {
         scoreView.setText(String.valueOf(score));
     }
 
-    public void three(View view) {
-        a = a + 3;
-        as[i] = 3;
+
+     public void one(View view) {
+        a = a + 1;
+        as[i] = 1;
         i++;
         displayForTeamA(a);
 
@@ -47,18 +48,20 @@ public class MainActivity extends AppCompatActivity {
         displayForTeamA(a);
 
     }
-
-    public void one(View view) {
-        a = a + 1;
-        as[i] = 1;
+        public void three(View view) {
+        a = a + 3;
+        as[i] = 3;
         i++;
         displayForTeamA(a);
 
     }
 
-    public void threeb(View view) {
-        b = b + 3;
-        bs[j] = 3;
+   
+
+  
+     public void oneb(View view) {
+        b = b + 1;
+        bs[j] = 1;
         j++;
         displayForTeamB(b);
 
@@ -71,14 +74,15 @@ public class MainActivity extends AppCompatActivity {
         displayForTeamB(b);
 
     }
-
-    public void oneb(View view) {
-        b = b + 1;
-        bs[j] = 1;
+      public void threeb(View view) {
+        b = b + 3;
+        bs[j] = 3;
         j++;
         displayForTeamB(b);
 
     }
+
+   
 
     public void undoa(View view) {
         if (a > 0) {
