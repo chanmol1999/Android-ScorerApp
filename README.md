@@ -18,6 +18,6 @@ The app is also engrossed with the features of Undo and reset.Reset sets score o
 ### Install and contribute
 
 ```sh
-$ git clone https://github.com/Akshat-Jain/WhatsApp-Direct-Message.git
+$ git clone https://github.com/chanmol1999/android-ScorerApp.git
 ```
 Then open in Android Studio.
