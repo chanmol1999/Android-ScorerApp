@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="30dp"
-        android:text="Basketball">
+        android:text="@string/sport_one">
 
     </Button>
 
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="20dp"
-        android:text="Volleyball">
+        android:text="@string/sport_two">
 
     </Button>
 

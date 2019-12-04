@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CourtCounter</string>
+    <string name="sport_one">Basket Ball</string>
+    <string name="sport_two">Volley Ball</string>
 </resources>
