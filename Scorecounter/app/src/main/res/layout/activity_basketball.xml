@@ -30,7 +30,7 @@
                     android:layout_marginRight="10dp"
                     android:gravity="center"
                     android:padding="4dp"
-                    android:text="Team A"
+                    android:text="@string/first_team"
                     android:textColor="#000000"
                     android:textSize="20dp"
                     android:textStyle="bold|italic" />
@@ -59,28 +59,28 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:onClick="three"
-                android:text="+3 Points" />
+                android:text="@string/plus_three" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:onClick="two"
-                android:text="+2 Points" />
+                android:text="@string/plus_two" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:onClick="one"
-                android:text="Free throw (+1)" />
+                android:text="@string/sport_one" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:onClick="undoa"
-                android:text="UNDO !!"
+                android:text="@string/undo"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -110,7 +110,7 @@
                     android:layout_marginRight="10dp"
                     android:gravity="center"
                     android:padding="4dp"
-                    android:text="Team B"
+                    android:text="@string/second_team"
                     android:textColor="#000000"
                     android:textSize="20dp"
                     android:textStyle="bold|italic" />
@@ -138,28 +138,28 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:onClick="threeb"
-                android:text="+3 Points" />
+                android:text="@string/plus_three" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:onClick="twob"
-                android:text="+2 Points" />
+                android:text="@string/plus_two" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:onClick="oneb"
-                android:text="Free throw (+1)" />
+                android:text="@string/plus_one" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="40dp"
                 android:onClick="undob"
-                android:text="UNDO !!"
+                android:text="@string/undo"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
@@ -173,7 +173,7 @@
         android:gravity="center"
         android:onClick="finish"
         android:padding="1dp"
-        android:text="FINISH"
+        android:text="@string/finish"
         android:textStyle="bold" />
 
     <ImageView
