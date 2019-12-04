@@ -21,3 +21,9 @@ The app is also engrossed with the features of Undo and reset.Reset sets score o
 $ git clone https://github.com/NJACKWinterOfCode/Android-ScorerApp.git
 ```
 Then open in Android Studio.
+
+### Rules
+* Claim the issue first before start working on it.
+* Work on one issue at a time.
+* Create separate pull requests for different issues.
+* Complete the work within 3 days after claiming an issue.
