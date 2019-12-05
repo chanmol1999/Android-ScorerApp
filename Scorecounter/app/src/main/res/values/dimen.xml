@@ -19,5 +19,19 @@
     <dimen name="volley_switch_margin_R">68sp</dimen>
     <dimen name="volley_reset_margin_T">12dp</dimen>
     //Basket Ball activity
-    <dimen name="volly_reset_margin_T">12dp</dimen>
+    <dimen name="basket_text_margin_E">10dp</dimen>
+    <dimen name="basket_text_margin_R">10dp</dimen>
+    <dimen name="basket_text_padding">4dp</dimen>
+    <dimen name="basket_counter_padding">14dp</dimen>
+    <dimen name="basket_counter_text_size">22sp</dimen>
+    <dimen name="basket_text_size">20sp</dimen>
+    <dimen name="basket_text_annotation_w">20dp</dimen>
+    <dimen name="basket_text_annotation_h">20dp</dimen>
+    <dimen name="basket_button_layout_margin">8dp</dimen>
+    <dimen name="basket_plain_view">1dp</dimen>
+    <dimen name="basket_undo_margin_L">40dp</dimen>
+    <dimen name="basket_finish_button_height">40dp</dimen>
+    <dimen name="basket_finish_button_margin">5dp</dimen>
+    <dimen name="basket_finish_button_margin_S">25dp</dimen>
+    <dimen name="basket_finish_button_margin_L">25dp</dimen>
 </resources>
