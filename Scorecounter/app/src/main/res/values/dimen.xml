@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    //Volleball Activity
+    <dimen name="main_margin">20dp</dimen>
+    <dimen name="volley_text_size">25sp</dimen>
+    <dimen name="volley_counter_margin_top">26dp</dimen>
+    <dimen name="volley_score_counter_width">150dp</dimen>
+    <dimen name="volley_score_counter_height">150dp</dimen>
+    <dimen name="volley_counter_text">80sp</dimen>
+    <dimen name="volley_counter_margin_sides">40dp</dimen>
+    <dimen name="volley_counter_padding">20dp</dimen>
+    <dimen name="volley_total_margin_top">20dp</dimen>
+    <dimen name="volley_total_height">80dp</dimen>
+    <dimen name="volley_total_width">80dp</dimen>
+    <dimen name="volley_total_padding">10dp</dimen>
+    <dimen name="volley_total_text">45sp</dimen>
+    <dimen name="volley_switch_margin_T">28sp</dimen>
+    <dimen name="volley_switch_margin_E">68sp</dimen>
+    <dimen name="volley_switch_margin_R">68sp</dimen>
+    <dimen name="volley_reset_margin_T">12dp</dimen>
+    //Basket Ball activity
+    <dimen name="volly_reset_margin_T">12dp</dimen>
+</resources>

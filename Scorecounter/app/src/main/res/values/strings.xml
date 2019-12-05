@@ -9,7 +9,7 @@
     <string name="plus_one">Free throw (+1)</string>
     <string name="undo">UNDO !!</string>
     <string name="reset">Reset</string>
-    <string name="change_sides">Switch Sides</string>
+    <string name="switch_b">Switch Sides</string>
     <string name="finish">FINISH</string>
     <string name="Init_value">0</string>
 </resources>
