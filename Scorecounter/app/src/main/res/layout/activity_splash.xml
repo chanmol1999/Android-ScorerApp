@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="287dp"
-        android:layout_height="379dp"
+        android:layout_width="@dimen/logo_width"
+        android:layout_height="@dimen/logo_height"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,9 +20,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Real Time Scorer"
+        android:text="@string/real_time_scorer"
         android:textColor="#000000"
-        android:textSize="40sp"
+        android:textSize="@dimen/logo_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

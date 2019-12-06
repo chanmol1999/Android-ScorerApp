@@ -26,19 +26,19 @@
                     android:id="@+id/teamA_nameTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="@dimen/basket_margin_end"
+                    android:layout_marginRight="@dimen/basket_margin_right"
                     android:gravity="center"
-                    android:padding="4dp"
-                    android:text="Team A"
+                    android:padding="@dimen/basket_text_padding"
+                    android:text="@string/team_a"
                     android:textColor="#000000"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/basket_team_text"
                     android:textStyle="bold|italic" />
 
                 <ImageView
                     android:id="@+id/edit_teamA"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="@dimen/basket_annote_width"
+                    android:layout_height="@dimen/basket_annote_height"
                     android:layout_gravity="center"
                     android:src="@drawable/edit" />
 
@@ -49,43 +49,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="14dp"
-                android:text="0"
-                android:textSize="22sp"
+                android:padding="@dimen/basket_counter_padding"
+                android:text="@string/_0"
+                android:textSize="@dimen/basket_counter_text"
                 android:textStyle="bold" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/basket_team_a_margin"
                 android:onClick="three"
-                android:text="+3 Points" />
+                android:text="@string/_3_points" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/basket_tem_a_margin"
                 android:onClick="two"
-                android:text="+2 Points" />
+                android:text="@string/_2_points" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/basket_team_a_margin"
                 android:onClick="one"
-                android:text="Free throw (+1)" />
+                android:text="@string/free_throw_1" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="@dimen/basket_undo_margin_left"
                 android:onClick="undoa"
-                android:text="UNDO !!"
+                android:text="@string/undo"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <TextView
-            android:layout_width="1dp"
+            android:layout_width="@dimen/basket_blank_layout"
             android:layout_height="match_parent"
             android:background="@android:color/darker_gray" />
 
@@ -106,19 +106,19 @@
                     android:id="@+id/teamB_nameTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="@dimen/basket_text_margin_L"
+                    android:layout_marginRight="@dimen/basket_text_margin_R"
                     android:gravity="center"
-                    android:padding="4dp"
-                    android:text="Team B"
+                    android:padding="@dimen/basket_annote_padding"
+                    android:text="@string/team_b"
                     android:textColor="#000000"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/basket_text_size"
                     android:textStyle="bold|italic" />
 
                 <ImageView
                     android:id="@+id/edit_teamB"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="@dimen/basket_annote_width"
+                    android:layout_height="@dimen/basket_annote_height"
                     android:layout_gravity="center"
                     android:src="@drawable/edit" />
             </LinearLayout>
@@ -128,52 +128,52 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="14dp"
-                android:text="0"
-                android:textSize="22sp"
+                android:padding="@dimen/basket_counter_padding"
+                android:text="@string/_0"
+                android:textSize="@dimen/basket_counter_text"
                 android:textStyle="bold" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/basket_team_b_margin"
                 android:onClick="threeb"
-                android:text="+3 Points" />
+                android:text="@string/_3_points" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/basket_team_b_margin"
                 android:onClick="twob"
-                android:text="+2 Points" />
+                android:text="@string/_2_points" />
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="@dimen/basket_team_b_margin"
                 android:onClick="oneb"
-                android:text="Free throw (+1)" />
+                android:text="@string/free_throw_1" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="@dimen/basket_team_b_undo_margin_L"
                 android:onClick="undob"
-                android:text="UNDO !!"
+                android:text="@string/undo"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_margin="5dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
+        android:layout_height="@dimen/basket_finish_b_height"
+        android:layout_margin="@dimen/basket_finish_b_margin"
+        android:layout_marginStart="@dimen/basket_finish_b_margin_S"
+        android:layout_marginLeft="@dimen/basket_finish_b_margin_L"
         android:gravity="center"
         android:onClick="finish"
-        android:padding="1dp"
-        android:text="FINISH"
+        android:padding="@dimen/basket_finish_b_padding"
+        android:text="@string/finish"
         android:textStyle="bold" />
 
     <ImageView
