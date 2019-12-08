@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //Basket Ball Activity
+    <dimen name="basket_margin_end">10dp</dimen>
+    <dimen name="basket_margin_right">10dp</dimen>
+    <dimen name="basket_text_padding">4dp</dimen>
+    <dimen name="basket_team_a_margin">8dp</dimen>
+    <dimen name="basket_tem_a_margin">8dp</dimen>
+    <dimen name="basket_undo_margin_left">40dp</dimen>
+    <dimen name="basket_blank_layout">1dp</dimen>
+    <dimen name="basket_text_margin_L">10dp</dimen>
+    <dimen name="basket_text_margin_R">10dp</dimen>
+    <dimen name="basket_annote_padding">4dp</dimen>
+    <dimen name="basket_text_size">20sp</dimen>
+    <dimen name="basket_annote_width">20dp</dimen>
+    <dimen name="basket_annote_height">20dp</dimen>
+    <dimen name="basket_counter_padding">14dp</dimen>
+    <dimen name="basket_team_b_margin">8dp</dimen>
+    <dimen name="basket_team_b_undo_margin_L">40dp</dimen>
+    <dimen name="basket_finish_b_height">40dp</dimen>
+    <dimen name="basket_finish_b_margin">5dp</dimen>
+    <dimen name="basket_finish_b_margin_S">25dp</dimen>
+    <dimen name="basket_finish_b_margin_L">25dp</dimen>
+    <dimen name="basket_finish_b_padding">1dp</dimen>
+    <dimen name="basket_team_text">20sp</dimen>
+    <dimen name="basket_counter_text">22sp</dimen>
+    <dimen name="basket_main_margin_basket">30dp</dimen>
+    <dimen name="basket_main_margin_volleyball">20dp</dimen>
+    //logo
+    <dimen name="logo_width">287dp</dimen>
+    <dimen name="logo_height">379dp</dimen>
+    <dimen name="logo_text">40sp</dimen>
+    //Volley Ball activity
+    <dimen name="volley_margin_top">26dp</dimen>
+    <dimen name="volley_counter_width">150dp</dimen>
+    <dimen name="volley_counter_height">150dp</dimen>
+    <dimen name="volley_counter_margin_S">40dp</dimen>
+    <dimen name="volley_counter_margin_L">48dp</dimen>
+    <dimen name="volley_counter_padding">20dp</dimen>
+    <dimen name="volley_score_width">80dp</dimen>
+    <dimen name="volley_score_height">80dp</dimen>
+    <dimen name="volley_score_margin_top">20dp</dimen>
+    <dimen name="volley_score_padding">10dp</dimen>
+    <dimen name="volley_counter_margin_top">26dp</dimen>
+    <dimen name="volley_counter_margin_E">40dp</dimen>
+    <dimen name="volley_counter_margin_R">40dp</dimen>
+    <dimen name="volley_switch_b_margin_T">28dp</dimen>
+    <dimen name="volley_switch_b_margin_E">68dp</dimen>
+    <dimen name="volley_switch_b_margin_R">68dp</dimen>
+    <dimen name="volley_reset_b_margin_T">12dp</dimen>
+    <dimen name="volley_text">25sp</dimen>
+    <dimen name="volley_counter_text">80sp</dimen>
+    <dimen name="volley_score_text">45sp</dimen>
+    <dimen name="volley_team_text">25sp</dimen>
+</resources>
