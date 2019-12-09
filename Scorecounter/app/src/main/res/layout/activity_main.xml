@@ -8,20 +8,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="30dp"
-        android:text="Basketball">
+        android:layout_margin="@dimen/basket_main_margin_basket"
+        android:text="@string/basketball">
 
     </Button>
-
     <Button
         android:id="@+id/Volleyball"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="20dp"
-        android:text="Volleyball">
+        android:layout_margin="@dimen/basket_main_margin_volleyball"
+        android:text="@string/volleyball" />
 
-    </Button>
+    <Button
+        android:id="@+id/Badminton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/basket_main_margin_volleyball"
+        android:text="@string/badminton" />
 
 </LinearLayout>
 
