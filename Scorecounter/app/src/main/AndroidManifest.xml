@@ -9,8 +9,12 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight">
-        <activity android:name=".Badminton.BadmintonActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity android:name=".Cricket.CricketActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".Badminton.BadmintonActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".splash"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -22,7 +26,7 @@
         </activity>
         <activity android:name=".Volleyball.VolleyballActivity" />
         <activity android:name=".Basketball.BasketballActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

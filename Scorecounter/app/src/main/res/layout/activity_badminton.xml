@@ -19,7 +19,7 @@
 
         <LinearLayout
             style="@style/teamView"
-            android:background="#1976D2">
+            android:background="@color/colorBlue">
 
             <TextView
                 style="@style/MainTextView"
@@ -41,7 +41,7 @@
 
         <LinearLayout
             style="@style/teamView"
-            android:background="#D32F2F">
+            android:background="@color/colorRed">
 
             <TextView
                 style="@style/MainTextView"
@@ -71,7 +71,7 @@
             android:layout_marginRight="8dp"
             android:stretchColumns="1,3,5,7">
 
-            <TableRow android:background="#000000">
+            <TableRow android:background="@color/colorBlack">
 
                 <TextView android:layout_height="1dp" />
             </TableRow>
@@ -106,12 +106,12 @@
                 <TextView style="@style/divider" />
             </TableRow>
 
-            <TableRow android:background="#000000">
+            <TableRow android:background="@color/colorBlack">
 
                 <TextView android:layout_height="1dp" />
             </TableRow>
 
-            <TableRow android:background="#1976D2">
+            <TableRow android:background="@color/colorBlue">
 
                 <TextView style="@style/divider" />
 
@@ -148,12 +148,12 @@
 
             </TableRow>
 
-            <TableRow android:background="#000000">
+            <TableRow android:background="@color/colorBlack">
 
                 <TextView android:layout_height="1dp" />
             </TableRow>
 
-            <TableRow android:background="#D32F2F">
+            <TableRow android:background="@color/colorRed">
 
                 <TextView style="@style/divider" />
 
@@ -191,7 +191,7 @@
                 <TextView style="@style/divider" />
             </TableRow>
 
-            <TableRow android:background="#000000">
+            <TableRow android:background="@color/colorBlack">
 
                 <TextView android:layout_height="1dp" />
             </TableRow>
