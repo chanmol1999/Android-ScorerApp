@@ -13,4 +13,12 @@
     <string name="team_b">Team B</string>
     <string name="switch_sides">Switch Sides</string>
     <string name="reset">reset</string>
+    <string name="original_score">0</string>
+    <string name="add_one_point">score</string>
+    <string name="game_one">game 1</string>
+    <string name="game_two">game 2</string>
+    <string name="game_three">game 3</string>
+    <string name="reset_game">reset</string>
+    <string name="winner_greetings">congratulations ! the winner is</string>
+    <string name="reset_confirmation">To confirm RESET, please click it one more time!</string>
 </resources>
