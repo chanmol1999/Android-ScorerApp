@@ -52,4 +52,20 @@
     <dimen name="volley_counter_text">80sp</dimen>
     <dimen name="volley_score_text">45sp</dimen>
     <dimen name="volley_team_text">25sp</dimen>
+    //Table Tennis Activity
+    <dimen name="tt_margin">20dp</dimen>
+    <dimen name="tt_layout_height">1dp</dimen>
+    <dimen name="tt_layout_grav">center</dimen>
+    <dimen name="text30">30sp</dimen>
+    <dimen name="text20">20sp</dimen>
+    <dimen name="text15">15sp</dimen>
+    <dimen name="text72">72sp</dimen>
+    <dimen name="text38">38sp</dimen>
+    <dimen name="tt_lay_width">wrap_content</dimen>
+    <dimen name="tt_lay_height">wrap_content</dimen>
+    <dimen name="tt_mar">8dp</dimen>
+    <dimen name="tt_mar_top">10dp</dimen>
+    <dimen name="tt_lwidth">match_parent</dimen>
+    <dimen name="tt_lheight">match_parent</dimen>
+
 </resources>

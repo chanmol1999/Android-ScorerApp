@@ -1,8 +1,11 @@
 package com.example.anmol.courtcounter.TableTennis;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +19,7 @@ public class tableTennisAcitivity extends AppCompatActivity {
     int gameA = 0;
     int gameB = 0;
     int resetCounter = 0;
+    String winner;
 
     TextView scoreForTeamA;
     TextView scoreForTeamB;
@@ -31,6 +35,8 @@ public class tableTennisAcitivity extends AppCompatActivity {
     TextView gameFiveTeamB;
     TextView winnerTeam;
     RelativeLayout winnerMessage;
+
+    Button resetButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +57,15 @@ public class tableTennisAcitivity extends AppCompatActivity {
         gameFiveTeamB = findViewById(R.id.game5_b);
         winnerTeam = findViewById(R.id.winner_team);
         winnerMessage = findViewById(R.id.winner_message);
+        resetButton = findViewById(R.id.Reset_Button);
 
 
-
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetScore();
+            }
+        });
 
     }
     public void displayScore() {
@@ -97,14 +109,35 @@ public class tableTennisAcitivity extends AppCompatActivity {
         scoreB = 0;
     }
     public void winnerMessage() {
+
         if (gameA > 2) {
-            winnerTeam.setText(R.string.team_a);
-            winnerMessage.setVisibility(View.VISIBLE);
+            winner = "TEAM A";
+           // winnerTeam.setText(R.string.team_a);
+           // winnerMessage.setVisibility(View.VISIBLE);
         }
         if (gameB > 2) {
-            winnerTeam.setText(R.string.team_b);
-            winnerMessage.setVisibility(View.VISIBLE);
+            winner = "TEAM B";
+           // winnerTeam.setText(R.string.team_b);
+           // winnerMessage.setVisibility(View.VISIBLE);
         }
+         android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Winner is " + winner);
+            builder.setPositiveButton("New Game?", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    resetScore();
+                }
+            });
+            builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            });
+
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
+
     }
     public void checkGameWinner() {
         if (scoreA > 29) {
@@ -127,7 +160,7 @@ public class tableTennisAcitivity extends AppCompatActivity {
         }
         displayScore();
     }
-    public void resetScore(View view) {
+    public void resetScore() {
         resetCounter += 1;
         if (resetCounter > 1) {
             scoreA = 0;
