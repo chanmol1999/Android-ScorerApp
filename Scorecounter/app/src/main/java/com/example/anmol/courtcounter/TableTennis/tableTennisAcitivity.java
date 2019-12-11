@@ -1,9 +1,11 @@
 package com.example.anmol.courtcounter.TableTennis;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -19,7 +21,7 @@ public class tableTennisAcitivity extends AppCompatActivity {
     int gameA = 0;
     int gameB = 0;
     int resetCounter = 0;
-    String winner;
+    String winner="";
 
     TextView scoreForTeamA;
     TextView scoreForTeamB;
@@ -57,13 +59,11 @@ public class tableTennisAcitivity extends AppCompatActivity {
         gameFiveTeamB = findViewById(R.id.game5_b);
         winnerTeam = findViewById(R.id.winner_team);
         winnerMessage = findViewById(R.id.winner_message);
-        resetButton = findViewById(R.id.Reset_Button);
-
-
-        resetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                resetScore();
+      resetButton = findViewById(R.id.Reset_Button);
+       resetButton.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               resetScore();
             }
         });
 
@@ -108,37 +108,29 @@ public class tableTennisAcitivity extends AppCompatActivity {
         scoreA = 0;
         scoreB = 0;
     }
-    public void winnerMessage() {
 
-        if (gameA > 2) {
-            winner = "TEAM A";
-           // winnerTeam.setText(R.string.team_a);
-           // winnerMessage.setVisibility(View.VISIBLE);
-        }
-        if (gameB > 2) {
-            winner = "TEAM B";
-           // winnerTeam.setText(R.string.team_b);
-           // winnerMessage.setVisibility(View.VISIBLE);
-        }
-         android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("Winner is " + winner);
-            builder.setPositiveButton("New Game?", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    resetScore();
-                }
-            });
-            builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    finish();
-                }
-            });
+    public void resetScore() {
+               scoreA = 0;
+               scoreB = 0;
+               gameA = 0;
+               gameB = 0;
+               displayScore();
+               gameFiveTeamA.setText(String.valueOf(scoreA));
+               gameFiveTeamB.setText(String.valueOf(scoreB));
+               gameFourTeamA.setText(String.valueOf(scoreA));
+               gameFourTeamB.setText(String.valueOf(scoreB));
+               gameThreeTeamA.setText(String.valueOf(scoreA));
+               gameThreeTeamB.setText(String.valueOf(scoreB));
+               gameTwoTeamA.setText(String.valueOf(scoreA));
+               gameTwoTeamB.setText(String.valueOf(scoreB));
+               gameOneTeamA.setText(String.valueOf(scoreA));
+               gameOneTeamB.setText(String.valueOf(scoreB));
+               resetCounter = 0;
 
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
+       }
 
-    }
+
+
     public void checkGameWinner() {
         if (scoreA > 29) {
             updateTable();
@@ -160,30 +152,45 @@ public class tableTennisAcitivity extends AppCompatActivity {
         }
         displayScore();
     }
-    public void resetScore() {
-        resetCounter += 1;
-        if (resetCounter > 1) {
-            scoreA = 0;
-            scoreB = 0;
-            gameA = 0;
-            gameB = 0;
-            displayScore();
-            gameFiveTeamA.setText(String.valueOf(scoreA));
-            gameFiveTeamB.setText(String.valueOf(scoreB));
-            gameFourTeamA.setText(String.valueOf(scoreA));
-            gameFourTeamB.setText(String.valueOf(scoreB));
-            gameThreeTeamA.setText(String.valueOf(scoreA));
-            gameThreeTeamB.setText(String.valueOf(scoreB));
-            gameTwoTeamA.setText(String.valueOf(scoreA));
-            gameTwoTeamB.setText(String.valueOf(scoreB));
-            gameOneTeamA.setText(String.valueOf(scoreA));
-            gameOneTeamB.setText(String.valueOf(scoreB));
-            winnerMessage.setVisibility(View.INVISIBLE);
-            resetCounter = 0;
-        } else {
 
-            Toast.makeText(this, R.string.reset_confirmation, Toast.LENGTH_SHORT).show();
+
+    public void WinnerAlert(){
+
+        final android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Winner is " + winner);
+        builder.setPositiveButton("New Game?", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if(dialogInterface != null){
+                resetScore();
+            }}
+        });
+        builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+              if(dialogInterface != null){  finish();
+            }}
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+    }
+
+    public void winnerMessage() {
+
+        if (gameA > 2) {
+            winner = "TEAM A";
+            WinnerAlert();
+
         }
+        if (gameB > 2) {
+            winner = "TEAM B";
+            WinnerAlert();
+
+        }
+
+
     }
 
 }

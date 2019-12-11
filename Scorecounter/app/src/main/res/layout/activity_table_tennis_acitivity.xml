@@ -2,18 +2,18 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/tt_lwidth"
-    android:layout_height="@dimen/tt_lheight"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".TableTennis.tableTennisAcitivity">
 
     <LinearLayout
-        android:layout_width="@dimen/tt_lwidth"
-        android:layout_height="@dimen/tt_lheight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="@dimen/tt_lwidth"
-            android:layout_height="@dimen/tt_lay_height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/tt_mar_top"
             android:orientation="horizontal">
 
@@ -64,8 +64,8 @@
         </LinearLayout>
 
         <TableLayout
-            android:layout_width="@dimen/tt_lay_width"
-            android:layout_height="@dimen/tt_lay_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/tt_mar"
             android:layout_marginLeft="@dimen/tt_mar"
             android:layout_marginRight="@dimen/tt_mar"
@@ -191,8 +191,8 @@
 
                 <TextView
                     style="@style/tableViewText"
-                    android:layout_width="@dimen/tt_lay_width"
-                    android:layout_height="@dimen/tt_lay_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/team_b"
                     android:textSize="@dimen/text20" />
 
