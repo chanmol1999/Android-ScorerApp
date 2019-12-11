@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TableTennis.tableTennisAcitivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tt_mar_top"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                style="@style/teamView"
+                android:background="@color/colorBlue">
+
+                <TextView
+                    style="@style/MainTextView"
+                    android:text="@string/team_a"
+                    android:textSize="@dimen/text38" />
+
+                <TextView
+                    android:id="@+id/team_a_score"
+                    style="@style/MainTextView"
+                    android:layout_margin="@dimen/tt_mar"
+                    android:text="@string/original_score"
+                    android:textSize="@dimen/text72" />
+
+                <Button
+                    style="@style/basicWrap"
+                    android:onClick="teamAScore"
+                    android:text="@string/add_one_point" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/teamView"
+                android:background="@color/colorRed">
+
+                <TextView
+                    style="@style/MainTextView"
+                    android:text="@string/team_b"
+                    android:textSize="@dimen/text38" />
+
+                <TextView
+                    android:id="@+id/team_b_score"
+                    style="@style/MainTextView"
+                    android:layout_margin="@dimen/tt_mar"
+                    android:text="@string/original_score"
+                    android:textSize="@dimen/text72" />
+
+                <Button
+                    style="@style/basicWrap"
+                    android:onClick="teamBScore"
+                    android:text="@string/add_one_point" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tt_mar"
+            android:layout_marginLeft="@dimen/tt_mar"
+            android:layout_marginRight="@dimen/tt_mar"
+            android:stretchColumns="1,3,5,7">
+
+            <TableRow android:background="@color/colorBlack">
+
+                <TextView android:layout_height="@dimen/tt_layout_height" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView style="@style/divider" />
+
+                <TextView style="@style/emptySpace" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    style="@style/tableViewText"
+                    android:text="@string/game_one"
+                    android:textSize="@dimen/text15" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    style="@style/tableViewText"
+                    android:text="@string/game_two"
+                    android:textSize="@dimen/text15" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    style="@style/tableViewText"
+                    android:text="@string/game_three"
+                    android:textSize="@dimen/text15" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    style="@style/tableViewText"
+                    android:text="@string/game_four"
+                    android:textSize="@dimen/text15" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    style="@style/tableViewText"
+                    android:text="@string/game_five"
+                    android:textSize="@dimen/text15" />
+
+                <TextView style="@style/divider" />
+
+
+            </TableRow>
+
+            <TableRow android:background="@color/colorBlack">
+
+                <TextView android:layout_height="@dimen/tt_layout_height" />
+            </TableRow>
+
+            <TableRow android:background="@color/colorBlue">
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    style="@style/tableViewText"
+                    android:text="@string/team_a"
+                    android:textSize="@dimen/text20" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    android:id="@+id/game1_a"
+                    style="@style/tableViewText"
+                    android:text="@string/original_score"
+                    android:textSize="@dimen/text30" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    android:id="@+id/game2_a"
+                    style="@style/tableViewText"
+                    android:text="@string/original_score"
+                    android:textSize="@dimen/text30" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    android:id="@+id/game3_a"
+                    style="@style/tableViewText"
+                    android:text="@string/original_score"
+                    android:textSize="@dimen/text30" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    android:id="@+id/game4_a"
+                    style="@style/tableViewText"
+                    android:text="@string/original_score"
+                    android:textSize="@dimen/text30" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    android:id="@+id/game5_a"
+                    style="@style/tableViewText"
+                    android:text="@string/original_score"
+                    android:textSize="@dimen/text30" />
+
+                <TextView style="@style/divider" />
+
+            </TableRow>
+
+            <TableRow android:background="@color/colorBlack">
+
+                <TextView android:layout_height="@dimen/tt_layout_height" />
+            </TableRow>
+
+            <TableRow android:background="@color/colorRed">
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    style="@style/tableViewText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/team_b"
+                    android:textSize="@dimen/text20" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    android:id="@+id/game1_b"
+                    style="@style/tableViewText"
+                    android:text="@string/original_score"
+                    android:textSize="@dimen/text30" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    android:id="@+id/game2_b"
+                    style="@style/tableViewText"
+                    android:text="@string/original_score"
+                    android:textSize="@dimen/text30" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    android:id="@+id/game3_b"
+                    style="@style/tableViewText"
+                    android:text="@string/original_score"
+                    android:textSize="@dimen/text30" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    android:id="@+id/game4_b"
+                    style="@style/tableViewText"
+                    android:text="@string/original_score"
+                    android:textSize="@dimen/text30" />
+
+                <TextView style="@style/divider" />
+
+                <TextView
+                    android:id="@+id/game5_b"
+                    style="@style/tableViewText"
+                    android:text="@string/original_score"
+                    android:textSize="@dimen/text30" />
+
+                <TextView style="@style/divider" />
+            </TableRow>
+
+            <TableRow android:background="@color/colorBlack">
+
+                <TextView android:layout_height="@dimen/tt_layout_height" />
+            </TableRow>
+
+        </TableLayout>
+        <Button
+            style="@style/basicWrap"
+            android:layout_gravity="center"
+            android:id="@+id/Reset_Button"
+            android:text="@string/reset_game"
+            android:layout_margin="@dimen/tt_margin"/>
+
+    </LinearLayout>
+
+</ScrollView>
