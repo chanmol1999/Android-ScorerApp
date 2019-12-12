@@ -54,7 +54,7 @@
     <dimen name="volley_team_text">25sp</dimen>
     //Table Tennis Activity
     <dimen name="tt_margin">20dp</dimen>
-    <dimen name="tt_layout_height">1dp</dimen>
+    <dimen name="tableLayoutHeight">1dp</dimen>
     <dimen name="text30">30sp</dimen>
     <dimen name="text20">20sp</dimen>
     <dimen name="text15">15sp</dimen>
@@ -62,6 +62,17 @@
     <dimen name="text38">38sp</dimen>
     <dimen name="tt_mar">8dp</dimen>
     <dimen name="tt_mar_top">10dp</dimen>
+
+    <dimen name="headings">36sp</dimen>
+    <dimen name="mainScore">72sp</dimen>
+    <dimen name="setsVB">48sp</dimen>
+    <dimen name="buttons">16sp</dimen>
+    <dimen name="TableText1">16sp</dimen>
+    <dimen name="TableText2">20sp</dimen>
+    <dimen name="TableText3">30sp</dimen>
+    <dimen name="TableTextMargin">4dp</dimen>
+    <dimen name="smallTextWithoutBG">24sp</dimen>
+    <dimen name="smallTextWithBG">16sp</dimen>
 
 
 </resources>
