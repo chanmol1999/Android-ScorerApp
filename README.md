@@ -11,9 +11,9 @@ The app is also engrossed with the features of Undo and reset.Reset sets score o
 * No need to note the details manually.
 * An app enhances the authenticity for the results.
 
-<!---### Download the app  --->
+### Download the app
 
-<!---You can download by clicking [here](https://github.com/NJACKWinterOfCode/WhatsApp-Direct-Message/raw/master/apk/WhatsApp_Direct_Message.apk) :-) --->
+You can download by clicking [here](https://github.com/NJACKWinterOfCode/Android-ScorerApp/raw/master/Scorecounter/app/release/scorer.apk)
 
 ### Install and contribute
 
