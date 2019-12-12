@@ -24,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        basketball = findViewById(R.id.button_basketball);
-        volleyball = findViewById(R.id.Volleyball);
-        badminton = findViewById(R.id.Badminton);
-        cricket = findViewById(R.id.Cricket);
-        tableTennis = findViewById(R.id.tableTennis);
+        basketball = (Button) findViewById(R.id.button_basketball);
+        volleyball = (Button) findViewById(R.id.button_volleyball);
+        badminton = (Button) findViewById(R.id.button_badminton);
+        cricket = (Button) findViewById(R.id.button_cricket);
+        tableTennis = (Button) findViewById(R.id.button_tableTennis);
 
 
         basketball.setOnClickListener(new View.OnClickListener() {
