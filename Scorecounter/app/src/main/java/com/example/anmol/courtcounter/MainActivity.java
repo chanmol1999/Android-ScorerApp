@@ -19,16 +19,20 @@ public class MainActivity extends AppCompatActivity {
     Button badminton;
     Button cricket;
     Button tableTennis;
+    Button football;
+    Button kabaddi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        basketball = (Button) findViewById(R.id.button_basketball);
-        volleyball = (Button) findViewById(R.id.button_volleyball);
-        badminton = (Button) findViewById(R.id.button_badminton);
-        cricket = (Button) findViewById(R.id.button_cricket);
-        tableTennis = (Button) findViewById(R.id.button_tableTennis);
+        basketball = findViewById(R.id.button_basketball);
+        volleyball = findViewById(R.id.button_volleyball);
+        badminton =  findViewById(R.id.button_badminton);
+        cricket = findViewById(R.id.button_cricket);
+        tableTennis =findViewById(R.id.button_tableTennis);
+        football = findViewById(R.id.button_football);
+        kabaddi = findViewById(R.id.button_kabaddi);
 
 
         basketball.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +67,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, tableTennisAcitivity.class));
+            }
+        });
+
+        football.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, com.example.anmol.courtcounter.Football.footballActivity.class));
+            }
+        });
+
+        kabaddi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, com.example.anmol.courtcounter.Kabaddi.kabaddiActivity.class));
             }
         });
 
