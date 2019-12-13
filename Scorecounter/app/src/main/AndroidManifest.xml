@@ -8,11 +8,15 @@
         android:label="Real Time SCORER"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight">
-        <activity android:name=".Cricket.CricketActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        android:theme="@style/AppTheme">
+        <activity android:label="Table Tennis" android:name=".TableTennis.tableTennisAcitivity"
+            android:screenOrientation="portrait"></activity>
         <activity
+            android:label="Cricket"
+            android:name=".Cricket.CricketActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:label="Badminton"
             android:name=".Badminton.BadmintonActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -24,8 +28,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Volleyball.VolleyballActivity" />
-        <activity android:name=".Basketball.BasketballActivity" />
+        <activity android:label="Volleyball" android:name=".Volleyball.VolleyballActivity" />
+        <activity  android:label="Basketball" android:name=".Basketball.BasketballActivity" />
         <activity android:name=".MainActivity" />
     </application>
 

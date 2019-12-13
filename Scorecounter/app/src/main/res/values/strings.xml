@@ -9,6 +9,7 @@
     <string name="volleyball">Volleyball</string>
     <string name="badminton">Badminton</string>
     <string name="cricket">Cricket</string>
+    <string name="tableTennis">Table Tennis</string>
     <string name="real_time_scorer">Real Time Scorer</string>
     <string name="_0">0</string>
     <string name="team_b">Team B</string>
@@ -16,10 +17,14 @@
     <string name="reset">reset</string>
     <string name="original_score">0</string>
     <string name="add_one_point">score</string>
-    <string name="game_one">game 1</string>
-    <string name="game_two">game 2</string>
-    <string name="game_three">game 3</string>
+    <string name="game_one">Set 1</string>
+    <string name="game_two">Set 2</string>
+    <string name="game_three">Set 3</string>
+    <string name="game_four">Set 4</string>
+    <string name="game_five">Set 5</string>
     <string name="reset_game">reset</string>
     <string name="winner_greetings">congratulations ! the winner is</string>
     <string name="reset_confirmation">To confirm RESET, please click it one more time!</string>
+    <string name="zero">0</string>
+
 </resources>
