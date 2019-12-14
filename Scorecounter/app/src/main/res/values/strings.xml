@@ -10,6 +10,8 @@
     <string name="badminton">Badminton</string>
     <string name="cricket">Cricket</string>
     <string name="tableTennis">Table Tennis</string>
+    <string name="football">Football</string>
+    <string name="kabaddi">Kabaddi</string>
     <string name="real_time_scorer">Real Time Scorer</string>
     <string name="_0">0</string>
     <string name="team_b">Team B</string>
@@ -26,5 +28,10 @@
     <string name="winner_greetings">congratulations ! the winner is</string>
     <string name="reset_confirmation">To confirm RESET, please click it one more time!</string>
     <string name="zero">0</string>
+    <string name="bonus">Bonus</string>
+    <string name="allout">All Out</string>
+    <string name="multiPoints">Multi-Points</string>
+    <string name="redCard">Red Card</string>
+    <string name="yellowCard">Yellow Card</string>
 
 </resources>

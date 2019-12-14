@@ -73,6 +73,11 @@
     <dimen name="TableTextMargin">4dp</dimen>
     <dimen name="smallTextWithoutBG">24sp</dimen>
     <dimen name="smallTextWithBG">16sp</dimen>
+    <dimen name="zeroDP">0dp</dimen>
+    <dimen name="fiveDP">5dp</dimen>
+    <dimen name="tenDP">10dp</dimen>
+    <dimen name="twoHundredSP">200sp</dimen>
+    <dimen name="One">1</dimen>
 
 
 </resources>
