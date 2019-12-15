@@ -17,4 +17,5 @@
 
     <color name="headingRed">#b71c1c</color>
     <color name="scoreRed">#b71c1c</color>
+    <color name="transparent">#00000000</color>
 </resources>
