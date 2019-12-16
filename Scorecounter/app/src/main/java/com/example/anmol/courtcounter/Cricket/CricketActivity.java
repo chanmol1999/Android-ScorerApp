@@ -31,12 +31,13 @@ public class CricketActivity extends AppCompatActivity {
     int ScoreBallB=0;
     boolean wickA=false;
     boolean wickB=false;
-    private int scoreTeamA;
-    private int ballTeamA = 1;
-    private int overTeamA = 0;
-    private int scoreTeamB;
-    private int ballTeamB = 1;
-    private int overTeamB = 0;
+    int scoreTeamA=0;
+    int ballTeamA = 1;
+    int overTeamA = 0;
+    int scoreTeamB=0;
+    int ballTeamB = 1;
+    int overTeamB = 0;
+    boolean isSuperOver=false;
     String team;
     String format;
     Button resButton;
@@ -471,30 +472,23 @@ public class CricketActivity extends AppCompatActivity {
             Toast.makeText((getApplicationContext()),"Match Over!",(Toast.LENGTH_SHORT)).show();
         }
     }
-    public void result()
-    {
-        ((TextView)findViewById(R.id.resButton)).setText("EXIT");
-        teamABat=false;
-        teamBBat=false;
+    public void result() {
+        ((TextView) findViewById(R.id.resButton)).setText("EXIT");
+        teamABat = false;
+        teamBBat = false;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        if(scoreTeamA>scoreTeamB)
-        {
+        if (scoreTeamA > scoreTeamB) {
             builder.setMessage("Team A Wins");
-        }
-        else if(scoreTeamA<scoreTeamB)
-        {
+        } else if (scoreTeamA < scoreTeamB) {
             builder.setMessage("Team B Wins");
-        }
-        else if(scoreTeamA==scoreTeamB && MaxOvers==20)
-        {
-            Intent superOver = new Intent(CricketActivity.this, SuperOver.class);
-            superOver.putExtra("BAT_FIRST",team);
-            startActivity(superOver);
-        }
-        else {
+        } else if (scoreTeamA == scoreTeamB && MaxOvers == 20) {
+            isSuperOver = true;
+            superOver();
+            builder.setMessage("Scores Tied, Super Over!");
+        } else {
             builder.setMessage("Match Drawn");
         }
-        if(!(scoreTeamA==scoreTeamB&&MaxOvers==20)) {
+        if (!(scoreTeamA == scoreTeamB && isSuperOver)) {
             builder.setNegativeButton("ANOTHER GAME", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -515,12 +509,39 @@ public class CricketActivity extends AppCompatActivity {
                     }
                 }
             });
+        }
+        else{
+            builder.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (dialog!=null){
+                        dialog.dismiss();
+                    }
+                }
+            });
+        }
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
+            isSuperOver=false;
+    }
+
+    public void superOver()
+    {
+        if(team.equals("A"))
+        {
+            teamABat=true;
+            teamBBat=false;
         }
+        else
+        {
+            teamABat=false;
+            teamBBat=true;
+        }
+        reset();
+        MaxOvers=1;
     }
     public void reset() {
-        if(!teamABat && !teamBBat)
+        if(!teamABat && !teamBBat && isSuperOver)
         {
             Intent exit = new Intent(CricketActivity.this, MainActivity.class);
             startActivity(exit);

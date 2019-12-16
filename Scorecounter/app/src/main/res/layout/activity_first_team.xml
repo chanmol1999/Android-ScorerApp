@@ -14,28 +14,28 @@
 
         <TextView
             style="@style/headings"
-            android:text="Select team to bat first."
+            android:text="@string/select_team"
             android:textColor="@color/colorBlack"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginLeft="@dimen/eight_dp"
+            android:layout_marginRight="@dimen/eight_dp"
+            android:layout_marginBottom="@dimen/twenty_dp"/>
         <Button
             android:id="@+id/TeamAFirst"
             style="@style/button"
-            android:text="Team A"
-            android:textSize="36sp"
+            android:text="@string/team_a"
+            android:textSize="@dimen/text36"
             android:background="@drawable/rounded_button_blue"
-            android:padding="8dp"
-            android:layout_margin="20dp"/>
+            android:padding="@dimen/eight_dp"
+            android:layout_margin="@dimen/twenty_dp"/>
 
         <Button
             android:id="@+id/TeamBFirst"
             style="@style/button"
-            android:text="Team B"
-            android:textSize="36sp"
+            android:text="@string/team_b"
+            android:textSize="@dimen/text36"
             android:background="@drawable/rounded_button_red"
-            android:padding="8dp"
-            android:layout_margin="20dp"/>
+            android:padding="@dimen/eight_dp"
+            android:layout_margin="@dimen/twenty_dp"/>
     </LinearLayout>
 
 </ScrollView>

@@ -33,5 +33,21 @@
     <string name="multiPoints">Multi-Points</string>
     <string name="redCard">Red Card</string>
     <string name="yellowCard">Yellow Card</string>
-
+    <string name="over">Overs : </string>
+    <string name="wicket">Wickets : </string>
+    <string name="extra">Extras : </string>
+    <string name="wide">WIDE</string>
+    <string name="no_ball">NO BALL</string>
+    <string name="runs">Runs : </string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="boundary">Boundary : </string>
+    <string name="four">+4</string>
+    <string name="six">+6</string>
+    <string name="wicket_fall">Wicket!</string>
+    <string name="next_ball">Next Ball</string>
+    <string name="select_format">Select match format.</string>
+    <string name="t20">T20</string>
+    <string name="odi">ODI</string>
+    <string name="select_team">Select team to bat first.</string>
 </resources>
