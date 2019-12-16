@@ -8,7 +8,6 @@ import android.widget.Button;
 
 import com.example.anmol.courtcounter.Badminton.BadmintonActivity;
 import com.example.anmol.courtcounter.Basketball.BasketballActivity;
-import com.example.anmol.courtcounter.Cricket.CricketActivity;
 import com.example.anmol.courtcounter.TableTennis.tableTennisAcitivity;
 import com.example.anmol.courtcounter.Volleyball.VolleyballActivity;
 
@@ -45,28 +44,28 @@ public class MainActivity extends AppCompatActivity {
         volleyball.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, VolleyballActivity.class));
+                startActivity(new Intent(MainActivity.this, com.example.anmol.courtcounter.Volleyball.VolleyballActivity.class));
             }
         });
 
         badminton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, BadmintonActivity.class));
+                startActivity(new Intent(MainActivity.this, com.example.anmol.courtcounter.Badminton.BadmintonActivity.class));
             }
         });
 
         cricket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, CricketActivity.class));
+                startActivity(new Intent(MainActivity.this, com.example.anmol.courtcounter.Cricket.SelectFormat.class));
             }
         });
 
         tableTennis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, tableTennisAcitivity.class));
+                startActivity(new Intent(MainActivity.this, com.example.anmol.courtcounter.TableTennis.tableTennisAcitivity.class));
             }
         });
 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/cricket">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/headings"
+            android:text="@string/select_format"
+            android:textColor="@color/colorBlack"
+            android:layout_marginLeft="@dimen/eight_dp"
+            android:layout_marginRight="@dimen/eight_dp"
+            android:layout_marginBottom="@dimen/twenty_dp"/>
+
+        <Button
+            android:id="@+id/T20"
+            style="@style/button"
+            android:textSize="@dimen/text36"
+            android:text="@string/t20"
+            android:background="@drawable/rounded_button_green"
+            android:padding="@dimen/eight_dp"
+            android:layout_margin="@dimen/twenty_dp"/>
+
+        <Button
+            android:id="@+id/ODI"
+            style="@style/button"
+            android:text="@string/odi"
+            android:textSize="@dimen/text36"
+            android:background="@drawable/rounded_button_green"
+            android:padding="@dimen/eight_dp"
+            android:layout_margin="@dimen/twenty_dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

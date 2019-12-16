@@ -10,7 +10,9 @@
     <dimen name="basket_blank_layout">1dp</dimen>
     <dimen name="basket_text_margin_L">10dp</dimen>
     <dimen name="basket_text_margin_R">10dp</dimen>
-    <dimen name="basket_annote_padding">4dp</dimen>
+    <dimen name="four_dp">4dp</dimen>
+    <dimen name="eight_dp">8dp</dimen>
+    <dimen name="twenty_dp">20dp</dimen>
     <dimen name="basket_text_size">20sp</dimen>
     <dimen name="basket_annote_width">20dp</dimen>
     <dimen name="basket_annote_height">20dp</dimen>
@@ -62,7 +64,7 @@
     <dimen name="text38">38sp</dimen>
     <dimen name="tt_mar">8dp</dimen>
     <dimen name="tt_mar_top">10dp</dimen>
-
+    <dimen name="text36">36sp</dimen>
     <dimen name="headings">36sp</dimen>
     <dimen name="mainScore">72sp</dimen>
     <dimen name="setsVB">48sp</dimen>

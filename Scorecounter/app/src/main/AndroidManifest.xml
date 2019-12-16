@@ -9,10 +9,16 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Kabaddi.kabaddiActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".Football.footballActivity"
-            android:screenOrientation="portrait"/>
+        <activity android:label="Cricket" android:name=".Cricket.SelectFormat" />
+        <activity android:label="Cricket" android:name=".Cricket.FirstTeam" />
+        <activity
+            android:name=".Kabaddi.kabaddiActivity"
+            android:label="Kabaddi"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Football.footballActivity"
+            android:label="Football"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".TableTennis.tableTennisAcitivity"
             android:label="Table Tennis"
