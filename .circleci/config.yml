@@ -12,7 +12,6 @@ jobs:
           name: Add SDK 28
           command: echo yes | ${ANDROID_HOME}/tools/bin/sdkmanager "platforms;android-28"
 
-
       - run:
           name: Run Tests
           command: ./gradlew build
