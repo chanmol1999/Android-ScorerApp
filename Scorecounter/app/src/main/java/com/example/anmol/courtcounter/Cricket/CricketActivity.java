@@ -478,15 +478,19 @@ public class CricketActivity extends AppCompatActivity {
         teamBBat = false;
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         if (scoreTeamA > scoreTeamB) {
-            builder.setMessage("Team A Wins");
+            builder.setTitle("Result : Team A wins!");
+            builder.setMessage("Final Scoreline :"+"\nTeam A : " + scoreTeamA +"/"+wicketA +"\n" +"Team B : " + scoreTeamB +"/"+wicketB);
         } else if (scoreTeamA < scoreTeamB) {
-            builder.setMessage("Team B Wins");
+            builder.setTitle("Result : Team B wins!");
+            builder.setMessage("Final Scoreline :"+"\nTeam B : " + scoreTeamB +"/"+wicketB+"\n"+"Team A : " + scoreTeamA +"/"+wicketA);
         } else if (scoreTeamA == scoreTeamB && MaxOvers == 20) {
             isSuperOver = true;
             superOver();
-            builder.setMessage("Scores Tied, Super Over!");
+            builder.setTitle("Scores Tied, Super Over!");
+            builder.setMessage("Final Scoreline :"+"\nTeam A : " + scoreTeamA +"/"+wicketA +"\n" +"Team B : " + scoreTeamB +"/"+wicketB);
         } else {
-            builder.setMessage("Match Drawn");
+            builder.setTitle("Match Tied");
+            builder.setMessage("Final Scoreline :"+"\nTeam A : " + scoreTeamA +"/"+wicketA +"\n" +"Team B : " + scoreTeamB +"/"+wicketB);
         }
         if (!(scoreTeamA == scoreTeamB && isSuperOver)) {
             builder.setNegativeButton("ANOTHER GAME", new DialogInterface.OnClickListener() {

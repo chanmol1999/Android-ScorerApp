@@ -182,15 +182,20 @@ public class BasketballActivity extends AppCompatActivity {
 
     public void finish(View view) {
         if (a > b)
-            w = "TEAM A";
+            w = "Team A wins!";
         if (b > a)
-            w = "TEAM B";
+            w = "Team B wins!";
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        if (w != "")
-            builder.setMessage("Winner is  " + w);
-        else
-            builder.setMessage(" Oooh  It's a TIE");
-        builder.setNegativeButton("ANOTHER GAME", new DialogInterface.OnClickListener() {
+        if (w != "") {
+            builder.setTitle("Result : " + w);
+            builder.setMessage("Final score line : \n"+"\n"+"[Team A] : " + a + "-" + b + " : [Team B]");
+        }
+        else{
+            builder.setTitle("Result : It's a Tie");
+            builder.setMessage("Final score line : \n"+"\n"+"[Team A] : " + a + "-" + b + " : [Team B]");
+
+        }
+        builder.setNegativeButton("Play Again?", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User clicked the "Keep editing" button, so dismiss the dialog
                 // and continue editing the pet.
@@ -200,7 +205,7 @@ public class BasketballActivity extends AppCompatActivity {
                 }
             }
         });
-        builder.setPositiveButton("EXIT", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // User clicked the "Keep editing" button, so dismiss the dialog
                 // and continue editing the pet.

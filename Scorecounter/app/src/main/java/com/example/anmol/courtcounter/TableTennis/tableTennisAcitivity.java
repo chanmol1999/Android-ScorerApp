@@ -57,8 +57,7 @@ public class tableTennisAcitivity extends AppCompatActivity {
         gameFourTeamB = findViewById(R.id.game4_b);
         gameFiveTeamA = findViewById(R.id.game5_a);
         gameFiveTeamB = findViewById(R.id.game5_b);
-        winnerTeam = findViewById(R.id.winner_team);
-        winnerMessage = findViewById(R.id.winner_message);
+
       resetButton = findViewById(R.id.Reset_Button);
        resetButton.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -157,7 +156,13 @@ public class tableTennisAcitivity extends AppCompatActivity {
     public void WinnerAlert(){
 
         final android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Winner is " + winner);
+        builder.setTitle("Winner : " + winner);
+        builder.setMessage("Final Scoreline : \n"
+                +"\n[Team A] " + gameOneTeamA.getText().toString() +" - "+gameOneTeamB.getText().toString()+" [Team B]"+"\t (Set-1)"
+                +"\n[Team A] " + gameTwoTeamA.getText().toString() +" - "+gameTwoTeamB.getText().toString()+" [Team B]"+"\t (Set-2)"
+                +"\n[Team A] " + gameThreeTeamA.getText().toString() +" - "+gameThreeTeamB.getText().toString()+" [Team B]"+"\t (Set-3)"
+                +"\n[Team A] " + gameFourTeamA.getText().toString() +" - "+gameFourTeamB.getText().toString()+" [Team B]"+"\t (Set-4)"
+                +"\n[Team A] " + gameFiveTeamA.getText().toString() +" - "+gameFiveTeamB.getText().toString()+" [Team B]"+"\t (Set-5)");
         builder.setPositiveButton("New Game?", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

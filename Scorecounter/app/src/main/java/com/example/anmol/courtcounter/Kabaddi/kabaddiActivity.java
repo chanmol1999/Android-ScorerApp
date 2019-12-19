@@ -147,7 +147,8 @@ public class kabaddiActivity extends AppCompatActivity {
     }
     public void Alert(){
         final android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Result: " + winner);
+        builder.setTitle("Result: " + winner);
+        builder.setMessage("Final Scoreline : " +"\n[Team A] : " + scoreA +" - "+scoreB+" : [Team B]");
         builder.setPositiveButton("Play Again?", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
