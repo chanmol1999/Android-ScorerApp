@@ -12,17 +12,14 @@ jobs:
           name: Add SDK 28
           command: echo yes | ${ANDROID_HOME}/tools/bin/sdkmanager "platforms;android-28"
 
-      - run:
-          name: gradle wrapper
-          command: gradle wrapper --gradle-version 3.5.3
-
-      - run:
-          name: spotless check
-          command: ./gradlew spotlessCheck
 
       - run:
           name: Run Tests
           command: ./gradlew build
+
+      - run:
+          name: spotless check
+          command: ./gradlew spotlessCheck     
 
       - run:
           name: spotless apply
