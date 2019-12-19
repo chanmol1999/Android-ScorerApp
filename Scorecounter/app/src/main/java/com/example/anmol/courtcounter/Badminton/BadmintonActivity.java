@@ -1,5 +1,7 @@
 package com.example.anmol.courtcounter.Badminton;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,8 +27,6 @@ public class BadmintonActivity extends AppCompatActivity {
     TextView gameTwoTeamB;
     TextView gameThreeTeamA;
     TextView gameThreeTeamB;
-    TextView winnerTeam;
-    RelativeLayout winnerMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +42,6 @@ public class BadmintonActivity extends AppCompatActivity {
         gameTwoTeamB = findViewById(R.id.game2_b);
         gameThreeTeamA = findViewById(R.id.game3_a);
         gameThreeTeamB = findViewById(R.id.game3_b);
-        winnerTeam = findViewById(R.id.winner_team);
-        winnerMessage = findViewById(R.id.winner_message);
 
     }
     public void displayScore() {
@@ -74,12 +72,44 @@ public class BadmintonActivity extends AppCompatActivity {
     }
     public void winnerMessage() {
         if (gameA > 1) {
-            winnerTeam.setText(R.string.team_a);
-            winnerMessage.setVisibility(View.VISIBLE);
-        }
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setTitle("Winner : TEAM A");
+            dialog.setMessage("Final Scoreline : \n"
+                            +"\n[Team A] " + gameOneTeamA.getText().toString() +" - "+gameOneTeamB.getText().toString()+" [Team B]"+"\t (Set-1)"
+                            +"\n[Team A] " + gameTwoTeamA.getText().toString() +" - "+gameTwoTeamB.getText().toString()+" [Team B]"+"\t (Set-2)"
+                            +"\n[Team A] " + gameThreeTeamA.getText().toString() +" - "+gameThreeTeamB.getText().toString()+" [Team B]"+"\t (Set-3)");
+            resetScore();
+           dialog.setNegativeButton("Play Again?", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User clicked the "Keep editing" button, so dismiss the dialog
+                    // and continue editing the pet.
+                    if (dialog != null) {
+                        resetScore();
+                        dialog.dismiss();
+                    }
+                }
+            });
+           dialog.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User clicked the "Keep editing" button, so dismiss the dialog
+                    // and continue editing the pet.
+                    if (dialog != null) {
+                        finish();
+
+                    }
+                }
+            });
+            AlertDialog alertDialog = dialog.create();
+            dialog.show();}
         if (gameB > 1) {
-            winnerTeam.setText(R.string.team_b);
-            winnerMessage.setVisibility(View.VISIBLE);
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setTitle("Winner : TEAM B");
+            dialog.setMessage("Final Scoreline : \n"
+                    +"\n[Team A] " + gameOneTeamA.getText().toString() +" - "+gameOneTeamB.getText().toString()+" [Team B]"+"\t (Set-1)"
+                    +"\n[Team A] " + gameTwoTeamA.getText().toString() +" - "+gameTwoTeamB.getText().toString()+" [Team B]"+"\t (Set-2)"
+                    +"\n[Team A] " + gameThreeTeamA.getText().toString() +" - "+gameThreeTeamB.getText().toString()+" [Team B]"+"\t (Set-3)");
+            dialog.show();
+            resetScore();
         }
     }
     public void checkGameWinner() {
@@ -103,9 +133,7 @@ public class BadmintonActivity extends AppCompatActivity {
         }
         displayScore();
     }
-    public void resetScore(View view) {
-        resetCounter += 1;
-        if (resetCounter > 1) {
+    public void resetScore() {
             scoreA = 0;
             scoreB = 0;
             gameA = 0;
@@ -117,12 +145,6 @@ public class BadmintonActivity extends AppCompatActivity {
             gameTwoTeamB.setText(String.valueOf(scoreB));
             gameOneTeamA.setText(String.valueOf(scoreA));
             gameOneTeamB.setText(String.valueOf(scoreB));
-            winnerMessage.setVisibility(View.INVISIBLE);
-            resetCounter = 0;
-        } else {
-
-            Toast.makeText(this, R.string.reset_confirmation, Toast.LENGTH_SHORT).show();
-        }
 
     }
 }

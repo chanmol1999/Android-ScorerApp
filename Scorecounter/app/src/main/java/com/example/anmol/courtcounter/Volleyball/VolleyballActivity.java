@@ -152,16 +152,52 @@ public class VolleyballActivity extends AppCompatActivity {
 
         if (teamA_setScoreTextView.getText().toString().equals("3")) {
             AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-            dialog.setTitle("Winner");
-            dialog.setMessage("Team A won");
+            dialog.setTitle("Winner : TEAM A");
+            dialog.setMessage("Final Scoreline : \n"+"\n[Team A] : " + teamA_setScoreTextView.getText().toString() +" - "+teamB_setScoreTextView.getText().toString()+" : [Team B]");
             dialog.show();
             reset();
+            dialog.setNegativeButton("Play Again?", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    if (dialog != null) {
+                        reset();
+                        dialog.dismiss();
+                    }
+                }
+            });
+            dialog.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    if (dialog != null) {
+                        finish();
+
+                    }
+                }
+            });
+            AlertDialog alertDialog = dialog.create();
+            alertDialog.show();
         } else if (teamB_setScoreTextView.getText().toString().equals("3")) {
             AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-            dialog.setTitle("Winner");
-            dialog.setMessage("Team B won");
-            dialog.show();
+            dialog.setTitle("Winner : TEAM B");
+            dialog.setMessage("Final Scoreline : \n"+"\n[Team A] : " + teamA_setScoreTextView.getText().toString() +" - "+teamB_setScoreTextView.getText().toString()+" : [Team B]");
             reset();
+            dialog.setNegativeButton("Play Again?", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    if (dialog != null) {
+                        reset();
+                        dialog.dismiss();
+                    }
+                }
+            });
+            dialog.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+
+                    if (dialog != null) {
+                        finish();
+
+                    }
+                }
+            });
+            AlertDialog alertDialog = dialog.create();
+            alertDialog.show();
         }
     }
 

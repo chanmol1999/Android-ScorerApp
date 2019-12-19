@@ -124,7 +124,6 @@ public class footballActivity extends AppCompatActivity {
         final android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Result : " + winner);
         builder.setMessage("Final score line : "+scoreA +"-"+scoreB+"\n"+"\nRed Cards for Team A = " + redCountA + "\nRed Cards for Team B = "+redCountB+"\nYellow card for Team A = "+yellowCountA + "\nYellow card for Team B = "+ yellowCountB);
-
         builder.setPositiveButton("Play Again?", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
