@@ -2,6 +2,7 @@ package com.example.anmol.courtcounter.Football;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anmol.courtcounter.R;
+
+import java.util.Locale;
 
 public class footballActivity extends AppCompatActivity {
 
@@ -25,10 +28,18 @@ public class footballActivity extends AppCompatActivity {
     Button redCard_teamB;
     Button yellowCard_teamA;
     Button yellowCard_teamB;
+    Button ButtonscoreA;
+    Button ButtonscoreB;
     int redCountA = 0 ;
     int redCountB = 0 ;
     int yellowCountA = 0 ;
     int yellowCountB = 0 ;
+    private TextView mTextViewCountDown;
+    private Button mButtonStartPause;
+    private CountDownTimer mCountDownTimer;
+    private boolean mTimerRunning;
+    private static final long START_TIME_IN_MILLIS = 5400000;
+    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +53,12 @@ public class footballActivity extends AppCompatActivity {
         redCard_teamB = findViewById(R.id.redCard_TeamB);
         yellowCard_teamA = findViewById(R.id.yellowCard_TeamA);
         yellowCard_teamB = findViewById(R.id.yellowCard_TeamB);
+        mTextViewCountDown = findViewById(R.id.text_view_countdown);
+        mButtonStartPause = findViewById(R.id.button_start_pause);
+        ButtonscoreA = findViewById(R.id.scoreA);
+        ButtonscoreB = findViewById(R.id.scoreB);
+
+        buttonDisablebeforeMatch();
 
         redCard_teamA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +100,52 @@ public class footballActivity extends AppCompatActivity {
                 reset();
             }
         });
+
+        mButtonStartPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mTimerRunning) {
+                    pauseTimer();
+                } else {
+                    startTimer();
+                }
+            }
+        });
+        updateCountDownText();
+    }
+    private void startTimer() {
+        mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mTimeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+            @Override
+            public void onFinish() {
+                mTimerRunning = false;
+                mButtonStartPause.setText("Start");
+            }
+        }.start();
+
+        mTimerRunning = true;
+        mButtonStartPause.setText("pause");
+        buttonEnable();
+    }
+
+    private void pauseTimer() {
+        mCountDownTimer.cancel();
+        mTimerRunning = false;
+        mButtonStartPause.setText("Start");
+        buttonDisableinMatch();
+
+    }
+    private void updateCountDownText() {
+        int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
+        int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
+
+        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+
+        mTextViewCountDown.setText(timeLeftFormatted);
     }
     public void displayScore() {
         scoreForTeamA.setText(String.valueOf(scoreA));
@@ -119,6 +182,9 @@ public class footballActivity extends AppCompatActivity {
         redCountB =0;
         yellowCountA = 0;
         yellowCountB = 0;
+        mTimeLeftInMillis = START_TIME_IN_MILLIS;
+        updateCountDownText();
+        buttonDisablebeforeMatch();
     }
     public void Alert(){
         final android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -177,5 +243,32 @@ public class footballActivity extends AppCompatActivity {
             yellowCountB += 1;
             Toast.makeText(this, "Team B Yellow Card : "+ String.valueOf(yellowCountB), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void buttonDisableinMatch(){
+
+        ButtonscoreA.setEnabled(false);
+        ButtonscoreB.setEnabled(false);
+
+    }
+    public void buttonDisablebeforeMatch(){
+
+        redCard_teamA.setEnabled(false);
+        redCard_teamB.setEnabled(false);
+        yellowCard_teamA.setEnabled(false);
+        yellowCard_teamB.setEnabled(false);
+        ButtonscoreA.setEnabled(false);
+        ButtonscoreB.setEnabled(false);
+
+    }
+    public void buttonEnable(){
+
+        redCard_teamA.setEnabled(true);
+        redCard_teamB.setEnabled(true);
+        yellowCard_teamA.setEnabled(true);
+        yellowCard_teamB.setEnabled(true);
+        ButtonscoreA.setEnabled(true);
+        ButtonscoreB.setEnabled(true);
+
     }
 }

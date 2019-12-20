@@ -50,4 +50,5 @@
     <string name="t20">T20</string>
     <string name="odi">ODI</string>
     <string name="select_team">Select team to bat first.</string>
+    <string name="start">Start</string>
 </resources>

@@ -3,6 +3,7 @@ package com.example.anmol.courtcounter.Kabaddi;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 import com.example.anmol.courtcounter.Football.footballActivity;
 import com.example.anmol.courtcounter.R;
 
+import java.util.Locale;
+
 public class kabaddiActivity extends AppCompatActivity {
 
     int scoreA = 0;
@@ -26,7 +29,20 @@ public class kabaddiActivity extends AppCompatActivity {
     Button reset;
     Button multiPointsA;
     Button multiPointsB;
+    Button ButtonscoreA;
+    Button ButtonscoreB;
+    Button ButtonbonusA;
+    Button ButtonbonusB;
+    Button ButtonallOutA;
+    Button ButtonallOutB;
+
     private int multiPoints = 0;
+    private TextView mTextViewCountDown;
+    private Button mButtonStartPause;
+    private CountDownTimer mCountDownTimer;
+    private boolean mTimerRunning;
+    private static final long START_TIME_IN_MILLIS = 2400000;
+    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +67,16 @@ public class kabaddiActivity extends AppCompatActivity {
         });
         multiPointsA = findViewById(R.id.multiPointsA);
         multiPointsB = findViewById(R.id.multiPointsB);
+        mTextViewCountDown = findViewById(R.id.text_view_countdown);
+        ;        mButtonStartPause = findViewById(R.id.button_start_pause);
+        ButtonscoreA = findViewById(R.id.ButtonscoreA);
+        ButtonscoreB = findViewById(R.id.ButtonscoreB);
+        ButtonbonusA = findViewById(R.id.redCard_TeamA);
+        ButtonbonusB = findViewById(R.id.redCard_TeamB);
+        ButtonallOutA = findViewById(R.id.yellowCard_TeamA);
+        ButtonallOutB = findViewById(R.id.yellowCard_TeamB);
+
+        buttonDisable();
 
         multiPointsA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +130,54 @@ public class kabaddiActivity extends AppCompatActivity {
                 builder.show();
             }
         });
+
+        mButtonStartPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mTimerRunning) {
+                    pauseTimer();
+                } else {
+                    startTimer();
+                }
+            }
+        });
+        updateCountDownText();
     }
+    private void startTimer() {
+        mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mTimeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+            @Override
+            public void onFinish() {
+                mTimerRunning = false;
+                mButtonStartPause.setText("Start");
+            }
+        }.start();
+
+        mTimerRunning = true;
+        mButtonStartPause.setText("pause");
+        buttonEnable();
+    }
+
+    private void pauseTimer() {
+        mCountDownTimer.cancel();
+        mTimerRunning = false;
+        mButtonStartPause.setText("Start");
+        buttonDisable();
+
+    }
+    private void updateCountDownText() {
+        int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
+        int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
+
+        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+
+        mTextViewCountDown.setText(timeLeftFormatted);
+    }
+
     public void displayScore() {
         scoreForTeamA.setText(String.valueOf(scoreA));
         scoreForTeamB.setText(String.valueOf(scoreB));
@@ -144,6 +217,9 @@ public class kabaddiActivity extends AppCompatActivity {
         scoreA = 0;
         scoreB = 0;
         displayScore();
+        mTimeLeftInMillis = START_TIME_IN_MILLIS;
+        updateCountDownText();
+        buttonDisable();
     }
     public void Alert(){
         final android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -163,5 +239,28 @@ public class kabaddiActivity extends AppCompatActivity {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    public void buttonDisable(){
+
+        multiPointsA.setEnabled(false);
+        multiPointsB.setEnabled(false);
+        ButtonscoreA.setEnabled(false);
+        ButtonscoreB.setEnabled(false);
+        ButtonbonusA.setEnabled(false);
+        ButtonbonusB.setEnabled(false);
+        ButtonallOutA.setEnabled(false);
+        ButtonallOutB.setEnabled(false);
+    }
+
+    public void buttonEnable(){
+        multiPointsA.setEnabled(true);
+        multiPointsB.setEnabled(true);
+        ButtonscoreA.setEnabled(true);
+        ButtonscoreB.setEnabled(true);
+        ButtonbonusA.setEnabled(true);
+        ButtonbonusB.setEnabled(true);
+        ButtonallOutA.setEnabled(true);
+        ButtonallOutB.setEnabled(true);
     }
 }

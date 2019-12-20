@@ -3,16 +3,20 @@ package com.example.anmol.courtcounter.Basketball;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.anmol.courtcounter.R;
+
+import java.util.Locale;
 
 public class BasketballActivity extends AppCompatActivity {
 
@@ -20,6 +24,20 @@ public class BasketballActivity extends AppCompatActivity {
     private ImageView editNameB;
     private TextView nameTeamA;
     private TextView nameTeamB;
+    private TextView mTextViewCountDown;
+    private Button mButtonStartPause;
+    private CountDownTimer mCountDownTimer;
+    private boolean mTimerRunning;
+    private static final long START_TIME_IN_MILLIS = 2400000;
+    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    private Button threePointerTeamA;
+    private Button threePointerTeamB;
+    private Button twoPointerTeamA;
+    private Button twoPointerTeamB;
+    private Button freeThrowTeamA;
+    private Button freeThrowTeamB;
+    private Button undoTeamA;
+    private Button undoTeamB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +49,18 @@ public class BasketballActivity extends AppCompatActivity {
         nameTeamB = findViewById(R.id.teamB_nameTextView);
         editNameA = findViewById(R.id.edit_teamA);
         editNameB = findViewById(R.id.edit_teamB);
+        mTextViewCountDown = findViewById(R.id.text_view_countdown);
+        mButtonStartPause = findViewById(R.id.button_start_pause);
+        threePointerTeamA = findViewById(R.id.threePointerTeamA);
+        threePointerTeamB = findViewById(R.id.threePointerTeamB);
+        twoPointerTeamA = findViewById(R.id.twoPointerTeamA);
+        twoPointerTeamB = findViewById(R.id.twoPointerTeamB);
+        freeThrowTeamA = findViewById(R.id.freeTeamA);
+        freeThrowTeamB = findViewById(R.id.freeTeamB);
+        undoTeamA = findViewById(R.id.undoTeamA);
+        undoTeamB = findViewById(R.id.undoTeamB);
+
+        buttonDisable();
 
         editNameA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +117,53 @@ public class BasketballActivity extends AppCompatActivity {
                 alertBuilder.show();
             }
         });
+
+        mButtonStartPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mTimerRunning) {
+                    pauseTimer();
+                } else {
+                    startTimer();
+                }
+            }
+        });
+        updateCountDownText();
+    }
+
+    private void startTimer() {
+        mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mTimeLeftInMillis = millisUntilFinished;
+                updateCountDownText();
+            }
+            @Override
+            public void onFinish() {
+                mTimerRunning = false;
+                mButtonStartPause.setText("Start");
+            }
+        }.start();
+
+        mTimerRunning = true;
+        mButtonStartPause.setText("pause");
+        buttonEnable();
+    }
+
+    private void pauseTimer() {
+        mCountDownTimer.cancel();
+        mTimerRunning = false;
+        mButtonStartPause.setText("Start");
+        buttonDisable();
+
+    }
+    private void updateCountDownText() {
+        int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
+        int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
+
+        String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
+
+        mTextViewCountDown.setText(timeLeftFormatted);
     }
 
     int a = 0, b = 0, i = 0, j = 0;
@@ -104,13 +181,11 @@ public class BasketballActivity extends AppCompatActivity {
         scoreView.setText(String.valueOf(score));
     }
 
-
     public void one(View view) {
         a = a + 1;
         as[i] = 1;
         i++;
         displayForTeamA(a);
-
     }
 
     public void two(View view) {
@@ -118,7 +193,6 @@ public class BasketballActivity extends AppCompatActivity {
         as[i] = 2;
         i++;
         displayForTeamA(a);
-
     }
 
     public void three(View view) {
@@ -128,14 +202,11 @@ public class BasketballActivity extends AppCompatActivity {
         displayForTeamA(a);
 
     }
-
-
     public void oneb(View view) {
         b = b + 1;
         bs[j] = 1;
         j++;
         displayForTeamB(b);
-
     }
 
     public void twob(View view) {
@@ -143,7 +214,6 @@ public class BasketballActivity extends AppCompatActivity {
         bs[j] = 2;
         j++;
         displayForTeamB(b);
-
     }
 
     public void threeb(View view) {
@@ -151,7 +221,6 @@ public class BasketballActivity extends AppCompatActivity {
         bs[j] = 3;
         j++;
         displayForTeamB(b);
-
     }
 
 
@@ -178,6 +247,9 @@ public class BasketballActivity extends AppCompatActivity {
         displayForTeamB(b);
         nameTeamA.setText("Team A");
         nameTeamB.setText("Team B");
+        mTimeLeftInMillis = START_TIME_IN_MILLIS;
+        updateCountDownText();
+        buttonDisable();
     }
 
     public void finish(View view) {
@@ -217,8 +289,6 @@ public class BasketballActivity extends AppCompatActivity {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-
-
     }
 
     @Override
@@ -237,5 +307,28 @@ public class BasketballActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void buttonDisable(){
+
+        threePointerTeamA.setEnabled(false);
+        threePointerTeamB.setEnabled(false);
+        twoPointerTeamA.setEnabled(false);
+        twoPointerTeamB.setEnabled(false);
+        freeThrowTeamB.setEnabled(false);
+        freeThrowTeamA.setEnabled(false);
+        undoTeamA.setEnabled(false);
+        undoTeamB.setEnabled(false);
+    }
+
+    public void buttonEnable(){
+        threePointerTeamA.setEnabled(true);
+        threePointerTeamB.setEnabled(true);
+        twoPointerTeamA.setEnabled(true);
+        twoPointerTeamB.setEnabled(true);
+        freeThrowTeamB.setEnabled(true);
+        freeThrowTeamA.setEnabled(true);
+        undoTeamA.setEnabled(true);
+        undoTeamB.setEnabled(true);
     }
 }
