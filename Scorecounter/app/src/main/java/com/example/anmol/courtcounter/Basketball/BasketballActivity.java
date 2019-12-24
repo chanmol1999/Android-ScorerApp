@@ -13,7 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.anmol.courtcounter.Kabaddi.kabaddiActivity;
 import com.example.anmol.courtcounter.R;
 
 import java.util.Locale;
@@ -28,7 +30,7 @@ public class BasketballActivity extends AppCompatActivity {
     private Button mButtonStartPause;
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;
-    private static final long START_TIME_IN_MILLIS = 2400000;
+    private long START_TIME_IN_MILLIS = 2400000;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
     private Button threePointerTeamA;
     private Button threePointerTeamB;
@@ -61,6 +63,37 @@ public class BasketballActivity extends AppCompatActivity {
         undoTeamB = findViewById(R.id.undoTeamB);
 
         buttonDisable();
+
+        mTextViewCountDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(BasketballActivity.this);
+                builder.setTitle("Edit Timer");
+                final EditText input = new EditText(BasketballActivity.this);
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                builder.setView(input);
+
+                builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if(input.length() > 0){
+                            mTimeLeftInMillis = Integer.parseInt(input.getText().toString())*60000;
+                            updateCountDownText();
+                        }
+                        else if(input.length()==0){
+                            Toast.makeText(BasketballActivity.this, "Please enter a value", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                builder.show();
+            }
+        });
 
         editNameA.setOnClickListener(new View.OnClickListener() {
             @Override

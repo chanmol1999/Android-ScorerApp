@@ -41,7 +41,7 @@ public class kabaddiActivity extends AppCompatActivity {
     private Button mButtonStartPause;
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;
-    private static final long START_TIME_IN_MILLIS = 2400000;
+    private long START_TIME_IN_MILLIS = 2400000;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
     @Override
@@ -77,6 +77,37 @@ public class kabaddiActivity extends AppCompatActivity {
         ButtonallOutB = findViewById(R.id.yellowCard_TeamB);
 
         buttonDisable();
+
+        mTextViewCountDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(kabaddiActivity.this);
+                builder.setTitle("Edit Timer");
+                final EditText input = new EditText(kabaddiActivity.this);
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                builder.setView(input);
+
+                builder.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if(input.length() > 0){
+                        mTimeLeftInMillis = Integer.parseInt(input.getText().toString())*60000;
+                        updateCountDownText();
+                    }
+                        else if(input.length()==0){
+                            Toast.makeText(kabaddiActivity.this, "Please enter a value", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                builder.show();
+            }
+        });
 
         multiPointsA.setOnClickListener(new View.OnClickListener() {
             @Override
