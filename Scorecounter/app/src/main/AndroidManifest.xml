@@ -9,6 +9,7 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AboutActivity"/>
         <activity android:label="Cricket" android:name=".Cricket.SelectFormat" />
         <activity android:label="Cricket" android:name=".Cricket.FirstTeam" />
         <activity
