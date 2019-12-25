@@ -208,11 +208,28 @@
                 android:gravity="center" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="@dimen/zeroDP"
+            android:layout_height="@dimen/twoHundredSP"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
-
-
-
-
+            <Button
+                android:id="@+id/button_lawnTennis"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zeroDP"
+                android:layout_weight="4"
+                android:background="@drawable/tenn"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/zeroDP"
+                android:layout_weight="1"
+                style="@style/mainPageText"
+                android:text="@string/tennis"
+                android:gravity="center" />
+        </LinearLayout>
 
     </LinearLayout>
 

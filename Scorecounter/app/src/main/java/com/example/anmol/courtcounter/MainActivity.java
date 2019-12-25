@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.anmol.courtcounter.Badminton.BadmintonActivity;
 import com.example.anmol.courtcounter.Basketball.BasketballActivity;
+import com.example.anmol.courtcounter.LawnTennis.LawnTennisActivity;
 import com.example.anmol.courtcounter.TableTennis.tableTennisAcitivity;
 import com.example.anmol.courtcounter.Volleyball.VolleyballActivity;
 
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     Button tableTennis;
     Button football;
     Button kabaddi;
+    Button lawnTennis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         tableTennis =findViewById(R.id.button_tableTennis);
         football = findViewById(R.id.button_football);
         kabaddi = findViewById(R.id.button_kabaddi);
+        lawnTennis = findViewById(R.id.button_lawnTennis);
 
 
         basketball.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +83,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, com.example.anmol.courtcounter.Kabaddi.kabaddiActivity.class));
+            }
+        });
+
+        lawnTennis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, LawnTennisActivity.class));
             }
         });
     }
