@@ -12,30 +12,30 @@ public class SelectFormat extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_format);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_select_format );
 
-        Button t20 = findViewById(R.id.T20);
-        Button odi = findViewById(R.id.ODI);
+        Button t20 = findViewById( R.id.T20 );
+        Button odi = findViewById( R.id.ODI );
 
-        final Intent matchFormat = new Intent(SelectFormat.this, FirstTeam.class);
+        final Intent matchFormat = new Intent( SelectFormat.this, FirstTeam.class );
 
-        t20.setOnClickListener(new View.OnClickListener() {
+        t20.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                matchFormat.putExtra("MATCH_TYPE","T20");
-                startActivity(matchFormat);
+                matchFormat.putExtra( "MATCH_TYPE", "T20" );
+                startActivity( matchFormat );
             }
 
-        });
+        } );
 
-        odi.setOnClickListener(new View.OnClickListener() {
+        odi.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                matchFormat.putExtra("MATCH_TYPE", "ODI");
-                startActivity(matchFormat);
+                matchFormat.putExtra( "MATCH_TYPE", "ODI" );
+                startActivity( matchFormat );
             }
-        });
+        } );
     }
 
 }

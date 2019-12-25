@@ -33,161 +33,161 @@ public class VolleyballActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_volleyball);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_volleyball );
 
-        resetButton = findViewById(R.id.resetButton);
-        switchButton = findViewById(R.id.switchButton);
+        resetButton = findViewById( R.id.resetButton );
+        switchButton = findViewById( R.id.switchButton );
 
-        teamAname = findViewById(R.id.teamAname);
-        teamA_ScoreTextView = findViewById(R.id.teamA_ScoreTextView);
-        teamA_setScoreTextView = findViewById(R.id.teamA_setScoreTextView);
+        teamAname = findViewById( R.id.teamAname );
+        teamA_ScoreTextView = findViewById( R.id.teamA_ScoreTextView );
+        teamA_setScoreTextView = findViewById( R.id.teamA_setScoreTextView );
 
-        teamBname = findViewById(R.id.teamBname);
-        teamB_ScoreTextView = findViewById(R.id.teamB_ScoreTextView);
-        teamB_setScoreTextView = findViewById(R.id.teamB_setScoreTextView);
+        teamBname = findViewById( R.id.teamBname );
+        teamB_ScoreTextView = findViewById( R.id.teamB_ScoreTextView );
+        teamB_setScoreTextView = findViewById( R.id.teamB_setScoreTextView );
 
-        resetButton.setOnClickListener(new View.OnClickListener() {
+        resetButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 reset();
             }
-        });
+        } );
 
-        switchButton.setOnClickListener(new View.OnClickListener() {
+        switchButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 switchSides();
             }
-        });
+        } );
 
-        teamAname.setOnClickListener(new View.OnClickListener() {
+        teamAname.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(VolleyballActivity.this);
-                alertBuilder.setTitle("Edit Team Name");
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder( VolleyballActivity.this );
+                alertBuilder.setTitle( "Edit Team Name" );
 
-                final EditText input = new EditText(VolleyballActivity.this);
-                input.setInputType(InputType.TYPE_CLASS_TEXT);
-                alertBuilder.setView(input);
-                alertBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                final EditText input = new EditText( VolleyballActivity.this );
+                input.setInputType( InputType.TYPE_CLASS_TEXT );
+                alertBuilder.setView( input );
+                alertBuilder.setPositiveButton( "Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        teamAname.setText(input.getText());
+                        teamAname.setText( input.getText() );
                     }
-                });
-                alertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                } );
+                alertBuilder.setNegativeButton( "Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                     }
-                });
+                } );
                 alertBuilder.show();
             }
-        });
+        } );
 
-        teamBname.setOnClickListener(new View.OnClickListener() {
+        teamBname.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(VolleyballActivity.this);
-                alertBuilder.setTitle("Edit Team Name");
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder( VolleyballActivity.this );
+                alertBuilder.setTitle( "Edit Team Name" );
 
-                final EditText input = new EditText(VolleyballActivity.this);
-                input.setInputType(InputType.TYPE_CLASS_TEXT);
-                alertBuilder.setView(input);
-                alertBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                final EditText input = new EditText( VolleyballActivity.this );
+                input.setInputType( InputType.TYPE_CLASS_TEXT );
+                alertBuilder.setView( input );
+                alertBuilder.setPositiveButton( "Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        teamBname.setText(input.getText());
+                        teamBname.setText( input.getText() );
                     }
-                });
-                alertBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                } );
+                alertBuilder.setNegativeButton( "Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                     }
-                });
+                } );
                 alertBuilder.show();
             }
-        });
+        } );
 
-        teamA_ScoreTextView.setOnClickListener(new View.OnClickListener() {
+        teamA_ScoreTextView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: teamAscore incremented");
-                int score = Integer.parseInt(teamA_ScoreTextView.getText().toString()) + 1;
-                if(score == 25) {
-                    Log.d(TAG, "onClick: now the score = 25");
-                    teamA_setScoreTextView.setText(Integer.toString(Integer.parseInt(teamA_setScoreTextView.getText().toString()) + 1));
+                Log.d( TAG, "onClick: teamAscore incremented" );
+                int score = Integer.parseInt( teamA_ScoreTextView.getText().toString() ) + 1;
+                if (score == 25) {
+                    Log.d( TAG, "onClick: now the score = 25" );
+                    teamA_setScoreTextView.setText( Integer.toString( Integer.parseInt( teamA_setScoreTextView.getText().toString() ) + 1 ) );
                     score = 0;
-                    teamB_ScoreTextView.setText(Integer.toString(score));
-                    Toast.makeText(VolleyballActivity.this, "Set Completed", Toast.LENGTH_SHORT).show();
+                    teamB_ScoreTextView.setText( Integer.toString( score ) );
+                    Toast.makeText( VolleyballActivity.this, "Set Completed", Toast.LENGTH_SHORT ).show();
                     isWinner();
                 }
-                teamA_ScoreTextView.setText(Integer.toString(score));
+                teamA_ScoreTextView.setText( Integer.toString( score ) );
             }
-        });
+        } );
 
-        teamB_ScoreTextView.setOnClickListener(new View.OnClickListener() {
+        teamB_ScoreTextView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "onClick: teamBscore incremented");
-                int score = Integer.parseInt(teamB_ScoreTextView.getText().toString()) + 1;
-                if(score == 25) {
-                    Log.d(TAG, "onClick: now the score = 25");
-                    teamB_setScoreTextView.setText(Integer.toString(Integer.parseInt(teamB_setScoreTextView.getText().toString()) + 1));
+                Log.d( TAG, "onClick: teamBscore incremented" );
+                int score = Integer.parseInt( teamB_ScoreTextView.getText().toString() ) + 1;
+                if (score == 25) {
+                    Log.d( TAG, "onClick: now the score = 25" );
+                    teamB_setScoreTextView.setText( Integer.toString( Integer.parseInt( teamB_setScoreTextView.getText().toString() ) + 1 ) );
                     score = 0;
-                    teamA_ScoreTextView.setText(Integer.toString(score));
-                    Toast.makeText(VolleyballActivity.this, "Set Completed", Toast.LENGTH_SHORT).show();
+                    teamA_ScoreTextView.setText( Integer.toString( score ) );
+                    Toast.makeText( VolleyballActivity.this, "Set Completed", Toast.LENGTH_SHORT ).show();
                     isWinner();
                 }
-                teamB_ScoreTextView.setText(Integer.toString(score));
+                teamB_ScoreTextView.setText( Integer.toString( score ) );
             }
-        });
+        } );
     }
 
     void isWinner() {
 
-        Log.d(TAG, "isWinner called");
+        Log.d( TAG, "isWinner called" );
 
-        if (teamA_setScoreTextView.getText().toString().equals("3")) {
-            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-            dialog.setTitle("Winner : TEAM A");
-            dialog.setMessage("Final Scoreline : \n"+"\n[Team A] : " + teamA_setScoreTextView.getText().toString() +" - "+teamB_setScoreTextView.getText().toString()+" : [Team B]");
+        if (teamA_setScoreTextView.getText().toString().equals( "3" )) {
+            AlertDialog.Builder dialog = new AlertDialog.Builder( this );
+            dialog.setTitle( "Winner : TEAM A" );
+            dialog.setMessage( "Final Scoreline : \n" + "\n[Team A] : " + teamA_setScoreTextView.getText().toString() + " - " + teamB_setScoreTextView.getText().toString() + " : [Team B]" );
             dialog.show();
             reset();
-            dialog.setNegativeButton("Play Again?", new DialogInterface.OnClickListener() {
+            dialog.setNegativeButton( "Play Again?", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     if (dialog != null) {
                         reset();
                         dialog.dismiss();
                     }
                 }
-            });
-            dialog.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+            } );
+            dialog.setPositiveButton( "Exit", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     if (dialog != null) {
                         finish();
 
                     }
                 }
-            });
+            } );
             AlertDialog alertDialog = dialog.create();
             alertDialog.show();
-        } else if (teamB_setScoreTextView.getText().toString().equals("3")) {
-            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-            dialog.setTitle("Winner : TEAM B");
-            dialog.setMessage("Final Scoreline : \n"+"\n[Team A] : " + teamA_setScoreTextView.getText().toString() +" - "+teamB_setScoreTextView.getText().toString()+" : [Team B]");
+        } else if (teamB_setScoreTextView.getText().toString().equals( "3" )) {
+            AlertDialog.Builder dialog = new AlertDialog.Builder( this );
+            dialog.setTitle( "Winner : TEAM B" );
+            dialog.setMessage( "Final Scoreline : \n" + "\n[Team A] : " + teamA_setScoreTextView.getText().toString() + " - " + teamB_setScoreTextView.getText().toString() + " : [Team B]" );
             reset();
-            dialog.setNegativeButton("Play Again?", new DialogInterface.OnClickListener() {
+            dialog.setNegativeButton( "Play Again?", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     if (dialog != null) {
                         reset();
                         dialog.dismiss();
                     }
                 }
-            });
-            dialog.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+            } );
+            dialog.setPositiveButton( "Exit", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
 
                     if (dialog != null) {
@@ -195,19 +195,19 @@ public class VolleyballActivity extends AppCompatActivity {
 
                     }
                 }
-            });
+            } );
             AlertDialog alertDialog = dialog.create();
             alertDialog.show();
         }
     }
 
     void reset() {
-        teamB_setScoreTextView.setText("0");
-        teamA_setScoreTextView.setText("0");
-        teamB_ScoreTextView.setText("0");
-        teamA_ScoreTextView.setText("0");
-        teamAname.setText("Team A");
-        teamBname.setText("Team B");
+        teamB_setScoreTextView.setText( "0" );
+        teamA_setScoreTextView.setText( "0" );
+        teamB_ScoreTextView.setText( "0" );
+        teamA_ScoreTextView.setText( "0" );
+        teamAname.setText( "Team A" );
+        teamBname.setText( "Team B" );
     }
 
     void switchSides() {
@@ -221,19 +221,19 @@ public class VolleyballActivity extends AppCompatActivity {
         String scoreB = teamB_ScoreTextView.getText().toString();
         String setScoreB = teamB_setScoreTextView.getText().toString();
 
-        teamBname.setText(nameA);
-        teamBname.setTextColor(colorA);
-        teamB_ScoreTextView.setText(scoreA);
-        teamB_ScoreTextView.setTextColor(colorA);
-        teamB_setScoreTextView.setText(setScoreA);
-        teamB_setScoreTextView.setTextColor(colorA);
+        teamBname.setText( nameA );
+        teamBname.setTextColor( colorA );
+        teamB_ScoreTextView.setText( scoreA );
+        teamB_ScoreTextView.setTextColor( colorA );
+        teamB_setScoreTextView.setText( setScoreA );
+        teamB_setScoreTextView.setTextColor( colorA );
 
-        teamAname.setText(nameB);
-        teamAname.setTextColor(colorB);
-        teamA_ScoreTextView.setText(scoreB);
-        teamA_ScoreTextView.setTextColor(colorB);
-        teamA_setScoreTextView.setText(setScoreB);
-        teamA_setScoreTextView.setTextColor(colorB);
+        teamAname.setText( nameB );
+        teamAname.setTextColor( colorB );
+        teamA_ScoreTextView.setText( scoreB );
+        teamA_ScoreTextView.setTextColor( colorB );
+        teamA_setScoreTextView.setText( setScoreB );
+        teamA_setScoreTextView.setTextColor( colorB );
 
     }
 }

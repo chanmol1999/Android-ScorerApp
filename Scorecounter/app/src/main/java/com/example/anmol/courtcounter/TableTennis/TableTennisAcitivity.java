@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.anmol.courtcounter.R;
 
-public class tableTennisAcitivity extends AppCompatActivity {
+public class TableTennisAcitivity extends AppCompatActivity {
 
     int scoreA = 0;
     int scoreB = 0;

@@ -12,33 +12,33 @@ public class FirstTeam extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first_team);
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_first_team );
 
-        Button teamAFirst = findViewById(R.id.TeamAFirst);
-        Button teamBFirst = findViewById(R.id.TeamBFirst);
+        Button teamAFirst = findViewById( R.id.TeamAFirst );
+        Button teamBFirst = findViewById( R.id.TeamBFirst );
 
-        final String matchFormat = getIntent().getStringExtra("MATCH_TYPE");
+        final String matchFormat = getIntent().getStringExtra( "MATCH_TYPE" );
         final Intent match;
-        match = new Intent(FirstTeam.this, CricketActivity.class);
+        match = new Intent( FirstTeam.this, CricketActivity.class );
 
 
-        teamAFirst.setOnClickListener(new View.OnClickListener() {
+        teamAFirst.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                match.putExtra("BAT_FIRST","A");
-                match.putExtra("MATCH_TYPE",matchFormat);
-                startActivity(match);
+                match.putExtra( "BAT_FIRST", "A" );
+                match.putExtra( "MATCH_TYPE", matchFormat );
+                startActivity( match );
             }
-        });
+        } );
 
-        teamBFirst.setOnClickListener(new View.OnClickListener() {
+        teamBFirst.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                match.putExtra("BAT_FIRST","B");
-                match.putExtra("MATCH_TYPE",matchFormat);
-                startActivity(match);
+                match.putExtra( "BAT_FIRST", "B" );
+                match.putExtra( "MATCH_TYPE", matchFormat );
+                startActivity( match );
             }
-        });
+        } );
     }
 }
