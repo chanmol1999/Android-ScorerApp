@@ -3,14 +3,20 @@ package com.example.anmol.courtcounter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.anmol.courtcounter.Badminton.BadmintonActivity;
 import com.example.anmol.courtcounter.Basketball.BasketballActivity;
+
 import com.example.anmol.courtcounter.LawnTennis.LawnTennisActivity;
 import com.example.anmol.courtcounter.TableTennis.tableTennisAcitivity;
 import com.example.anmol.courtcounter.Volleyball.VolleyballActivity;
+
+import com.example.anmol.courtcounter.Football.FootballActivity;
+import com.example.anmol.courtcounter.Kabaddi.KabaddiActivity;
+import com.example.anmol.courtcounter.TableTennis.TableTennisAcitivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         basketball = findViewById(R.id.button_basketball);
@@ -38,51 +45,52 @@ public class MainActivity extends AppCompatActivity {
 
 
         basketball.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, BasketballActivity.class));
+                startActivity( new Intent( MainActivity.this, BasketballActivity.class ) );
             }
-        });
+        } );
 
-        volleyball.setOnClickListener(new View.OnClickListener() {
+        volleyball.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, com.example.anmol.courtcounter.Volleyball.VolleyballActivity.class));
+                startActivity( new Intent( MainActivity.this, com.example.anmol.courtcounter.Volleyball.VolleyballActivity.class ) );
             }
-        });
+        } );
 
-        badminton.setOnClickListener(new View.OnClickListener() {
+        badminton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, com.example.anmol.courtcounter.Badminton.BadmintonActivity.class));
+                startActivity( new Intent( MainActivity.this, com.example.anmol.courtcounter.Badminton.BadmintonActivity.class ) );
             }
-        });
+        } );
 
-        cricket.setOnClickListener(new View.OnClickListener() {
+        cricket.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, com.example.anmol.courtcounter.Cricket.SelectFormat.class));
+                startActivity( new Intent( MainActivity.this, com.example.anmol.courtcounter.Cricket.SelectFormat.class ) );
             }
-        });
+        } );
 
-        tableTennis.setOnClickListener(new View.OnClickListener() {
+        tableTennis.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, com.example.anmol.courtcounter.TableTennis.tableTennisAcitivity.class));
+                startActivity( new Intent( MainActivity.this, TableTennisAcitivity.class ) );
             }
-        });
+        } );
 
-        football.setOnClickListener(new View.OnClickListener() {
+        football.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, com.example.anmol.courtcounter.Football.footballActivity.class));
+                startActivity( new Intent( MainActivity.this, FootballActivity.class ) );
             }
-        });
+        } );
 
-        kabaddi.setOnClickListener(new View.OnClickListener() {
+        kabaddi.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, com.example.anmol.courtcounter.Kabaddi.kabaddiActivity.class));
+                startActivity( new Intent( MainActivity.this, KabaddiActivity.class ) );
             }
         });
 
@@ -91,6 +99,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, LawnTennisActivity.class));
             }
-        });
+        }); 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate( R.menu.main_menu, menu );
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_about:
+                startActivity( new Intent( MainActivity.this, AboutActivity.class ) );
+                return true;
+            default:
+                return super.onOptionsItemSelected( item );
+        }
+
+    }
+
 }

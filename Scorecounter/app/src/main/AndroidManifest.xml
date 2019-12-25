@@ -9,8 +9,12 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".LawnTennis.LawnTennisActivity"
             android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".AboutActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".Cricket.SelectFormat"
             android:label="Cricket"
@@ -20,15 +24,15 @@
             android:label="Cricket"
             android:screenOrientation="sensor" />
         <activity
-            android:name=".Kabaddi.kabaddiActivity"
+            android:name=".Kabaddi.KabaddiActivity"
             android:label="Kabaddi"
             android:screenOrientation="sensor" />
         <activity
-            android:name=".Football.footballActivity"
+            android:name=".Football.FootballActivity"
             android:label="Football"
             android:screenOrientation="sensor" />
         <activity
-            android:name=".TableTennis.tableTennisAcitivity"
+            android:name=".TableTennis.TableTennisAcitivity"
             android:label="Table Tennis"
             android:screenOrientation="sensor" />
         <activity
@@ -40,7 +44,7 @@
             android:label="Badminton"
             android:screenOrientation="sensor" />
         <activity
-            android:name=".splash"
+            android:name=".Splash"
             android:screenOrientation="sensor"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
