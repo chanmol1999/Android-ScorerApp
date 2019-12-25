@@ -2,6 +2,7 @@ package com.example.anmol.courtcounter.Basketball;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -39,6 +40,7 @@ public class BasketballActivity extends AppCompatActivity {
     private Button freeThrowTeamB;
     private Button undoTeamA;
     private Button undoTeamB;
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,7 @@ public class BasketballActivity extends AppCompatActivity {
         freeThrowTeamB = findViewById(R.id.freeTeamB);
         undoTeamA = findViewById(R.id.undoTeamA);
         undoTeamB = findViewById(R.id.undoTeamB);
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.tick);
         buttonDisable();
 
         mTextViewCountDown.setOnClickListener(new View.OnClickListener() {
@@ -169,11 +171,13 @@ public class BasketballActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 mTimeLeftInMillis = millisUntilFinished;
                 updateCountDownText();
+                mediaPlayer.start();
             }
             @Override
             public void onFinish() {
                 mTimerRunning = false;
                 mButtonStartPause.setText("Start");
+                mediaPlayer.pause();
             }
         }.start();
 
@@ -187,6 +191,7 @@ public class BasketballActivity extends AppCompatActivity {
         mTimerRunning = false;
         mButtonStartPause.setText("Start");
         buttonDisable();
+        mediaPlayer.pause();
 
     }
     private void updateCountDownText() {
@@ -282,6 +287,7 @@ public class BasketballActivity extends AppCompatActivity {
         mTimeLeftInMillis = START_TIME_IN_MILLIS;
         updateCountDownText();
         buttonDisable();
+        mediaPlayer.pause();
     }
 
     public void finish(View view) {
@@ -321,6 +327,7 @@ public class BasketballActivity extends AppCompatActivity {
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+        mediaPlayer.stop();
     }
 
     @Override
