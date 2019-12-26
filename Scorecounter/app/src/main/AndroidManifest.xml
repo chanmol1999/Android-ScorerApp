@@ -9,6 +9,9 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity android:name=".LawnTennis.LawnTennisActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".AboutActivity"
             android:parentActivityName=".MainActivity" />

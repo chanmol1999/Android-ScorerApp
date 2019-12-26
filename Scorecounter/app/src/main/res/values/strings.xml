@@ -51,6 +51,7 @@
     <string name="odi">ODI</string>
     <string name="select_team">Select team to bat first.</string>
     <string name="start">Start</string>
+    <string name="tennis">Lawn Tennis</string>
     <string name="menu_about">About</string>
     <string name="app_logo">Real Time Scorer Logo</string>
     <string name="about_details">The Real Time Scorer app is an open-source app, developed and maintained by the NJACK Winter of Code participants. The motive of the app is to store score of many sports in realtime for fair results.</string>
@@ -58,3 +59,4 @@
     <string name="project_link">Click below, to contribute in this app</string>
     <string name="app_github">Github.com</string>
 </resources>
+

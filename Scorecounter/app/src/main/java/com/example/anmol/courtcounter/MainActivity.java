@@ -9,10 +9,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.anmol.courtcounter.Basketball.BasketballActivity;
+
+import com.example.anmol.courtcounter.LawnTennis.LawnTennisActivity;
+import com.example.anmol.courtcounter.TableTennis.tableTennisAcitivity;
+import com.example.anmol.courtcounter.Volleyball.VolleyballActivity;
+
 import com.example.anmol.courtcounter.Football.FootballActivity;
 import com.example.anmol.courtcounter.Kabaddi.KabaddiActivity;
 import com.example.anmol.courtcounter.TableTennis.TableTennisAcitivity;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,23 +27,25 @@ public class MainActivity extends AppCompatActivity {
     Button tableTennis;
     Button football;
     Button kabaddi;
+    Button lawnTennis;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_main );
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        basketball = findViewById(R.id.button_basketball);
+        volleyball = findViewById(R.id.button_volleyball);
+        badminton =  findViewById(R.id.button_badminton);
+        cricket = findViewById(R.id.button_cricket);
+        tableTennis =findViewById(R.id.button_tableTennis);
+        football = findViewById(R.id.button_football);
+        kabaddi = findViewById(R.id.button_kabaddi);
+        lawnTennis = findViewById(R.id.button_lawnTennis);
 
 
-        basketball = findViewById( R.id.button_basketball );
-        volleyball = findViewById( R.id.button_volleyball );
-        badminton = findViewById( R.id.button_badminton );
-        cricket = findViewById( R.id.button_cricket );
-        tableTennis = findViewById( R.id.button_tableTennis );
-        football = findViewById( R.id.button_football );
-        kabaddi = findViewById( R.id.button_kabaddi );
+        basketball.setOnClickListener(new View.OnClickListener() {
 
-
-        basketball.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity( new Intent( MainActivity.this, BasketballActivity.class ) );
@@ -86,7 +92,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity( new Intent( MainActivity.this, KabaddiActivity.class ) );
             }
-        } );
+        });
+
+        lawnTennis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, LawnTennisActivity.class));
+            }
+        }); 
     }
 
     @Override
@@ -105,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected( item );
         }
+
     }
 
 }

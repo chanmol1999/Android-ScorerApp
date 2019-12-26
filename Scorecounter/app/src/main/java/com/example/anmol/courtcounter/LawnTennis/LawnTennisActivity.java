@@ -1,0 +1,272 @@
+package com.example.anmol.courtcounter.LawnTennis;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.anmol.courtcounter.R;
+
+public class LawnTennisActivity extends AppCompatActivity {
+
+
+    int scoreA = 0;
+    int scoreB = 0;
+    int gameA = 0;
+    int gameB = 0;
+    int ScoregameOneTeamB = 0 ;
+    int ScoregameOneTeamA = 0 ;
+    int resetCounter = 0;
+    String winner="";
+
+    TextView scoreForTeamA;
+    TextView scoreForTeamB;
+    TextView gameOneTeamA;
+    TextView gameOneTeamB;
+    TextView gameTwoTeamA;
+    TextView gameTwoTeamB;
+    TextView gameThreeTeamA;
+    TextView gameThreeTeamB;
+    TextView gameFourTeamA;
+    TextView gameFourTeamB;
+    TextView gameFiveTeamA;
+    TextView gameFiveTeamB;
+
+    Button resetButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_lawn_tennis);
+        getSupportActionBar().setTitle("Lawn Tennis");
+
+        scoreForTeamA = findViewById(R.id.team_a_score);
+        scoreForTeamB = findViewById(R.id.team_b_score);
+        gameOneTeamA = findViewById(R.id.game1_a);
+        gameOneTeamB = findViewById(R.id.game1_b);
+        gameTwoTeamA = findViewById(R.id.game2_a);
+        gameTwoTeamB = findViewById(R.id.game2_b);
+        gameThreeTeamA = findViewById(R.id.game3_a);
+        gameThreeTeamB = findViewById(R.id.game3_b);
+        gameFourTeamA = findViewById(R.id.game4_a);
+        gameFourTeamB = findViewById(R.id.game4_b);
+        gameFiveTeamA = findViewById(R.id.game5_a);
+        gameFiveTeamB = findViewById(R.id.game5_b);
+
+        resetButton = findViewById(R.id.Reset_Button);
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetScore();
+            }
+        });
+
+    }
+    public void displayScore() {
+        switch (scoreA){
+            case 0:
+                    scoreForTeamA.setText(String.valueOf(0));
+                    break;
+            case 1:
+                    scoreForTeamA.setText(String.valueOf(15));
+                    break;
+            case 2:
+                    scoreForTeamA.setText(String.valueOf(30));
+                    break;
+            case 3:
+                    scoreForTeamA.setText(String.valueOf(40));
+                    break;
+            case 4:
+                    scoreForTeamA.setText("AD");
+                    break;
+            default:
+                break;
+        }
+        switch (scoreB){
+            case 0:
+                    scoreForTeamB.setText(String.valueOf(0));
+                    break;
+            case 1:
+                    scoreForTeamB.setText(String.valueOf(15));
+                    break;
+            case 2:
+                    scoreForTeamB.setText(String.valueOf(30));
+                    break;
+            case 3:
+                    scoreForTeamB.setText(String.valueOf(40));
+                    break;
+            case 4:
+                    scoreForTeamB.setText("AD");
+                    break;
+            default:
+                    break;
+        }
+    }
+    public void teamAScore(View view) {
+        scoreA += 1;
+        Table();
+    }
+    public void teamBScore(View view) {
+        scoreB += 1;
+        Table();
+    }
+    public void Table(){
+        if(scoreA==3 && scoreB==3){
+            Toast.makeText(LawnTennisActivity.this, "Deuce", Toast.LENGTH_SHORT).show();
+        }
+        else if(scoreA >3 && scoreB<3){
+            ScoregameOneTeamA +=1;
+            checkGameWinner();
+        }
+        else if(scoreB > 3 && scoreA<3){
+            ScoregameOneTeamB +=1;
+            checkGameWinner();
+        }
+        else {
+            deuce();
+        }
+        displayScore();
+    }
+    public void deuce(){
+
+        if(scoreA>3 && scoreB>3){
+            scoreA=3;
+            scoreB=3;
+            displayScore();
+        }
+        else if(scoreA>3){
+            deuceWinner();
+            displayScore();
+        }
+        else if(scoreB>3){
+            deuceWinner();
+            displayScore();
+        }
+    }
+    public void deuceWinner(){
+
+        if(scoreA ==5 && scoreB ==3){
+           // scoreA =0;
+           // scoreB =0;
+            ScoregameOneTeamA+=1;
+            checkGameWinner();
+
+        }
+        else if(scoreB ==5 && scoreA==3){
+           // scoreA =0;
+           // scoreB =0;
+            ScoregameOneTeamB+=1;
+            checkGameWinner();
+        }
+    }
+    public void checkGameWinner() {
+        if (ScoregameOneTeamA > 5) {
+            updateTable();
+            gameA += 1;
+            winnerMessage();
+        }
+        else if (ScoregameOneTeamB > 5) {
+            updateTable();
+            gameB += 1;
+            winnerMessage();
+        }
+       else{ updateTable();}
+    }
+    public void updateTable() {
+        if(gameA > 1 && gameB >1){
+            gameFiveTeamA.setText(String.valueOf(ScoregameOneTeamA));
+            gameFiveTeamB.setText(String.valueOf(ScoregameOneTeamB));
+        }
+        else if(gameA >1 || gameB >1){
+            if(gameA==1 || gameB ==1){
+                gameFourTeamA.setText(String.valueOf(ScoregameOneTeamA));
+                gameFourTeamB.setText(String.valueOf(ScoregameOneTeamB));
+            }
+            else{
+                gameThreeTeamA.setText(String.valueOf(ScoregameOneTeamA));
+                gameThreeTeamB.setText(String.valueOf(ScoregameOneTeamB));
+            }
+        }
+        else if (gameA > 0 && gameB > 0) {
+            gameThreeTeamA.setText(String.valueOf(ScoregameOneTeamA));
+            gameThreeTeamB.setText(String.valueOf(ScoregameOneTeamB));
+
+        } else if (gameA > 0 || gameB > 0) {
+            gameTwoTeamA.setText(String.valueOf(ScoregameOneTeamA));
+            gameTwoTeamB.setText(String.valueOf(ScoregameOneTeamB));
+
+        } else {
+            gameOneTeamA.setText(String.valueOf(ScoregameOneTeamA));
+            gameOneTeamB.setText(String.valueOf(ScoregameOneTeamB));
+        }
+        if(ScoregameOneTeamA >5 || ScoregameOneTeamB >5){
+            ScoregameOneTeamA =0;
+            ScoregameOneTeamB=0;
+        }
+        scoreA=0;
+        scoreB=0;
+    }
+    public void resetScore() {
+        scoreA = 0;
+        scoreB = 0;
+        gameA = 0;
+        gameB = 0;
+        ScoregameOneTeamA=0;
+        ScoregameOneTeamB =0;
+        displayScore();
+        gameFiveTeamA.setText(String.valueOf(scoreA));
+        gameFiveTeamB.setText(String.valueOf(scoreB));
+        gameFourTeamA.setText(String.valueOf(scoreA));
+        gameFourTeamB.setText(String.valueOf(scoreB));
+        gameThreeTeamA.setText(String.valueOf(scoreA));
+        gameThreeTeamB.setText(String.valueOf(scoreB));
+        gameTwoTeamA.setText(String.valueOf(scoreA));
+        gameTwoTeamB.setText(String.valueOf(scoreB));
+        gameOneTeamA.setText(String.valueOf(scoreA));
+        gameOneTeamB.setText(String.valueOf(scoreB));
+        resetCounter = 0;
+    }
+    public void WinnerAlert(){
+
+        final android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Winner : " + winner);
+        builder.setMessage("Final Scoreline : \n"
+                +"\n[Team A] " + gameOneTeamA.getText().toString() +" - "+gameOneTeamB.getText().toString()+" [Team B]"+"\t (Set-1)"
+                +"\n[Team A] " + gameTwoTeamA.getText().toString() +" - "+gameTwoTeamB.getText().toString()+" [Team B]"+"\t (Set-2)"
+                +"\n[Team A] " + gameThreeTeamA.getText().toString() +" - "+gameThreeTeamB.getText().toString()+" [Team B]"+"\t (Set-3)"
+                +"\n[Team A] " + gameFourTeamA.getText().toString() +" - "+gameFourTeamB.getText().toString()+" [Team B]"+"\t (Set-4)"
+                +"\n[Team A] " + gameFiveTeamA.getText().toString() +" - "+gameFiveTeamB.getText().toString()+" [Team B]"+"\t (Set-5)");
+        builder.setPositiveButton("New Game?", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if(dialogInterface != null){
+                    resetScore();
+                }}
+        });
+        builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if(dialogInterface != null){  finish();
+                }}
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+    public void winnerMessage() {
+
+        if (gameA > 2) {
+            winner = "TEAM A";
+            WinnerAlert();
+        }
+        if (gameB > 2) {
+            winner = "TEAM B";
+            WinnerAlert();
+        }
+    }
+}
