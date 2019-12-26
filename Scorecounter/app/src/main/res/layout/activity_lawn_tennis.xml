@@ -5,7 +5,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_height="match_parent"
 android:layout_width="match_parent"
 android:padding="4dp"
-android:background="@drawable/tabletennis"
+android:background="@drawable/tenn"
 tools:context=".LawnTennis.LawnTennisActivity">
 
 <LinearLayout
@@ -235,7 +235,7 @@ tools:context=".LawnTennis.LawnTennisActivity">
 
             <Button
                 android:id="@+id/Reset_Button"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="@dimen/volley_counter_margin_E"
                 style="@style/button"
                 android:background="@drawable/rounded_button_green"
                 android:text="@string/reset_game" />
