@@ -52,6 +52,8 @@
     <string name="select_team">Select team to bat first.</string>
     <string name="start">Start</string>
     <string name="menu_about">About</string>
+    <string name="menu_setting">Settings</string>
+
     <string name="app_logo">Real Time Scorer Logo</string>
     <string name="about_details">The Real Time Scorer app is an open-source app, developed and maintained by the NJACK Winter of Code participants. The motive of the app is to store score of many sports in realtime for fair results.</string>
     <string name="more_details">Currently there are 7 games in the application, for which you can store the score of the every match locally and get your result after clicking the finish button.</string>
