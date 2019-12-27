@@ -11,7 +11,7 @@ import android.widget.Button;
 import com.example.anmol.courtcounter.Basketball.BasketballActivity;
 
 import com.example.anmol.courtcounter.LawnTennis.LawnTennisActivity;
-import com.example.anmol.courtcounter.TableTennis.tableTennisAcitivity;
+import com.example.anmol.courtcounter.TableTennis.TableTennisAcitivity;
 import com.example.anmol.courtcounter.Volleyball.VolleyballActivity;
 
 import com.example.anmol.courtcounter.Football.FootballActivity;

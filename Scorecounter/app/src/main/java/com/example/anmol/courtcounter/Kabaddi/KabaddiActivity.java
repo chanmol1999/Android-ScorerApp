@@ -76,7 +76,7 @@ public class KabaddiActivity extends AppCompatActivity {
         ButtonbonusB = findViewById( R.id.redCard_TeamB );
         ButtonallOutA = findViewById( R.id.yellowCard_TeamA );
         ButtonallOutB = findViewById( R.id.yellowCard_TeamB );
-        mediaPlayer = MediaPlayer.create(this,R.raw.tick);
+        mediaPlayer = MediaPlayer.create( this, R.raw.tick );
         buttonDisable();
 
         mTextViewCountDown.setOnClickListener( new View.OnClickListener() {

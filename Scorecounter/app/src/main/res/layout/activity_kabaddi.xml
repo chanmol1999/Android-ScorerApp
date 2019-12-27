@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Kabaddi.KabaddiActivity"
-    android:background="@drawable/kabaddi">
+    android:background="@drawable/kabaddi"
+    tools:context=".Kabaddi.KabaddiActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,19 +13,16 @@
         android:orientation="vertical">
 
         <TextView
-            style="@style/Timer"
             android:id="@+id/text_view_countdown"
-            />
+            style="@style/Timer" />
 
-        <RelativeLayout
-            style="@style/mainLayout">
+        <RelativeLayout style="@style/mainLayout">
 
             <LinearLayout
                 android:id="@+id/ScoreBoxFootball"
                 style="@style/Box1">
 
-                <LinearLayout
-                    style="@style/LinearColumn">
+                <LinearLayout style="@style/LinearColumn">
 
                     <TextView
                         style="@style/headings"
@@ -35,8 +32,8 @@
                     <TextView
                         android:id="@+id/team_a_score"
                         style="@style/mainScore"
-                        android:text="@string/original_score"
                         android:background="@drawable/border"
+                        android:text="@string/original_score"
                         android:textColor="@color/scoreBlue" />
 
                     <Button
@@ -47,30 +44,29 @@
                         android:text="@string/add_one_point" />
 
                     <Button
+                        android:id="@+id/redCard_TeamA"
                         style="@style/button"
                         android:background="@drawable/rounded_button_red"
-                        android:text="@string/bonus"
                         android:onClick="teamAScore"
-                        android:id="@+id/redCard_TeamA"/>
+                        android:text="@string/bonus" />
 
                     <Button
                         android:id="@+id/yellowCard_TeamA"
                         style="@style/button"
                         android:background="@drawable/rounded_button_yellow"
-                        android:text="@string/allout"
-                        android:onClick="allOutA"/>
+                        android:onClick="allOutA"
+                        android:text="@string/allout" />
 
                     <Button
                         android:id="@+id/multiPointsA"
                         style="@style/button"
-                        android:text="@string/multiPoints"
-                        android:background="@drawable/rounded_button_green"/>
+                        android:background="@drawable/rounded_button_green"
+                        android:text="@string/multiPoints" />
 
 
                 </LinearLayout>
 
-                <LinearLayout
-                    style="@style/LinearColumn">
+                <LinearLayout style="@style/LinearColumn">
 
                     <TextView
                         style="@style/headings"
@@ -80,8 +76,8 @@
                     <TextView
                         android:id="@+id/team_b_score"
                         style="@style/mainScore"
-                        android:text="@string/original_score"
                         android:background="@drawable/border"
+                        android:text="@string/original_score"
                         android:textColor="@android:color/holo_green_dark" />
 
                     <Button
@@ -92,47 +88,47 @@
                         android:text="@string/add_one_point" />
 
                     <Button
+                        android:id="@+id/redCard_TeamB"
                         style="@style/button"
                         android:background="@drawable/rounded_button_red"
-                        android:text="@string/bonus"
                         android:onClick="teamBScore"
-                        android:id="@+id/redCard_TeamB"/>
+                        android:text="@string/bonus" />
 
                     <Button
                         android:id="@+id/yellowCard_TeamB"
                         style="@style/button"
                         android:background="@drawable/rounded_button_yellow"
-                        android:text="@string/allout"
-                        android:onClick="allOutB"/>
+                        android:onClick="allOutB"
+                        android:text="@string/allout" />
 
                     <Button
                         android:id="@+id/multiPointsB"
                         style="@style/button"
                         android:background="@drawable/rounded_button_blue"
-                        android:text="@string/multiPoints"/>
+                        android:text="@string/multiPoints" />
                 </LinearLayout>
             </LinearLayout>
 
             <Button
-                style="@style/button"
                 android:id="@+id/button_start_pause"
-                android:text="@string/start"
+                style="@style/button"
+                android:layout_below="@id/ScoreBoxFootball"
                 android:background="@drawable/rounded_button_red"
-                android:layout_below="@id/ScoreBoxFootball"/>
+                android:text="@string/start" />
 
             <Button
-                style="@style/button"
                 android:id="@+id/reset"
-                android:text="@string/reset"
+                style="@style/button"
+                android:layout_below="@id/button_start_pause"
                 android:background="@drawable/rounded_button_blue"
-                android:layout_below="@id/button_start_pause"/>
+                android:text="@string/reset" />
 
             <Button
-                style="@style/button"
                 android:id="@+id/finish"
-                android:text="@string/finish"
+                style="@style/button"
+                android:layout_below="@id/reset"
                 android:background="@drawable/rounded_button_green"
-                android:layout_below="@id/reset"/>
+                android:text="@string/finish" />
 
         </RelativeLayout>
 

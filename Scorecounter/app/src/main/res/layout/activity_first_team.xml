@@ -14,28 +14,29 @@
 
         <TextView
             style="@style/headings"
-            android:text="@string/select_team"
-            android:textColor="@color/colorBlack"
             android:layout_marginLeft="@dimen/eight_dp"
             android:layout_marginRight="@dimen/eight_dp"
-            android:layout_marginBottom="@dimen/twenty_dp"/>
+            android:layout_marginBottom="@dimen/twenty_dp"
+            android:text="@string/select_team"
+            android:textColor="@color/colorBlack" />
+
         <Button
             android:id="@+id/TeamAFirst"
             style="@style/button"
-            android:text="@string/team_a"
-            android:textSize="@dimen/text36"
+            android:layout_margin="@dimen/twenty_dp"
             android:background="@drawable/rounded_button_blue"
             android:padding="@dimen/eight_dp"
-            android:layout_margin="@dimen/twenty_dp"/>
+            android:text="@string/team_a"
+            android:textSize="@dimen/text36" />
 
         <Button
             android:id="@+id/TeamBFirst"
             style="@style/button"
-            android:text="@string/team_b"
-            android:textSize="@dimen/text36"
+            android:layout_margin="@dimen/twenty_dp"
             android:background="@drawable/rounded_button_red"
             android:padding="@dimen/eight_dp"
-            android:layout_margin="@dimen/twenty_dp"/>
+            android:text="@string/team_b"
+            android:textSize="@dimen/text36" />
     </LinearLayout>
 
 </ScrollView>

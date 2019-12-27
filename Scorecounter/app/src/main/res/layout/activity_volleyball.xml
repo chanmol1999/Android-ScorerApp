@@ -2,84 +2,82 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:padding="4dp"
-    android:background="@drawable/volleyball">
+    android:layout_height="match_parent"
+    android:background="@drawable/volleyball"
+    android:padding="4dp">
 
     <LinearLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-        <RelativeLayout
-            style="@style/mainLayout">
+
+        <RelativeLayout style="@style/mainLayout">
 
             <LinearLayout
-                style="@style/Box1"
-                android:id="@+id/ScoreBoxVB">
+                android:id="@+id/ScoreBoxVB"
+                style="@style/Box1">
 
-                <LinearLayout
-                    style="@style/LinearColumn">
+                <LinearLayout style="@style/LinearColumn">
 
-                        <TextView
-                            android:id="@+id/teamAname"
-                            style="@style/headings"
-                            android:textColor="@color/headingBlue"
-                            android:text="@string/team_a" />
+                    <TextView
+                        android:id="@+id/teamAname"
+                        style="@style/headings"
+                        android:text="@string/team_a"
+                        android:textColor="@color/headingBlue" />
 
-                        <TextView
-                            android:id="@+id/teamA_ScoreTextView"
-                            style="@style/mainScore"
-                            android:textColor="@color/scoreBlue"
-                            android:text="@string/_0"
-                            android:background="@drawable/border"/>
+                    <TextView
+                        android:id="@+id/teamA_ScoreTextView"
+                        style="@style/mainScore"
+                        android:background="@drawable/border"
+                        android:text="@string/_0"
+                        android:textColor="@color/scoreBlue" />
 
-                        <TextView
-                            android:id="@+id/teamA_setScoreTextView"
-                            android:text="@string/_0"
-                            style="@style/sets"
-                            android:background="@drawable/border"
-                            android:textColor="@color/scoreBlue"/>
+                    <TextView
+                        android:id="@+id/teamA_setScoreTextView"
+                        style="@style/sets"
+                        android:background="@drawable/border"
+                        android:text="@string/_0"
+                        android:textColor="@color/scoreBlue" />
                 </LinearLayout>
 
-                <LinearLayout
-                    style="@style/LinearColumn">
+                <LinearLayout style="@style/LinearColumn">
 
                     <TextView
                         android:id="@+id/teamBname"
-                        android:text="@string/team_b"
                         style="@style/headings"
+                        android:text="@string/team_b"
                         android:textColor="@color/headingRed" />
 
                     <TextView
                         android:id="@+id/teamB_ScoreTextView"
-                        android:text="@string/_0"
                         style="@style/mainScore"
-                        android:textColor="@color/headingRed"
-                        android:background="@drawable/border"/>
+                        android:background="@drawable/border"
+                        android:text="@string/_0"
+                        android:textColor="@color/headingRed" />
 
                     <TextView
                         android:id="@+id/teamB_setScoreTextView"
-                        android:text="@string/_0"
                         style="@style/sets"
-                        android:textColor="@color/scoreRed"
-                        android:background="@drawable/border"/>
+                        android:background="@drawable/border"
+                        android:text="@string/_0"
+                        android:textColor="@color/scoreRed" />
                 </LinearLayout>
             </LinearLayout>
 
             <Button
                 android:id="@+id/switchButton"
                 style="@style/button"
-                android:text="@string/switch_sides"
+                android:layout_below="@id/ScoreBoxVB"
                 android:background="@drawable/rounded_button_green"
-                android:layout_below="@id/ScoreBoxVB"/>
+                android:text="@string/switch_sides" />
 
             <Button
                 android:id="@+id/resetButton"
                 style="@style/button"
-                android:text="@string/reset"
+                android:layout_below="@id/switchButton"
                 android:background="@drawable/rounded_button_green"
-                android:layout_below="@id/switchButton" />
+                android:text="@string/reset" />
 
         </RelativeLayout>
     </LinearLayout>

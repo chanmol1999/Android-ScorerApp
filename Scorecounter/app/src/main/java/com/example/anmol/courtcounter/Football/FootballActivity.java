@@ -60,7 +60,7 @@ public class FootballActivity extends AppCompatActivity {
         mButtonStartPause = findViewById( R.id.button_start_pause );
         ButtonscoreA = findViewById( R.id.scoreA );
         ButtonscoreB = findViewById( R.id.scoreB );
-        mediaPlayer = MediaPlayer.create(this,R.raw.tick);
+        mediaPlayer = MediaPlayer.create( this, R.raw.tick );
 
         buttonDisablebeforeMatch();
 

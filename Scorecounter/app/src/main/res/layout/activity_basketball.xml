@@ -1,31 +1,27 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:padding="4dp"
-    android:background="@drawable/basketball">
+    android:layout_height="match_parent"
+    android:background="@drawable/basketball"
+    android:padding="4dp">
 
 
     <LinearLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
-            style="@style/Timer"
             android:id="@+id/text_view_countdown"
-            />
+            style="@style/Timer" />
 
-        <RelativeLayout
-            style="@style/mainLayout"
-            >
+        <RelativeLayout style="@style/mainLayout">
 
             <LinearLayout
-                style="@style/Box1"
-                android:id="@+id/ScoreBoxBB">
+                android:id="@+id/ScoreBoxBB"
+                style="@style/Box1">
 
 
-                <LinearLayout
-                    style="@style/LinearColumn">
+                <LinearLayout style="@style/LinearColumn">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -35,8 +31,8 @@
 
                         <TextView
                             android:id="@+id/teamA_nameTextView"
-                            android:text="@string/team_a"
                             style="@style/headings"
+                            android:text="@string/team_a"
                             android:textColor="@color/headingBlue" />
 
                         <ImageView
@@ -51,37 +47,37 @@
                     <TextView
                         android:id="@+id/team_a_score"
                         style="@style/mainScore"
-                        android:textColor="@color/scoreBlue"
+                        android:background="@drawable/border"
                         android:text="@string/_0"
-                        android:background="@drawable/border"/>
+                        android:textColor="@color/scoreBlue" />
 
                     <Button
                         android:id="@+id/threePointerTeamA"
                         style="@style/button"
-                        android:onClick="three"
                         android:background="@drawable/rounded_button_blue"
+                        android:onClick="three"
                         android:text="@string/_3_points" />
 
                     <Button
                         android:id="@+id/twoPointerTeamA"
                         style="@style/button"
-                        android:onClick="two"
                         android:background="@drawable/rounded_button_blue"
+                        android:onClick="two"
                         android:text="@string/_2_points" />
 
                     <Button
                         android:id="@+id/freeTeamA"
                         style="@style/button"
-                        android:onClick="one"
                         android:background="@drawable/rounded_button_blue"
+                        android:onClick="one"
                         android:text="@string/free_throw_1" />
 
                     <Button
                         android:id="@+id/undoTeamA"
                         style="@style/button"
+                        android:background="@drawable/rounded_button_blue"
                         android:onClick="undoa"
                         android:text="@string/undo"
-                        android:background="@drawable/rounded_button_blue"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -96,10 +92,10 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            style="@style/headings"
                             android:id="@+id/teamB_nameTextView"
-                            android:textColor="@color/headingRed"
-                            android:text="@string/team_b"/>
+                            style="@style/headings"
+                            android:text="@string/team_b"
+                            android:textColor="@color/headingRed" />
 
                         <ImageView
                             android:id="@+id/edit_teamB"
@@ -110,57 +106,57 @@
                     </LinearLayout>
 
                     <TextView
-                        style="@style/mainScore"
                         android:id="@+id/team_b_score"
-                        android:textColor="@color/scoreRed"
+                        style="@style/mainScore"
+                        android:background="@drawable/border"
                         android:text="@string/_0"
-                        android:background="@drawable/border"/>
+                        android:textColor="@color/scoreRed" />
 
                     <Button
                         android:id="@+id/threePointerTeamB"
                         style="@style/button"
-                        android:onClick="threeb"
                         android:background="@drawable/rounded_button_red"
+                        android:onClick="threeb"
                         android:text="@string/_3_points" />
 
                     <Button
                         android:id="@+id/twoPointerTeamB"
                         style="@style/button"
-                        android:onClick="twob"
                         android:background="@drawable/rounded_button_red"
+                        android:onClick="twob"
                         android:text="@string/_2_points" />
 
                     <Button
                         android:id="@+id/freeTeamB"
                         style="@style/button"
-                        android:onClick="oneb"
                         android:background="@drawable/rounded_button_red"
+                        android:onClick="oneb"
                         android:text="@string/free_throw_1" />
 
                     <Button
                         android:id="@+id/undoTeamB"
                         style="@style/button"
+                        android:background="@drawable/rounded_button_red"
                         android:onClick="undob"
                         android:text="@string/undo"
-                        android:background="@drawable/rounded_button_red"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
+
             <Button
                 android:id="@+id/button_start_pause"
                 style="@style/button"
-                android:text="@string/start"
+                android:layout_below="@id/ScoreBoxBB"
                 android:background="@drawable/rounded_button_green"
-                android:layout_below="@id/ScoreBoxBB"/>
+                android:text="@string/start" />
 
 
             <Button
                 style="@style/button"
-                android:onClick="finish"
-                android:text="@string/finish"
+                android:layout_below="@id/button_start_pause"
                 android:background="@drawable/rounded_button_green"
-                android:layout_below="@id/button_start_pause"/>
-
+                android:onClick="finish"
+                android:text="@string/finish" />
 
 
         </RelativeLayout>

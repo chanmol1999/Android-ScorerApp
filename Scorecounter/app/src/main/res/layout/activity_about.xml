@@ -14,19 +14,22 @@
         android:layout_margin="8dp"
         android:gravity="center"
         android:orientation="vertical">
+
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:contentDescription="@string/app_logo"
             android:src="@drawable/logo" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/real_time_scorer"
+            android:layout_margin="8dp"
             android:gravity="center"
-            android:textStyle="bold"
+            android:text="@string/real_time_scorer"
             android:textSize="@dimen/text20"
-            android:layout_margin="8dp"/>
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/about_details"
             style="?android:textAppearanceSmall"
@@ -34,14 +37,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:gravity="center"
-            android:text="@string/about_details"/>
+            android:text="@string/about_details" />
+
         <TextView
             android:id="@+id/about_more"
             style="?android:textAppearanceSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/more_details"/>
+            android:text="@string/more_details" />
+
         <TextView
             android:id="@+id/git_link"
             style="?android:textAppearanceSmall"
@@ -49,23 +54,24 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:gravity="center"
-            android:textStyle="bold"
-            android:text="@string/project_link"/>
+            android:text="@string/project_link"
+            android:textStyle="bold" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-    <ImageView
-        android:id="@+id/github_launch_icon"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_margin="8dp"
-        android:contentDescription="@string/app_github"
-        android:src="@drawable/ic_action_github" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <ImageView
+                android:id="@+id/github_launch_icon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="8dp"
+                android:contentDescription="@string/app_github"
+                android:src="@drawable/ic_action_github" />
+
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

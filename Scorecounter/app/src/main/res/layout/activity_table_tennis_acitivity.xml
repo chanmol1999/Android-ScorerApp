@@ -2,17 +2,17 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:padding="4dp"
-    android:background="@drawable/tabletennis">
+    android:layout_height="match_parent"
+    android:background="@drawable/tabletennis"
+    android:padding="4dp">
 
     <LinearLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-        <RelativeLayout
-            style="@style/mainLayout">
+
+        <RelativeLayout style="@style/mainLayout">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -234,8 +234,8 @@
 
                 <Button
                     android:id="@+id/Reset_Button"
-                    android:layout_marginTop="40dp"
                     style="@style/button"
+                    android:layout_marginTop="40dp"
                     android:background="@drawable/rounded_button_green"
                     android:text="@string/reset_game" />
 

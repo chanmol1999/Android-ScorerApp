@@ -1,247 +1,247 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_height="match_parent"
-android:layout_width="match_parent"
-android:padding="4dp"
-android:background="@drawable/tenn"
-tools:context=".LawnTennis.LawnTennisActivity">
-
-<LinearLayout
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical">
-    <RelativeLayout
-        style="@style/mainLayout">
+    android:layout_height="match_parent"
+    android:background="@drawable/tenn"
+    android:padding="4dp"
+    tools:context=".LawnTennis.LawnTennisActivity">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-            <LinearLayout style="@style/Box1">
+        <RelativeLayout style="@style/mainLayout">
 
-                <LinearLayout style="@style/LinearColumn">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                    <TextView
-                        style="@style/headings"
-                        android:text="@string/team_a"
-                        android:textColor="@color/headingBlue" />
+                <LinearLayout style="@style/Box1">
 
-                    <TextView
-                        android:id="@+id/team_a_score"
-                        style="@style/mainScore"
-                        android:background="@drawable/border"
-                        android:text="@string/original_score"
-                        android:textColor="@color/scoreBlue" />
+                    <LinearLayout style="@style/LinearColumn">
 
-                    <Button
-                        style="@style/button"
-                        android:background="@drawable/rounded_button_blue"
-                        android:onClick="teamAScore"
-                        android:text="@string/add_one_point" />
+                        <TextView
+                            style="@style/headings"
+                            android:text="@string/team_a"
+                            android:textColor="@color/headingBlue" />
+
+                        <TextView
+                            android:id="@+id/team_a_score"
+                            style="@style/mainScore"
+                            android:background="@drawable/border"
+                            android:text="@string/original_score"
+                            android:textColor="@color/scoreBlue" />
+
+                        <Button
+                            style="@style/button"
+                            android:background="@drawable/rounded_button_blue"
+                            android:onClick="teamAScore"
+                            android:text="@string/add_one_point" />
+                    </LinearLayout>
+
+                    <LinearLayout style="@style/LinearColumn">
+
+                        <TextView
+                            style="@style/headings"
+                            android:text="@string/team_b"
+                            android:textColor="@color/headingRed" />
+
+                        <TextView
+                            android:id="@+id/team_b_score"
+                            style="@style/mainScore"
+                            android:background="@drawable/border"
+                            android:text="@string/original_score"
+                            android:textColor="@color/scoreRed" />
+
+                        <Button
+                            style="@style/button"
+                            android:background="@drawable/rounded_button_red"
+                            android:onClick="teamBScore"
+                            android:text="@string/add_one_point" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
-                <LinearLayout style="@style/LinearColumn">
+                <TableLayout
+                    style="@style/table"
+                    android:stretchColumns="1,3,5,7,9,11">
 
-                    <TextView
-                        style="@style/headings"
-                        android:text="@string/team_b"
-                        android:textColor="@color/headingRed" />
+                    <TableRow android:background="@color/colorBlack">
 
-                    <TextView
-                        android:id="@+id/team_b_score"
-                        style="@style/mainScore"
-                        android:background="@drawable/border"
-                        android:text="@string/original_score"
-                        android:textColor="@color/scoreRed" />
+                        <TextView android:layout_height="@dimen/tableLayoutHeight" />
+                    </TableRow>
 
-                    <Button
-                        style="@style/button"
-                        android:background="@drawable/rounded_button_red"
-                        android:onClick="teamBScore"
-                        android:text="@string/add_one_point" />
-                </LinearLayout>
+                    <TableRow android:background="@drawable/bg_green">
+
+                        <TextView style="@style/divider" />
+
+                        <TextView style="@style/emptySpace" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            style="@style/tableViewText1"
+                            android:text="@string/game_one"
+                            android:textColor="#ffffff" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            style="@style/tableViewText1"
+                            android:text="@string/game_two"
+                            android:textColor="#ffffff" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            style="@style/tableViewText1"
+                            android:text="@string/game_three"
+                            android:textColor="#ffffff" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            style="@style/tableViewText1"
+                            android:text="@string/game_four"
+                            android:textColor="#ffffff" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            style="@style/tableViewText1"
+                            android:text="@string/game_five"
+                            android:textColor="#ffffff" />
+
+                        <TextView style="@style/divider" />
+
+
+                    </TableRow>
+
+                    <TableRow android:background="@color/colorBlack">
+
+                        <TextView android:layout_height="@dimen/tableLayoutHeight" />
+                    </TableRow>
+
+                    <TableRow android:background="@drawable/bg_blue">
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            style="@style/tableViewText2"
+                            android:text="@string/team_a"
+                            android:textColor="#ffffff" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            android:id="@+id/game1_a"
+                            style="@style/tableViewText3"
+                            android:text="@string/original_score" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            android:id="@+id/game2_a"
+                            style="@style/tableViewText3"
+                            android:text="@string/original_score" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            android:id="@+id/game3_a"
+                            style="@style/tableViewText3"
+                            android:text="@string/original_score" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            android:id="@+id/game4_a"
+                            style="@style/tableViewText3"
+                            android:text="@string/original_score" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            android:id="@+id/game5_a"
+                            style="@style/tableViewText3"
+                            android:text="@string/original_score" />
+
+                        <TextView style="@style/divider" />
+
+                    </TableRow>
+
+                    <TableRow android:background="@color/colorBlack">
+
+                        <TextView android:layout_height="@dimen/tableLayoutHeight" />
+                    </TableRow>
+
+                    <TableRow android:background="@drawable/bg_red">
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            style="@style/tableViewText2"
+                            android:text="@string/team_b"
+                            android:textColor="#ffffff" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            android:id="@+id/game1_b"
+                            style="@style/tableViewText3"
+                            android:text="@string/original_score" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            android:id="@+id/game2_b"
+                            style="@style/tableViewText3"
+                            android:text="@string/original_score" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            android:id="@+id/game3_b"
+                            style="@style/tableViewText3"
+                            android:text="@string/original_score" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            android:id="@+id/game4_b"
+                            style="@style/tableViewText3"
+                            android:text="@string/original_score" />
+
+                        <TextView style="@style/divider" />
+
+                        <TextView
+                            android:id="@+id/game5_b"
+                            style="@style/tableViewText3"
+                            android:text="@string/original_score" />
+
+                        <TextView style="@style/divider" />
+                    </TableRow>
+
+                    <TableRow android:background="@color/colorBlack">
+
+                        <TextView android:layout_height="@dimen/tableLayoutHeight" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <Button
+                    android:id="@+id/Reset_Button"
+                    style="@style/button"
+                    android:layout_marginTop="@dimen/volley_counter_margin_E"
+                    android:background="@drawable/rounded_button_green"
+                    android:text="@string/reset_game" />
 
             </LinearLayout>
 
-            <TableLayout
-                style="@style/table"
-                android:stretchColumns="1,3,5,7,9,11">
-
-                <TableRow android:background="@color/colorBlack">
-
-                    <TextView android:layout_height="@dimen/tableLayoutHeight" />
-                </TableRow>
-
-                <TableRow android:background="@drawable/bg_green">
-
-                    <TextView style="@style/divider" />
-
-                    <TextView style="@style/emptySpace" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        style="@style/tableViewText1"
-                        android:text="@string/game_one"
-                        android:textColor="#ffffff" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        style="@style/tableViewText1"
-                        android:text="@string/game_two"
-                        android:textColor="#ffffff" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        style="@style/tableViewText1"
-                        android:text="@string/game_three"
-                        android:textColor="#ffffff" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        style="@style/tableViewText1"
-                        android:text="@string/game_four"
-                        android:textColor="#ffffff" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        style="@style/tableViewText1"
-                        android:text="@string/game_five"
-                        android:textColor="#ffffff" />
-
-                    <TextView style="@style/divider" />
-
-
-                </TableRow>
-
-                <TableRow android:background="@color/colorBlack">
-
-                    <TextView android:layout_height="@dimen/tableLayoutHeight" />
-                </TableRow>
-
-                <TableRow android:background="@drawable/bg_blue">
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        style="@style/tableViewText2"
-                        android:text="@string/team_a"
-                        android:textColor="#ffffff" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        android:id="@+id/game1_a"
-                        style="@style/tableViewText3"
-                        android:text="@string/original_score" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        android:id="@+id/game2_a"
-                        style="@style/tableViewText3"
-                        android:text="@string/original_score" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        android:id="@+id/game3_a"
-                        style="@style/tableViewText3"
-                        android:text="@string/original_score" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        android:id="@+id/game4_a"
-                        style="@style/tableViewText3"
-                        android:text="@string/original_score" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        android:id="@+id/game5_a"
-                        style="@style/tableViewText3"
-                        android:text="@string/original_score" />
-
-                    <TextView style="@style/divider" />
-
-                </TableRow>
-
-                <TableRow android:background="@color/colorBlack">
-
-                    <TextView android:layout_height="@dimen/tableLayoutHeight" />
-                </TableRow>
-
-                <TableRow android:background="@drawable/bg_red">
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        style="@style/tableViewText2"
-                        android:text="@string/team_b"
-                        android:textColor="#ffffff" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        android:id="@+id/game1_b"
-                        style="@style/tableViewText3"
-                        android:text="@string/original_score" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        android:id="@+id/game2_b"
-                        style="@style/tableViewText3"
-                        android:text="@string/original_score" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        android:id="@+id/game3_b"
-                        style="@style/tableViewText3"
-                        android:text="@string/original_score" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        android:id="@+id/game4_b"
-                        style="@style/tableViewText3"
-                        android:text="@string/original_score" />
-
-                    <TextView style="@style/divider" />
-
-                    <TextView
-                        android:id="@+id/game5_b"
-                        style="@style/tableViewText3"
-                        android:text="@string/original_score" />
-
-                    <TextView style="@style/divider" />
-                </TableRow>
-
-                <TableRow android:background="@color/colorBlack">
-
-                    <TextView android:layout_height="@dimen/tableLayoutHeight" />
-                </TableRow>
-
-            </TableLayout>
-
-            <Button
-                android:id="@+id/Reset_Button"
-                android:layout_marginTop="@dimen/volley_counter_margin_E"
-                style="@style/button"
-                android:background="@drawable/rounded_button_green"
-                android:text="@string/reset_game" />
-
-        </LinearLayout>
-
-    </RelativeLayout>
-</LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
 </ScrollView>
