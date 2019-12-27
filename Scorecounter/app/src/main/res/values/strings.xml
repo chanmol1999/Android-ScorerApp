@@ -51,6 +51,7 @@
     <string name="odi">ODI</string>
     <string name="select_team">Select team to bat first.</string>
     <string name="start">Start</string>
+    <string name="tennis">Lawn Tennis</string>
     <string name="menu_about">About</string>
     <string name="menu_setting">Settings</string>
 
@@ -60,3 +61,4 @@
     <string name="project_link">Click below, to contribute in this app</string>
     <string name="app_github">Github.com</string>
 </resources>
+

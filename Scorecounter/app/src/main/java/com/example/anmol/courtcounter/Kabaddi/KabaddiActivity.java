@@ -2,6 +2,7 @@ package com.example.anmol.courtcounter.Kabaddi;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,7 +34,7 @@ public class KabaddiActivity extends AppCompatActivity {
     Button ButtonbonusB;
     Button ButtonallOutA;
     Button ButtonallOutB;
-
+    MediaPlayer mediaPlayer;
     private int multiPoints = 0;
     private TextView mTextViewCountDown;
     private Button mButtonStartPause;
@@ -55,6 +56,7 @@ public class KabaddiActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkGameWinner();
+                mediaPlayer.stop();
             }
         } );
         reset.setOnClickListener( new View.OnClickListener() {
@@ -74,7 +76,7 @@ public class KabaddiActivity extends AppCompatActivity {
         ButtonbonusB = findViewById( R.id.redCard_TeamB );
         ButtonallOutA = findViewById( R.id.yellowCard_TeamA );
         ButtonallOutB = findViewById( R.id.yellowCard_TeamB );
-
+        mediaPlayer = MediaPlayer.create(this,R.raw.tick);
         buttonDisable();
 
         mTextViewCountDown.setOnClickListener( new View.OnClickListener() {
@@ -179,12 +181,14 @@ public class KabaddiActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 mTimeLeftInMillis = millisUntilFinished;
                 updateCountDownText();
+                mediaPlayer.start();
             }
 
             @Override
             public void onFinish() {
                 mTimerRunning = false;
                 mButtonStartPause.setText( "Start" );
+                mediaPlayer.pause();
             }
         }.start();
 
@@ -198,7 +202,7 @@ public class KabaddiActivity extends AppCompatActivity {
         mTimerRunning = false;
         mButtonStartPause.setText( "Start" );
         buttonDisable();
-
+        mediaPlayer.pause();
     }
 
     private void updateCountDownText() {
@@ -255,6 +259,7 @@ public class KabaddiActivity extends AppCompatActivity {
         mTimeLeftInMillis = START_TIME_IN_MILLIS;
         updateCountDownText();
         buttonDisable();
+        mediaPlayer.pause();
     }
 
     public void Alert() {

@@ -2,6 +2,7 @@ package com.example.anmol.courtcounter.Football;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,6 +42,7 @@ public class FootballActivity extends AppCompatActivity {
     private boolean mTimerRunning;
     private long START_TIME_IN_MILLIS = 5400000;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,7 @@ public class FootballActivity extends AppCompatActivity {
         mButtonStartPause = findViewById( R.id.button_start_pause );
         ButtonscoreA = findViewById( R.id.scoreA );
         ButtonscoreB = findViewById( R.id.scoreB );
+        mediaPlayer = MediaPlayer.create(this,R.raw.tick);
 
         buttonDisablebeforeMatch();
 
@@ -93,12 +96,14 @@ public class FootballActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkGameWinner();
+                mediaPlayer.stop();
             }
         } );
         reset.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 reset();
+                mediaPlayer.pause();
             }
         } );
 
@@ -151,12 +156,14 @@ public class FootballActivity extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 mTimeLeftInMillis = millisUntilFinished;
                 updateCountDownText();
+                mediaPlayer.start();
             }
 
             @Override
             public void onFinish() {
                 mTimerRunning = false;
                 mButtonStartPause.setText( "Start" );
+                mediaPlayer.pause();
             }
         }.start();
 
@@ -170,7 +177,7 @@ public class FootballActivity extends AppCompatActivity {
         mTimerRunning = false;
         mButtonStartPause.setText( "Start" );
         buttonDisableinMatch();
-
+        mediaPlayer.pause();
     }
 
     private void updateCountDownText() {

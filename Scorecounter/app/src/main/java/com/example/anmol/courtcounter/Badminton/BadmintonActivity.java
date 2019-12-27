@@ -5,6 +5,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ public class BadmintonActivity extends AppCompatActivity {
     TextView gameTwoTeamB;
     TextView gameThreeTeamA;
     TextView gameThreeTeamB;
+    Button resetButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,14 @@ public class BadmintonActivity extends AppCompatActivity {
         gameTwoTeamB = findViewById(R.id.game2_b);
         gameThreeTeamA = findViewById(R.id.game3_a);
         gameThreeTeamB = findViewById(R.id.game3_b);
+        resetButton = findViewById(R.id.resetB);
+
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetScore();
+            }
+        });
 
     }
     public void displayScore() {
