@@ -1,9 +1,9 @@
 package com.example.anmol.courtcounter.Volleyball;
 
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -14,8 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anmol.courtcounter.R;
-
-import org.w3c.dom.Text;
 
 public class VolleyballActivity extends AppCompatActivity {
 

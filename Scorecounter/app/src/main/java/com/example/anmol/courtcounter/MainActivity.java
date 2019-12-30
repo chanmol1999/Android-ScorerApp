@@ -2,7 +2,7 @@ package com.example.anmol.courtcounter;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,11 +12,9 @@ import com.example.anmol.courtcounter.Basketball.BasketballActivity;
 
 import com.example.anmol.courtcounter.LawnTennis.LawnTennisActivity;
 import com.example.anmol.courtcounter.TableTennis.TableTennisAcitivity;
-import com.example.anmol.courtcounter.Volleyball.VolleyballActivity;
 
 import com.example.anmol.courtcounter.Football.FootballActivity;
 import com.example.anmol.courtcounter.Kabaddi.KabaddiActivity;
-import com.example.anmol.courtcounter.TableTennis.TableTennisAcitivity;
 
 public class MainActivity extends AppCompatActivity {
 
