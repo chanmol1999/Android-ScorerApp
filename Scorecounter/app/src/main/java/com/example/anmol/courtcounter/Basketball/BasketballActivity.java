@@ -6,6 +6,8 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anmol.courtcounter.R;
+import com.example.anmol.courtcounter.SaveResults.Result;
+import com.example.anmol.courtcounter.SaveResults.ResultViewModel;
 
 import java.util.Locale;
 
@@ -41,6 +45,7 @@ public class BasketballActivity extends AppCompatActivity {
     private Button undoTeamA;
     private Button undoTeamB;
     MediaPlayer mediaPlayer;
+    private ResultViewModel resultViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +53,7 @@ public class BasketballActivity extends AppCompatActivity {
         setContentView(R.layout.activity_basketball);
         getSupportActionBar().setTitle("Basketball");
 
+        resultViewModel = ViewModelProviders.of(this).get(ResultViewModel.class);
         nameTeamA = findViewById(R.id.teamA_nameTextView);
         nameTeamB = findViewById(R.id.teamB_nameTextView);
         editNameA = findViewById(R.id.edit_teamA);
@@ -325,6 +331,13 @@ public class BasketballActivity extends AppCompatActivity {
                 }
             }
         });
+        builder.setNeutralButton("Save and Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                addItems();
+                finish();
+            }
+        });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
         mediaPlayer.stop();
@@ -369,5 +382,17 @@ public class BasketballActivity extends AppCompatActivity {
         freeThrowTeamA.setEnabled(true);
         undoTeamA.setEnabled(true);
         undoTeamB.setEnabled(true);
+    }
+
+    public void addItems(){
+        String title = "Basketball";
+        String outcome = "Result : " + w;
+        String scoreTwo = "[Team A] : " + a + "-" + b + " : [Team B]";
+        String scoreThree = "";
+        String scoreOne = "";
+        String scoreFour = "";
+        String scoreFive = "";
+        Result result = new Result(title,outcome,scoreOne,scoreTwo,scoreThree,scoreFour,scoreFive);
+        resultViewModel.insert(result);
     }
 }

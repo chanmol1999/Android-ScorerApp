@@ -11,6 +11,7 @@ import android.widget.Button;
 import com.example.anmol.courtcounter.Basketball.BasketballActivity;
 
 import com.example.anmol.courtcounter.LawnTennis.LawnTennisActivity;
+import com.example.anmol.courtcounter.SaveResults.ResultActivity;
 import com.example.anmol.courtcounter.TableTennis.TableTennisAcitivity;
 
 import com.example.anmol.courtcounter.Football.FootballActivity;
@@ -113,6 +114,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_about:
                 startActivity( new Intent( MainActivity.this, AboutActivity.class ) );
                 return true;
+
+            case R.id.action_savedResults:
+                startActivity(new Intent(MainActivity.this, ResultActivity.class));
+                return true;
+
             default:
                 return super.onOptionsItemSelected( item );
         }

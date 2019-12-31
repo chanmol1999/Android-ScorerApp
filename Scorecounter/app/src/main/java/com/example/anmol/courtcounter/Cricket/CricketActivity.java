@@ -4,6 +4,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.anmol.courtcounter.MainActivity;
 import com.example.anmol.courtcounter.R;
+import com.example.anmol.courtcounter.SaveResults.Result;
+import com.example.anmol.courtcounter.SaveResults.ResultViewModel;
 
 public class CricketActivity extends AppCompatActivity {
 
@@ -41,12 +45,15 @@ public class CricketActivity extends AppCompatActivity {
     String team;
     String format;
     Button resButton;
+    String result;
+    ResultViewModel resultViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_cricket );
 
+        resultViewModel = ViewModelProviders.of(this).get(ResultViewModel.class);
         team = getIntent().getStringExtra( "BAT_FIRST" );
         format = getIntent().getStringExtra( "MATCH_TYPE" );
         resButton = findViewById( R.id.resButton );
@@ -465,9 +472,11 @@ public class CricketActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder( this );
         if (scoreTeamA > scoreTeamB) {
             builder.setTitle( "Result : Team A wins!" );
+            result = "Result : Team A wins!";
             builder.setMessage( "Final Scoreline :" + "\nTeam A : " + scoreTeamA + "/" + wicketA + "\n" + "Team B : " + scoreTeamB + "/" + wicketB );
         } else if (scoreTeamA < scoreTeamB) {
             builder.setTitle( "Result : Team B wins!" );
+            result = "Result : Team B wins!";
             builder.setMessage( "Final Scoreline :" + "\nTeam B : " + scoreTeamB + "/" + wicketB + "\n" + "Team A : " + scoreTeamA + "/" + wicketA );
         } else if (scoreTeamA == scoreTeamB && MaxOvers == 20) {
             isSuperOver = true;
@@ -476,6 +485,7 @@ public class CricketActivity extends AppCompatActivity {
             builder.setMessage( "Final Scoreline :" + "\nTeam A : " + scoreTeamA + "/" + wicketA + "\n" + "Team B : " + scoreTeamB + "/" + wicketB );
         } else {
             builder.setTitle( "Match Tied" );
+            result = "Match Tied";
             builder.setMessage( "Final Scoreline :" + "\nTeam A : " + scoreTeamA + "/" + wicketA + "\n" + "Team B : " + scoreTeamB + "/" + wicketB );
         }
         if (!(scoreTeamA == scoreTeamB && isSuperOver)) {
@@ -499,6 +509,14 @@ public class CricketActivity extends AppCompatActivity {
                     }
                 }
             } );
+            builder.setNeutralButton("Save and Exit", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    addItems();
+                    Intent exit = new Intent( CricketActivity.this, MainActivity.class );
+                    startActivity( exit );
+                }
+            });
         } else {
             builder.setPositiveButton( "Continue", new DialogInterface.OnClickListener() {
                 @Override
@@ -507,7 +525,7 @@ public class CricketActivity extends AppCompatActivity {
                         dialog.dismiss();
                     }
                 }
-            } );
+            });
         }
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
@@ -585,6 +603,18 @@ public class CricketActivity extends AppCompatActivity {
         findViewById( R.id.team_b_ball_4 ).setBackgroundResource( R.color.transparent );
         findViewById( R.id.team_b_ball_5 ).setBackgroundResource( R.color.transparent );
         findViewById( R.id.team_b_ball_6 ).setBackgroundResource( R.color.transparent );
+    }
+
+    public void addItems(){
+        String title = "Cricket";
+        String outcome = result;
+        String scoreTwo = "[Team A] : " + scoreTeamA + "/" +wicketA ;
+        String scoreThree = "[Team B] : " + scoreTeamB + "/" +wicketB ;
+        String scoreFour ="";
+        String scoreOne = "";
+        String scoreFive = "";
+        Result result = new Result(title,outcome,scoreOne,scoreTwo,scoreThree,scoreFour,scoreFive);
+        resultViewModel.insert(result);
     }
 }
 

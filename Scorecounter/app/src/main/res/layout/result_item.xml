@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/twenty_dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="@dimen/tenDP">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+
+                android:id="@+id/text_view_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/basketball"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/ThirtyFiveSP"
+                 />
+
+            <TextView
+                android:id="@+id/text_view_outcome"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/modelResult"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="@dimen/TwentyFiveSP"/>
+
+            <TextView
+                android:id="@+id/text_view_scoreOne"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="@dimen/basket_text_size"
+                android:text="@string/model"/>
+
+            <TextView
+                android:id="@+id/text_view_scoreTwo"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="@dimen/basket_text_size"
+                android:text="@string/model"/>
+
+            <TextView
+                android:id="@+id/text_view_scoreThree"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="@dimen/basket_text_size"
+                android:text="@string/model"/>
+
+            <TextView
+                android:id="@+id/text_view_scoreFour"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="@dimen/basket_text_size"
+                android:text="@string/model"/>
+
+            <TextView
+                android:id="@+id/text_view_scoreFive"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="@dimen/basket_text_size"
+                android:text="@string/model" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
