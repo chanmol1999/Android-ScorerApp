@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -14,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anmol.courtcounter.R;
+import com.example.anmol.courtcounter.SaveResults.Result;
+import com.example.anmol.courtcounter.SaveResults.ResultViewModel;
 
 import java.util.Locale;
 
@@ -42,12 +46,14 @@ public class KabaddiActivity extends AppCompatActivity {
     private boolean mTimerRunning;
     private long START_TIME_IN_MILLIS = 2400000;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    private ResultViewModel resultViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_kabaddi );
 
+        resultViewModel = ViewModelProviders.of(this).get(ResultViewModel.class);
         scoreForTeamA = findViewById( R.id.team_a_score );
         scoreForTeamB = findViewById( R.id.team_b_score );
         finishButton = findViewById( R.id.finish );
@@ -278,6 +284,13 @@ public class KabaddiActivity extends AppCompatActivity {
                 finish();
             }
         } );
+        builder.setNeutralButton("Save and Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                addItems();
+                finish();
+            }
+        });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
@@ -303,5 +316,17 @@ public class KabaddiActivity extends AppCompatActivity {
         ButtonbonusB.setEnabled( true );
         ButtonallOutA.setEnabled( true );
         ButtonallOutB.setEnabled( true );
+    }
+
+    public void addItems(){
+        String title = "Kabaddi";
+        String outcome = "Result : " + winner;
+        String scoreTwo = "[Team A] : " + scoreA + "-" + scoreB + " : [Team B]";
+        String scoreThree = "";
+        String scoreOne = "";
+        String scoreFour = "";
+        String scoreFive = "";
+        Result result = new Result(title,outcome,scoreOne,scoreTwo,scoreThree,scoreFour,scoreFive);
+        resultViewModel.insert(result);
     }
 }

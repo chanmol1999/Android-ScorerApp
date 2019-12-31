@@ -3,6 +3,8 @@ package com.example.anmol.courtcounter.LawnTennis;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anmol.courtcounter.R;
+import com.example.anmol.courtcounter.SaveResults.Result;
+import com.example.anmol.courtcounter.SaveResults.ResultViewModel;
 
 public class LawnTennisActivity extends AppCompatActivity {
 
@@ -35,8 +39,19 @@ public class LawnTennisActivity extends AppCompatActivity {
     TextView gameFourTeamB;
     TextView gameFiveTeamA;
     TextView gameFiveTeamB;
-
     Button resetButton;
+    String SetOneA;
+    String SetOneB;
+    String SetTwoA;
+    String SetTwoB;
+    String SetThreeA;
+    String SetThreeB;
+    String SetFourA;
+    String SetFourB;
+    String SetFiveA;
+    String SetFiveB;
+    String result;
+    ResultViewModel resultViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +59,7 @@ public class LawnTennisActivity extends AppCompatActivity {
         setContentView( R.layout.activity_lawn_tennis );
         getSupportActionBar().setTitle( "Lawn Tennis" );
 
+        resultViewModel = ViewModelProviders.of(this).get(ResultViewModel.class);
         scoreForTeamA = findViewById( R.id.team_a_score );
         scoreForTeamB = findViewById( R.id.team_b_score );
         gameOneTeamA = findViewById( R.id.game1_a );
@@ -235,6 +251,17 @@ public class LawnTennisActivity extends AppCompatActivity {
 
         final android.app.AlertDialog.Builder builder = new AlertDialog.Builder( this );
         builder.setTitle( "Winner : " + winner );
+        result = "Winner : " + winner;
+        SetOneA = gameOneTeamA.getText().toString();
+        SetOneB = gameOneTeamB.getText().toString();
+        SetTwoA = gameTwoTeamA.getText().toString();
+        SetTwoB = gameTwoTeamB.getText().toString();
+        SetThreeA = gameThreeTeamA.getText().toString();
+        SetThreeB =gameThreeTeamB.getText().toString();
+        SetFourA = gameFourTeamA.getText().toString();
+        SetFourB = gameFourTeamB.getText().toString();
+        SetFiveA = gameFiveTeamA.getText().toString();
+        SetFiveB = gameFiveTeamB.getText().toString();
         builder.setMessage( "Final Scoreline : \n"
                 + "\n[Team A] " + gameOneTeamA.getText().toString() + " - " + gameOneTeamB.getText().toString() + " [Team B]" + "\t (Set-1)"
                 + "\n[Team A] " + gameTwoTeamA.getText().toString() + " - " + gameTwoTeamB.getText().toString() + " [Team B]" + "\t (Set-2)"
@@ -257,7 +284,13 @@ public class LawnTennisActivity extends AppCompatActivity {
                 }
             }
         } );
-
+        builder.setNeutralButton("Save and Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                addItems();
+                finish();
+            }
+        });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
@@ -272,5 +305,16 @@ public class LawnTennisActivity extends AppCompatActivity {
             winner = "TEAM B";
             WinnerAlert();
         }
+    }
+    public void addItems(){
+        String title = "Lawn Tennis";
+        String outcome = result;
+        String scoreOne = "[Team A] : " + SetOneA + "-" +SetOneB + " : [Team B]";
+        String scoreTwo = "[Team A] : " + SetTwoA + "-" +SetTwoB + " : [Team B]";
+        String scoreFour ="[Team A] : " + SetFourA + "-" +SetFourB + " : [Team B]";
+        String scoreThree = "[Team A] : " + SetThreeA + "-" +SetThreeB + " : [Team B]";
+        String scoreFive = "[Team A] : " + SetFiveA + "-" +SetFiveB + " : [Team B]";
+        Result result = new Result(title,outcome,scoreOne,scoreTwo,scoreThree,scoreFour,scoreFive);
+        resultViewModel.insert(result);
     }
 }

@@ -3,6 +3,8 @@ package com.example.anmol.courtcounter.TableTennis;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +12,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.anmol.courtcounter.R;
+import com.example.anmol.courtcounter.SaveResults.Result;
+import com.example.anmol.courtcounter.SaveResults.ResultViewModel;
 
 public class TableTennisAcitivity extends AppCompatActivity {
 
@@ -34,13 +38,26 @@ public class TableTennisAcitivity extends AppCompatActivity {
     TextView gameFiveTeamB;
     TextView winnerTeam;
     RelativeLayout winnerMessage;
-
     Button resetButton;
+    String SetOneA;
+    String SetOneB;
+    String SetTwoA;
+    String SetTwoB;
+    String SetThreeA;
+    String SetThreeB;
+    String SetFourA;
+    String SetFourB;
+    String SetFiveA;
+    String SetFiveB;
+    String result;
+    ResultViewModel resultViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_tennis_acitivity);
+
+        resultViewModel = ViewModelProviders.of(this).get(ResultViewModel.class);
 
         scoreForTeamA = findViewById(R.id.team_a_score);
         scoreForTeamB = findViewById(R.id.team_b_score);
@@ -154,6 +171,18 @@ public class TableTennisAcitivity extends AppCompatActivity {
 
         final android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Winner : " + winner);
+        result = "Winner :" + winner;
+        SetOneA = gameOneTeamA.getText().toString();
+        SetOneB = gameOneTeamB.getText().toString();
+        SetTwoA = gameTwoTeamA.getText().toString();
+        SetTwoB = gameTwoTeamB.getText().toString();
+        SetThreeA = gameThreeTeamA.getText().toString();
+        SetThreeB =gameThreeTeamB.getText().toString();
+        SetFourA = gameFourTeamA.getText().toString();
+        SetFourB = gameFourTeamB.getText().toString();
+        SetFiveA = gameFiveTeamA.getText().toString();
+        SetFiveB = gameFiveTeamB.getText().toString();
+
         builder.setMessage("Final Scoreline : \n"
                 +"\n[Team A] " + gameOneTeamA.getText().toString() +" - "+gameOneTeamB.getText().toString()+" [Team B]"+"\t (Set-1)"
                 +"\n[Team A] " + gameTwoTeamA.getText().toString() +" - "+gameTwoTeamB.getText().toString()+" [Team B]"+"\t (Set-2)"
@@ -172,6 +201,13 @@ public class TableTennisAcitivity extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i) {
               if(dialogInterface != null){  finish();
             }}
+        });
+        builder.setNeutralButton("Save and Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                addItems();
+                finish();
+            }
         });
 
         AlertDialog alertDialog = builder.create();
@@ -193,6 +229,18 @@ public class TableTennisAcitivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public void addItems(){
+        String title = "Table Tennis";
+        String outcome = result;
+        String scoreOne = "[Team A] : " + SetOneA + "-" +SetOneB + " : [Team B]";
+        String scoreTwo = "[Team A] : " + SetTwoA + "-" +SetTwoB + " : [Team B]";
+        String scoreFour ="[Team A] : " + SetFourA + "-" +SetFourB + " : [Team B]";
+        String scoreThree = "[Team A] : " + SetThreeA + "-" +SetThreeB + " : [Team B]";
+        String scoreFive = "[Team A] : " + SetFiveA + "-" +SetFiveB + " : [Team B]";
+        Result result = new Result(title,outcome,scoreOne,scoreTwo,scoreThree,scoreFour,scoreFive);
+        resultViewModel.insert(result);
     }
 
 }

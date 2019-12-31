@@ -60,5 +60,10 @@
     <string name="more_details">Currently there are 7 games in the application, for which you can store the score of the every match locally and get your result after clicking the finish button.</string>
     <string name="project_link">Click below, to contribute in this app</string>
     <string name="app_github">Github.com</string>
+
+    <string name="deleteMenu">Delete All Results</string>
+    <string name="savedResults">Saved Results</string>
+    <string name="model">[Team A] : 0-0 : [Team B]</string>
+    <string name="modelResult">Result : Team A wins!</string>
 </resources>
 

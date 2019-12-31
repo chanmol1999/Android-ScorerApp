@@ -4,6 +4,8 @@ import android.content.DialogInterface;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -14,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anmol.courtcounter.R;
+import com.example.anmol.courtcounter.SaveResults.Result;
+import com.example.anmol.courtcounter.SaveResults.ResultViewModel;
 
 public class VolleyballActivity extends AppCompatActivity {
 
@@ -27,12 +31,17 @@ public class VolleyballActivity extends AppCompatActivity {
     private TextView teamB_setScoreTextView;
     private TextView teamB_ScoreTextView;
     private TextView teamA_ScoreTextView;
+    private ResultViewModel resultViewModel;
 
-
+    String result;
+    String scoreA ;
+    String scoreB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_volleyball );
+
+        resultViewModel = ViewModelProviders.of(this).get(ResultViewModel.class);
 
         resetButton = findViewById( R.id.resetButton );
         switchButton = findViewById( R.id.switchButton );
@@ -151,7 +160,10 @@ public class VolleyballActivity extends AppCompatActivity {
         if (teamA_setScoreTextView.getText().toString().equals( "3" )) {
             AlertDialog.Builder dialog = new AlertDialog.Builder( this );
             dialog.setTitle( "Winner : TEAM A" );
-            dialog.setMessage( "Final Scoreline : \n" + "\n[Team A] : " + teamA_setScoreTextView.getText().toString() + " - " + teamB_setScoreTextView.getText().toString() + " : [Team B]" );
+            result = "Winner : TEAM A";
+            scoreA = teamA_setScoreTextView.getText().toString();
+            scoreB = teamB_setScoreTextView.getText().toString();
+            dialog.setMessage( "Final Scoreline : \n" + "\n[Team A] : " + scoreA + " - " + scoreB + " : [Team B]" );
             dialog.show();
             reset();
             dialog.setNegativeButton( "Play Again?", new DialogInterface.OnClickListener() {
@@ -170,13 +182,22 @@ public class VolleyballActivity extends AppCompatActivity {
                     }
                 }
             } );
+            dialog.setNeutralButton("Save and Exit", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    addItems();
+                    finish();
+                }
+            });
             AlertDialog alertDialog = dialog.create();
             alertDialog.show();
         } else if (teamB_setScoreTextView.getText().toString().equals( "3" )) {
             AlertDialog.Builder dialog = new AlertDialog.Builder( this );
             dialog.setTitle( "Winner : TEAM B" );
-            dialog.setMessage( "Final Scoreline : \n" + "\n[Team A] : " + teamA_setScoreTextView.getText().toString() + " - " + teamB_setScoreTextView.getText().toString() + " : [Team B]" );
-            reset();
+            result = "Winner : TEAM B";
+            scoreA = teamA_setScoreTextView.getText().toString();
+            scoreB = teamB_setScoreTextView.getText().toString();
+            dialog.setMessage( "Final Scoreline : \n" + "\n[Team A] : " + scoreA + " - " + scoreB + " : [Team B]" );            reset();
             dialog.setNegativeButton( "Play Again?", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     if (dialog != null) {
@@ -194,6 +215,13 @@ public class VolleyballActivity extends AppCompatActivity {
                     }
                 }
             } );
+            dialog.setNeutralButton("Save and Exit", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    addItems();
+                    finish();
+                }
+            });
             AlertDialog alertDialog = dialog.create();
             alertDialog.show();
         }
@@ -233,5 +261,16 @@ public class VolleyballActivity extends AppCompatActivity {
         teamA_setScoreTextView.setText( setScoreB );
         teamA_setScoreTextView.setTextColor( colorB );
 
+    }
+    public void addItems(){
+        String title = "Volleyball";
+        String outcome = result;
+        String scoreTwo = "[Team A] : " + scoreA + "-" +scoreB + " : [Team B]";
+        String scoreThree = "";
+        String scoreOne = "";
+        String scoreFour = "";
+        String scoreFive = "";
+        Result result = new Result(title,outcome,scoreOne,scoreTwo,scoreThree,scoreFour,scoreFive);
+        resultViewModel.insert(result);
     }
 }

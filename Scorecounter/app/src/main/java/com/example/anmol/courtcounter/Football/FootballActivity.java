@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -14,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.anmol.courtcounter.R;
+import com.example.anmol.courtcounter.SaveResults.Result;
+import com.example.anmol.courtcounter.SaveResults.ResultViewModel;
 
 import java.util.Locale;
 
@@ -43,11 +47,14 @@ public class FootballActivity extends AppCompatActivity {
     private long START_TIME_IN_MILLIS = 5400000;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
     MediaPlayer mediaPlayer;
+    private ResultViewModel resultViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_football );
+
+        resultViewModel = ViewModelProviders.of(this).get(ResultViewModel.class);
         scoreForTeamA = findViewById( R.id.team_a_score );
         scoreForTeamB = findViewById( R.id.team_b_score );
         finishButton = findViewById( R.id.finish );
@@ -246,6 +253,13 @@ public class FootballActivity extends AppCompatActivity {
                 finish();
             }
         } );
+        builder.setNeutralButton("Save and Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                addItems();
+                finish();
+            }
+        });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
@@ -316,5 +330,17 @@ public class FootballActivity extends AppCompatActivity {
         ButtonscoreA.setEnabled( true );
         ButtonscoreB.setEnabled( true );
 
+    }
+
+    public void addItems(){
+        String title = "Football";
+        String outcome = "Result : " + winner ;
+        String scoreTwo = "Red Cards for Team A = " + redCountA;
+        String scoreOne = "[Team A] : " + scoreA + "-" +scoreB + " : [Team B]";
+        String scoreThree ="Red Cards for Team B = " + redCountB;
+        String scoreFour = "Yellow card for Team A = " + yellowCountA ;
+        String scoreFive = "Yellow card for Team B = " + yellowCountB ;
+        Result result = new Result(title,outcome,scoreOne,scoreTwo,scoreThree,scoreFour,scoreFive);
+        resultViewModel.insert(result);
     }
 }
