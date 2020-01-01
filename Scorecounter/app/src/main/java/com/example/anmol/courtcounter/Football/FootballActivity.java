@@ -25,6 +25,8 @@ public class FootballActivity extends AppCompatActivity {
 
     int scoreA = 0;
     int scoreB = 0;
+    TextView teamAHeading;
+    TextView teamBHeading;
     String winner = "";
     TextView scoreForTeamA;
     TextView scoreForTeamB;
@@ -68,6 +70,8 @@ public class FootballActivity extends AppCompatActivity {
         ButtonscoreA = findViewById( R.id.scoreA );
         ButtonscoreB = findViewById( R.id.scoreB );
         mediaPlayer = MediaPlayer.create( this, R.raw.tick );
+        teamAHeading = findViewById(R.id.headA);
+        teamBHeading = findViewById(R.id.headB);
 
         buttonDisablebeforeMatch();
 
@@ -153,6 +157,55 @@ public class FootballActivity extends AppCompatActivity {
                     }
                 } );
                 builder.show();
+            }
+        } );
+        teamAHeading.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                androidx.appcompat.app.AlertDialog.Builder alertBuilder = new androidx.appcompat.app.AlertDialog.Builder( FootballActivity.this );
+                alertBuilder.setTitle( "Edit Team Name" );
+
+                final EditText input = new EditText( FootballActivity.this );
+                input.setInputType( InputType.TYPE_CLASS_TEXT );
+                alertBuilder.setView( input );
+                alertBuilder.setPositiveButton( "Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        teamAHeading.setText( input.getText() );
+                    }
+                } );
+                alertBuilder.setNegativeButton( "Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                } );
+                alertBuilder.show();
+            }
+        } );
+
+        teamBHeading.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                androidx.appcompat.app.AlertDialog.Builder alertBuilder = new androidx.appcompat.app.AlertDialog.Builder( FootballActivity.this );
+                alertBuilder.setTitle( "Edit Team Name" );
+
+                final EditText input = new EditText( FootballActivity.this );
+                input.setInputType( InputType.TYPE_CLASS_TEXT );
+                alertBuilder.setView( input );
+                alertBuilder.setPositiveButton( "Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        teamBHeading.setText( input.getText() );
+                    }
+                } );
+                alertBuilder.setNegativeButton( "Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                } );
+                alertBuilder.show();
             }
         } );
     }

@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.anmol.courtcounter.Basketball.BasketballActivity;
 import com.example.anmol.courtcounter.R;
 import com.example.anmol.courtcounter.SaveResults.Result;
 import com.example.anmol.courtcounter.SaveResults.ResultViewModel;
@@ -30,6 +33,8 @@ public class BadmintonActivity extends AppCompatActivity {
     TextView gameTwoTeamB;
     TextView gameThreeTeamA;
     TextView gameThreeTeamB;
+    TextView teamAHeading;
+    TextView teamBHeading;
     Button resetButton;
     String SetOneA;
     String SetOneB;
@@ -55,13 +60,64 @@ public class BadmintonActivity extends AppCompatActivity {
         gameThreeTeamA = findViewById(R.id.game3_a);
         gameThreeTeamB = findViewById(R.id.game3_b);
         resetButton = findViewById(R.id.resetB);
-
+        teamAHeading = findViewById(R.id.TeamA_Textview);
+        teamBHeading = findViewById(R.id.TeamB_Textview);
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 resetScore();
             }
         });
+
+        teamAHeading.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder( BadmintonActivity.this );
+                alertBuilder.setTitle( "Edit Team Name" );
+
+                final EditText input = new EditText( BadmintonActivity.this );
+                input.setInputType( InputType.TYPE_CLASS_TEXT );
+                alertBuilder.setView( input );
+                alertBuilder.setPositiveButton( "Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        teamAHeading.setText( input.getText() );
+                    }
+                } );
+                alertBuilder.setNegativeButton( "Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                } );
+                alertBuilder.show();
+            }
+        } );
+
+        teamBHeading.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder( BadmintonActivity.this );
+                alertBuilder.setTitle( "Edit Team Name" );
+
+                final EditText input = new EditText( BadmintonActivity.this );
+                input.setInputType( InputType.TYPE_CLASS_TEXT );
+                alertBuilder.setView( input );
+                alertBuilder.setPositiveButton( "Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        teamBHeading.setText( input.getText() );
+                    }
+                } );
+                alertBuilder.setNegativeButton( "Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                } );
+                alertBuilder.show();
+            }
+        } );
 
     }
     public void displayScore() {

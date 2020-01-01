@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,7 +25,8 @@ public class TableTennisAcitivity extends AppCompatActivity {
     int gameB = 0;
     int resetCounter = 0;
     String winner="";
-
+    TextView teamAHeading;
+    TextView teamBHeading;
     TextView scoreForTeamA;
     TextView scoreForTeamB;
     TextView gameOneTeamA;
@@ -71,7 +74,8 @@ public class TableTennisAcitivity extends AppCompatActivity {
         gameFourTeamB = findViewById(R.id.game4_b);
         gameFiveTeamA = findViewById(R.id.game5_a);
         gameFiveTeamB = findViewById(R.id.game5_b);
-
+        teamAHeading = findViewById(R.id.headA);
+        teamBHeading = findViewById(R.id.headB);
       resetButton = findViewById(R.id.Reset_Button);
        resetButton.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -80,6 +84,55 @@ public class TableTennisAcitivity extends AppCompatActivity {
             }
         });
 
+        teamAHeading.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                androidx.appcompat.app.AlertDialog.Builder alertBuilder = new androidx.appcompat.app.AlertDialog.Builder( TableTennisAcitivity.this );
+                alertBuilder.setTitle( "Edit Team Name" );
+
+                final EditText input = new EditText( TableTennisAcitivity.this );
+                input.setInputType( InputType.TYPE_CLASS_TEXT );
+                alertBuilder.setView( input );
+                alertBuilder.setPositiveButton( "Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        teamAHeading.setText( input.getText() );
+                    }
+                } );
+                alertBuilder.setNegativeButton( "Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                } );
+                alertBuilder.show();
+            }
+        } );
+
+        teamBHeading.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                androidx.appcompat.app.AlertDialog.Builder alertBuilder = new androidx.appcompat.app.AlertDialog.Builder( TableTennisAcitivity.this );
+                alertBuilder.setTitle( "Edit Team Name" );
+
+                final EditText input = new EditText( TableTennisAcitivity.this );
+                input.setInputType( InputType.TYPE_CLASS_TEXT );
+                alertBuilder.setView( input );
+                alertBuilder.setPositiveButton( "Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        teamBHeading.setText( input.getText() );
+                    }
+                } );
+                alertBuilder.setNegativeButton( "Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                } );
+                alertBuilder.show();
+            }
+        } );
     }
     public void displayScore() {
         scoreForTeamA.setText(String.valueOf(scoreA));
