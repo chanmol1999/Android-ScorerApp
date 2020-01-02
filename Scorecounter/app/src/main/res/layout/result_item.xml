@@ -1,50 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/twenty_dp"
-    >
+    app:cardCornerRadius="@dimen/fifteenDP">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/bg_orange">
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center">
+        <TextView
+            android:id="@+id/text_view_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/basketball"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/ThirtyFiveSP" />
+      </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:padding="@dimen/tenDP">
+        android:padding="@dimen/tenDP"
+        android:background="@android:color/white">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-
-            <TextView
-
-                android:id="@+id/text_view_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/basketball"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/ThirtyFiveSP"
-                 />
-
+            android:orientation="vertical">
             <TextView
                 android:id="@+id/text_view_outcome"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/modelResult"
-                android:textColor="@android:color/holo_green_dark"
-                android:textSize="@dimen/TwentyFiveSP"/>
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/text20"/>
 
             <TextView
                 android:id="@+id/text_view_scoreOne"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="@dimen/basket_text_size"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/fifteenSP"
                 android:text="@string/model"/>
 
             <TextView
@@ -52,8 +61,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="@dimen/basket_text_size"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/fifteenSP"
                 android:text="@string/model"/>
 
             <TextView
@@ -61,8 +70,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="@dimen/basket_text_size"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/fifteenSP"
                 android:text="@string/model"/>
 
             <TextView
@@ -70,8 +79,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="@dimen/basket_text_size"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/fifteenSP"
                 android:text="@string/model"/>
 
             <TextView
@@ -79,12 +88,23 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="@dimen/basket_text_size"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/fifteenSP"
                 android:text="@string/model" />
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="@dimen/eightyDP"
+            android:layout_height="@dimen/eightyDP">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/logo" />
+
+        </LinearLayout>
+    </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
