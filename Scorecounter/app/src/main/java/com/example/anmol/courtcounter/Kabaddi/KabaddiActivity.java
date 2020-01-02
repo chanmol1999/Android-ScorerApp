@@ -25,6 +25,8 @@ public class KabaddiActivity extends AppCompatActivity {
 
     int scoreA = 0;
     int scoreB = 0;
+    TextView teamAHeading;
+    TextView teamBHeading;
     String winner = "";
     TextView scoreForTeamA;
     TextView scoreForTeamB;
@@ -83,6 +85,8 @@ public class KabaddiActivity extends AppCompatActivity {
         ButtonallOutA = findViewById( R.id.yellowCard_TeamA );
         ButtonallOutB = findViewById( R.id.yellowCard_TeamB );
         mediaPlayer = MediaPlayer.create( this, R.raw.tick );
+        teamAHeading = findViewById(R.id.headA);
+        teamBHeading = findViewById(R.id.headB);
         buttonDisable();
 
         mTextViewCountDown.setOnClickListener( new View.OnClickListener() {
@@ -179,6 +183,56 @@ public class KabaddiActivity extends AppCompatActivity {
             }
         } );
         updateCountDownText();
+
+        teamAHeading.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                androidx.appcompat.app.AlertDialog.Builder alertBuilder = new androidx.appcompat.app.AlertDialog.Builder( KabaddiActivity.this );
+                alertBuilder.setTitle( "Edit Team Name" );
+
+                final EditText input = new EditText( KabaddiActivity.this );
+                input.setInputType( InputType.TYPE_CLASS_TEXT );
+                alertBuilder.setView( input );
+                alertBuilder.setPositiveButton( "Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        teamAHeading.setText( input.getText() );
+                    }
+                } );
+                alertBuilder.setNegativeButton( "Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                } );
+                alertBuilder.show();
+            }
+        } );
+
+        teamBHeading.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                androidx.appcompat.app.AlertDialog.Builder alertBuilder = new androidx.appcompat.app.AlertDialog.Builder( KabaddiActivity.this );
+                alertBuilder.setTitle( "Edit Team Name" );
+
+                final EditText input = new EditText( KabaddiActivity.this );
+                input.setInputType( InputType.TYPE_CLASS_TEXT );
+                alertBuilder.setView( input );
+                alertBuilder.setPositiveButton( "Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        teamBHeading.setText( input.getText() );
+                    }
+                } );
+                alertBuilder.setNegativeButton( "Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                } );
+                alertBuilder.show();
+            }
+        } );
     }
 
     private void startTimer() {

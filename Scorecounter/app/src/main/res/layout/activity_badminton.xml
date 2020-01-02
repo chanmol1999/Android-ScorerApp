@@ -22,6 +22,7 @@
                 <LinearLayout style="@style/LinearColumn">
 
                     <TextView
+                        android:id="@+id/TeamA_Textview"
                         style="@style/headings"
                         android:text="@string/team_a"
                         android:textColor="@color/headingBlue" />
@@ -43,6 +44,7 @@
                 <LinearLayout style="@style/LinearColumn">
 
                     <TextView
+                        android:id="@+id/TeamB_Textview"
                         style="@style/headings"
                         android:text="@string/team_b"
                         android:textColor="@color/headingRed" />
