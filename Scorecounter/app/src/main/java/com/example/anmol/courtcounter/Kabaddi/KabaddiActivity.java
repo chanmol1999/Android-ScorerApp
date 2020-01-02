@@ -301,11 +301,11 @@ public class KabaddiActivity extends AppCompatActivity {
 
     public void checkGameWinner() {
         if (scoreA > scoreB) {
-            winner = "Team A wins!";
+            winner = teamAHeading.getText().toString();
         } else if (scoreB > scoreA) {
-            winner = "Team B wins!";
+            winner = teamBHeading.getText().toString();
         } else if (scoreA == scoreB) {
-            winner = "It's a Tie!";
+            winner = "Tie";
         } else {
             Toast.makeText( KabaddiActivity.this, "Error occured", Toast.LENGTH_SHORT ).show();
         }
@@ -324,8 +324,8 @@ public class KabaddiActivity extends AppCompatActivity {
 
     public void Alert() {
         final android.app.AlertDialog.Builder builder = new AlertDialog.Builder( this );
-        builder.setTitle( "Result: " + winner );
-        builder.setMessage( "Final Scoreline : " + "\n[Team A] : " + scoreA + " - " + scoreB + " : [Team B]" );
+        builder.setTitle( "Winner: " + winner );
+        builder.setMessage( "Final Score line: "+"\n["+teamAHeading.getText().toString() +"] " + scoreA +" - "+scoreB+" ["+teamBHeading.getText().toString()+"]");
         builder.setPositiveButton( "Play Again?", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -374,8 +374,8 @@ public class KabaddiActivity extends AppCompatActivity {
 
     public void addItems(){
         String title = "Kabaddi";
-        String outcome = "Result : " + winner;
-        String scoreTwo = "[Team A] : " + scoreA + "-" + scoreB + " : [Team B]";
+        String outcome = "Winner : " + winner;
+        String scoreTwo = teamAHeading.getText().toString() +": " + scoreA + "-" +scoreB + " :" +teamBHeading.getText().toString();
         String scoreThree = "";
         String scoreOne = "";
         String scoreFour = "";

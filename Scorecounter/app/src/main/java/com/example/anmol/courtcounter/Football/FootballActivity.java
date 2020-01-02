@@ -266,11 +266,11 @@ public class FootballActivity extends AppCompatActivity {
 
     public void checkGameWinner() {
         if (scoreA > scoreB) {
-            winner = "Team A wins!";
+            winner = teamAHeading.getText().toString();
         } else if (scoreB > scoreA) {
-            winner = "Team B wins!";
+            winner = teamBHeading.getText().toString();
         } else if (scoreA == scoreB) {
-            winner = "It's a Tie!";
+            winner = "Tie";
         } else {
             Toast.makeText( FootballActivity.this, "Error occured", Toast.LENGTH_SHORT ).show();
         }
@@ -292,8 +292,8 @@ public class FootballActivity extends AppCompatActivity {
 
     public void Alert() {
         final android.app.AlertDialog.Builder builder = new AlertDialog.Builder( this );
-        builder.setTitle( "Result : " + winner );
-        builder.setMessage( "Final score line : " + scoreA + "-" + scoreB + "\n" + "\nRed Cards for Team A = " + redCountA + "\nRed Cards for Team B = " + redCountB + "\nYellow card for Team A = " + yellowCountA + "\nYellow card for Team B = " + yellowCountB );
+        builder.setTitle( "Winner : " + winner );
+        builder.setMessage( "Final Score line: "+"\n["+teamAHeading.getText().toString() +"] " + scoreA +" - "+scoreB+" ["+teamBHeading.getText().toString()+"]" + "\n" + "\nRed Cards for "+teamAHeading.getText().toString()+" = " + redCountA + "\nRed Cards for "+teamBHeading.getText().toString()+" = " + redCountB + "\nYellow card for "+teamAHeading.getText().toString()+" = " + yellowCountA + "\nYellow card for "+teamBHeading.getText().toString()+" = " + yellowCountB );
         builder.setPositiveButton( "Play Again?", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -387,12 +387,12 @@ public class FootballActivity extends AppCompatActivity {
 
     public void addItems(){
         String title = "Football";
-        String outcome = "Result : " + winner ;
-        String scoreTwo = "Red Cards for Team A = " + redCountA;
-        String scoreOne = "[Team A] : " + scoreA + "-" +scoreB + " : [Team B]";
-        String scoreThree ="Red Cards for Team B = " + redCountB;
-        String scoreFour = "Yellow card for Team A = " + yellowCountA ;
-        String scoreFive = "Yellow card for Team B = " + yellowCountB ;
+        String outcome = "Winner : " + winner ;
+        String scoreTwo = "Red Cards for "+teamAHeading.getText().toString()+" = " + redCountA;
+        String scoreOne = teamAHeading.getText().toString() +": " + scoreA + "-" +scoreB + " :" +teamBHeading.getText().toString();
+        String scoreThree ="Red Cards for "+teamBHeading.getText().toString()+" = " + redCountB;
+        String scoreFour = "Yellow Cards for "+teamAHeading.getText().toString()+" = " + yellowCountA ;
+        String scoreFive = "Yellow Cards for "+teamBHeading.getText().toString()+" = " + yellowCountB ;
         Result result = new Result(title,outcome,scoreOne,scoreTwo,scoreThree,scoreFour,scoreFive);
         resultViewModel.insert(result);
     }

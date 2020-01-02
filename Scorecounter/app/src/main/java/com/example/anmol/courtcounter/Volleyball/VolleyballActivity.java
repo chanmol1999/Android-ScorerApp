@@ -159,13 +159,11 @@ public class VolleyballActivity extends AppCompatActivity {
 
         if (teamA_setScoreTextView.getText().toString().equals( "3" )) {
             AlertDialog.Builder dialog = new AlertDialog.Builder( this );
-            dialog.setTitle( "Winner : TEAM A" );
-            result = "Winner : TEAM A";
+            dialog.setTitle( "Winner : " + teamAname.getText().toString() );
+            result = "Winner : "+ teamAname.getText().toString();
             scoreA = teamA_setScoreTextView.getText().toString();
             scoreB = teamB_setScoreTextView.getText().toString();
-            dialog.setMessage( "Final Scoreline : \n" + "\n[Team A] : " + scoreA + " - " + scoreB + " : [Team B]" );
-            dialog.show();
-            reset();
+            dialog.setMessage( "Final Scoreline : \n" + "\n[" +teamAname.getText().toString()+"] : " + scoreA + " - " + scoreB + " : ["+teamBname.getText().toString()+"]" );
             dialog.setNegativeButton( "Play Again?", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     if (dialog != null) {
@@ -193,11 +191,11 @@ public class VolleyballActivity extends AppCompatActivity {
             alertDialog.show();
         } else if (teamB_setScoreTextView.getText().toString().equals( "3" )) {
             AlertDialog.Builder dialog = new AlertDialog.Builder( this );
-            dialog.setTitle( "Winner : TEAM B" );
-            result = "Winner : TEAM B";
+            dialog.setTitle( "Winner : " + teamBname.getText().toString() );
+            result = "Winner : "+ teamBname.getText().toString();
             scoreA = teamA_setScoreTextView.getText().toString();
             scoreB = teamB_setScoreTextView.getText().toString();
-            dialog.setMessage( "Final Scoreline : \n" + "\n[Team A] : " + scoreA + " - " + scoreB + " : [Team B]" );            reset();
+            dialog.setMessage( "Final Scoreline : \n" + "\n[" +teamAname.getText().toString()+"] : " + scoreA + " - " + scoreB + " : ["+teamBname.getText().toString()+"]" );
             dialog.setNegativeButton( "Play Again?", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     if (dialog != null) {
@@ -265,7 +263,7 @@ public class VolleyballActivity extends AppCompatActivity {
     public void addItems(){
         String title = "Volleyball";
         String outcome = result;
-        String scoreTwo = "[Team A] : " + scoreA + "-" +scoreB + " : [Team B]";
+        String scoreTwo = teamAname.getText().toString() +": " + scoreA + "-" +scoreB + " :" +teamBname.getText().toString();
         String scoreThree = "";
         String scoreOne = "";
         String scoreFour = "";

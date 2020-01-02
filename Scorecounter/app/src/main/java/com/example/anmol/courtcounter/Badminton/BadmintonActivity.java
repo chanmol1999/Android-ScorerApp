@@ -149,8 +149,8 @@ public class BadmintonActivity extends AppCompatActivity {
     public void winnerMessage() {
         if (gameA > 1) {
             AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-            dialog.setTitle("Winner : TEAM A");
-            result = "Winner : TEAM A";
+            dialog.setTitle("Winner : "+teamAHeading.getText().toString());
+            result = "Winner : "+teamAHeading.getText().toString();
             SetOneA = gameOneTeamA.getText().toString();
             SetOneB = gameOneTeamB.getText().toString();
             SetTwoA = gameTwoTeamA.getText().toString();
@@ -160,9 +160,9 @@ public class BadmintonActivity extends AppCompatActivity {
 
 
             dialog.setMessage("Final Scoreline : \n"
-                            +"\n[Team A] " + gameOneTeamA.getText().toString() +" - "+gameOneTeamB.getText().toString()+" [Team B]"+"\t (Set-1)"
-                            +"\n[Team A] " + gameTwoTeamA.getText().toString() +" - "+gameTwoTeamB.getText().toString()+" [Team B]"+"\t (Set-2)"
-                            +"\n[Team A] " + gameThreeTeamA.getText().toString() +" - "+gameThreeTeamB.getText().toString()+" [Team B]"+"\t (Set-3)");
+                            +"\n["+teamAHeading.getText().toString() +"] " + gameOneTeamA.getText().toString() +" - "+gameOneTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-1)"
+                            +"\n["+teamAHeading.getText().toString() +"] " + gameTwoTeamA.getText().toString() +" - "+gameTwoTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-2)"
+                            +"\n["+teamAHeading.getText().toString() +"] " + gameThreeTeamA.getText().toString() +" - "+gameThreeTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-3)");
             resetScore();
            dialog.setNegativeButton("Play Again?", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
@@ -195,8 +195,8 @@ public class BadmintonActivity extends AppCompatActivity {
             dialog.show();}
         if (gameB > 1) {
             AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-            dialog.setTitle("Winner : TEAM B");
-            result = "Winner : TEAM B";
+            dialog.setTitle("Winner : "+teamBHeading.getText().toString());
+            result = "Winner : "+teamBHeading.getText().toString();
             SetOneA = gameOneTeamA.getText().toString();
             SetOneB = gameOneTeamB.getText().toString();
             SetTwoA = gameTwoTeamA.getText().toString();
@@ -205,9 +205,9 @@ public class BadmintonActivity extends AppCompatActivity {
             SetThreeB =gameThreeTeamB.getText().toString();
             dialog.setMessage("Final Scoreline : \n"
 
-                    +"\n[Team A] " + gameOneTeamA.getText().toString() +" - "+gameOneTeamB.getText().toString()+" [Team B]"+"\t (Set-1)"
-                    +"\n[Team A] " + gameTwoTeamA.getText().toString() +" - "+gameTwoTeamB.getText().toString()+" [Team B]"+"\t (Set-2)"
-                    +"\n[Team A] " + gameThreeTeamA.getText().toString() +" - "+gameThreeTeamB.getText().toString()+" [Team B]"+"\t (Set-3)");
+                    +"\n["+teamAHeading.getText().toString() +"] " + gameOneTeamA.getText().toString() +" - "+gameOneTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-1)"
+                    +"\n["+teamAHeading.getText().toString() +"] " + gameTwoTeamA.getText().toString() +" - "+gameTwoTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-2)"
+                    +"\n["+teamAHeading.getText().toString() +"] " + gameThreeTeamA.getText().toString() +" - "+gameThreeTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-3)");
             resetScore();
             dialog.setNegativeButton("Play Again?", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
@@ -279,9 +279,9 @@ public class BadmintonActivity extends AppCompatActivity {
         String title = "Badminton";
         String outcome = result;
         String scoreOne = "";
-        String scoreTwo = "[Team A] : " + SetOneA + "-" +SetOneB + " : [Team B]";
-        String scoreThree ="[Team A] : " + SetTwoA + "-" +SetTwoB + " : [Team B]";
-        String scoreFour = "[Team A] : " + SetThreeA + "-" +SetThreeB + " : [Team B]";
+        String scoreTwo = teamAHeading.getText().toString() +": " + SetOneA + "-" +SetOneB + " :" +teamBHeading.getText().toString();
+        String scoreThree=teamAHeading.getText().toString() +": " + SetTwoA + "-" +SetTwoB + " :" +teamBHeading.getText().toString();
+        String scoreFour= teamAHeading.getText().toString() +": " + SetThreeA + "-" +SetThreeB + " :" +teamBHeading.getText().toString();
         String scoreFive = "";
         Result result = new Result(title,outcome,scoreOne,scoreTwo,scoreThree,scoreFour,scoreFive);
         resultViewModel.insert(result);

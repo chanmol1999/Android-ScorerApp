@@ -527,22 +527,22 @@ public class CricketActivity extends AppCompatActivity {
         teamBBat = false;
         AlertDialog.Builder builder = new AlertDialog.Builder( this );
         if (scoreTeamA > scoreTeamB) {
-            builder.setTitle( "Result : Team A wins!" );
-            result = "Result : Team A wins!";
-            builder.setMessage( "Final Scoreline :" + "\nTeam A : " + scoreTeamA + "/" + wicketA + "\n" + "Team B : " + scoreTeamB + "/" + wicketB );
+            builder.setTitle( "Winner : "+ teamAHeading.getText().toString() );
+            result = "Winner : "+ teamAHeading.getText().toString();
+            builder.setMessage( "Final Scoreline :" + "\n"+teamAHeading.getText().toString() +": " + scoreTeamA + "/" + wicketA + "\n"+ teamBHeading.getText().toString() + ": " + scoreTeamB + "/" + wicketB );
         } else if (scoreTeamA < scoreTeamB) {
-            builder.setTitle( "Result : Team B wins!" );
-            result = "Result : Team B wins!";
-            builder.setMessage( "Final Scoreline :" + "\nTeam B : " + scoreTeamB + "/" + wicketB + "\n" + "Team A : " + scoreTeamA + "/" + wicketA );
+            builder.setTitle( "Winner : "+ teamBHeading.getText().toString() );
+            result = "Winner : "+ teamBHeading.getText().toString();
+            builder.setMessage( "Final Scoreline :" + "\n"+teamAHeading.getText().toString() +": " + scoreTeamA + "/" + wicketA + "\n"+ teamBHeading.getText().toString() + ": " + scoreTeamB + "/" + wicketB );
         } else if (scoreTeamA == scoreTeamB && MaxOvers == 20) {
             isSuperOver = true;
             superOver();
             builder.setTitle( "Scores Tied, Super Over!" );
-            builder.setMessage( "Final Scoreline :" + "\nTeam A : " + scoreTeamA + "/" + wicketA + "\n" + "Team B : " + scoreTeamB + "/" + wicketB );
+            builder.setMessage( "Final Scoreline :" + "\n"+teamAHeading.getText().toString() +": " + scoreTeamA + "/" + wicketA + "\n"+ teamBHeading.getText().toString() + ": " + scoreTeamB + "/" + wicketB );
         } else {
             builder.setTitle( "Match Tied" );
             result = "Match Tied";
-            builder.setMessage( "Final Scoreline :" + "\nTeam A : " + scoreTeamA + "/" + wicketA + "\n" + "Team B : " + scoreTeamB + "/" + wicketB );
+            builder.setMessage( "Final Scoreline :" + "\n"+teamAHeading.getText().toString() +": " + scoreTeamA + "/" + wicketA + "\n"+ teamBHeading.getText().toString() + ": " + scoreTeamB + "/" + wicketB );
         }
         if (!(scoreTeamA == scoreTeamB && isSuperOver)) {
             builder.setNegativeButton( "ANOTHER GAME", new DialogInterface.OnClickListener() {
@@ -664,8 +664,8 @@ public class CricketActivity extends AppCompatActivity {
     public void addItems(){
         String title = "Cricket";
         String outcome = result;
-        String scoreTwo = "[Team A] : " + scoreTeamA + "/" +wicketA ;
-        String scoreThree = "[Team B] : " + scoreTeamB + "/" +wicketB ;
+        String scoreTwo = teamAHeading.getText().toString() + ": " + scoreTeamA + "/" +wicketA ;
+        String scoreThree = teamBHeading.getText().toString() + ": " + scoreTeamB + "/" +wicketB ;
         String scoreFour ="";
         String scoreOne = "";
         String scoreFive = "";
