@@ -237,11 +237,11 @@ public class TableTennisAcitivity extends AppCompatActivity {
         SetFiveB = gameFiveTeamB.getText().toString();
 
         builder.setMessage("Final Scoreline : \n"
-                +"\n[Team A] " + gameOneTeamA.getText().toString() +" - "+gameOneTeamB.getText().toString()+" [Team B]"+"\t (Set-1)"
-                +"\n[Team A] " + gameTwoTeamA.getText().toString() +" - "+gameTwoTeamB.getText().toString()+" [Team B]"+"\t (Set-2)"
-                +"\n[Team A] " + gameThreeTeamA.getText().toString() +" - "+gameThreeTeamB.getText().toString()+" [Team B]"+"\t (Set-3)"
-                +"\n[Team A] " + gameFourTeamA.getText().toString() +" - "+gameFourTeamB.getText().toString()+" [Team B]"+"\t (Set-4)"
-                +"\n[Team A] " + gameFiveTeamA.getText().toString() +" - "+gameFiveTeamB.getText().toString()+" [Team B]"+"\t (Set-5)");
+                +"\n["+teamAHeading.getText().toString() +"] " + gameOneTeamA.getText().toString() +" - "+gameOneTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-1)"
+                +"\n["+teamAHeading.getText().toString() +"] " + gameTwoTeamA.getText().toString() +" - "+gameTwoTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-2)"
+                +"\n["+teamAHeading.getText().toString() +"] " + gameThreeTeamA.getText().toString() +" - "+gameThreeTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-3)"
+                +"\n["+teamAHeading.getText().toString() +"] " + gameFourTeamA.getText().toString() +" - "+gameFourTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-4)"
+                +"\n["+teamAHeading.getText().toString() +"] " + gameFiveTeamA.getText().toString() +" - "+gameFiveTeamA.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-5)");
         builder.setPositiveButton("New Game?", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -271,12 +271,12 @@ public class TableTennisAcitivity extends AppCompatActivity {
     public void winnerMessage() {
 
         if (gameA > 2) {
-            winner = "TEAM A";
+            winner = teamAHeading.getText().toString();
             WinnerAlert();
 
         }
         if (gameB > 2) {
-            winner = "TEAM B";
+            winner = teamBHeading.getText().toString();
             WinnerAlert();
 
         }
@@ -287,11 +287,11 @@ public class TableTennisAcitivity extends AppCompatActivity {
     public void addItems(){
         String title = "Table Tennis";
         String outcome = result;
-        String scoreOne = "[Team A] : " + SetOneA + "-" +SetOneB + " : [Team B]";
-        String scoreTwo = "[Team A] : " + SetTwoA + "-" +SetTwoB + " : [Team B]";
-        String scoreFour ="[Team A] : " + SetFourA + "-" +SetFourB + " : [Team B]";
-        String scoreThree = "[Team A] : " + SetThreeA + "-" +SetThreeB + " : [Team B]";
-        String scoreFive = "[Team A] : " + SetFiveA + "-" +SetFiveB + " : [Team B]";
+        String scoreOne = teamAHeading.getText().toString() +": " + SetOneA + "-" +SetOneB + " :" +teamBHeading.getText().toString();
+        String scoreTwo = teamAHeading.getText().toString() +": " + SetTwoA + "-" +SetTwoB + " :" +teamBHeading.getText().toString();
+        String scoreFour =teamAHeading.getText().toString() +": " + SetFourA + "-" +SetFourB + " :" +teamBHeading.getText().toString();
+        String scoreThree = teamAHeading.getText().toString() +": " + SetThreeA + "-" +SetThreeA + " :" +teamBHeading.getText().toString();
+        String scoreFive = teamAHeading.getText().toString() +": " + SetFiveA + "-" +SetFiveB + " :" +teamBHeading.getText().toString();
         Result result = new Result(title,outcome,scoreOne,scoreTwo,scoreThree,scoreFour,scoreFive);
         resultViewModel.insert(result);
     }

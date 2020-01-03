@@ -298,17 +298,18 @@ public class BasketballActivity extends AppCompatActivity {
 
     public void finish(View view) {
         if (a > b)
-            w = "Team A wins!";
+            w = nameTeamA.getText().toString();
         if (b > a)
-            w = "Team B wins!";
+            w = nameTeamB.getText().toString();
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         if (w != "") {
-            builder.setTitle("Result : " + w);
-            builder.setMessage("Final score line : \n"+"\n"+"[Team A] : " + a + "-" + b + " : [Team B]");
+            builder.setTitle("Winner : " + w);
+            builder.setMessage("Final score line : \n"+"\n["+nameTeamA.getText().toString() +"] "+ a + "-" + b + " : ["+nameTeamB.getText().toString()+"]");
         }
         else{
-            builder.setTitle("Result : It's a Tie");
-            builder.setMessage("Final score line : \n"+"\n"+"[Team A] : " + a + "-" + b + " : [Team B]");
+            w = "Tie";
+            builder.setTitle("Winner : "+w);
+            builder.setMessage("Final score line : \n"+"\n["+nameTeamA.getText().toString() +"] "+ a + "-" + b + " : ["+nameTeamB.getText().toString()+"]");
 
         }
         builder.setNegativeButton("Play Again?", new DialogInterface.OnClickListener() {
@@ -386,8 +387,8 @@ public class BasketballActivity extends AppCompatActivity {
 
     public void addItems(){
         String title = "Basketball";
-        String outcome = "Result : " + w;
-        String scoreTwo = "[Team A] : " + a + "-" + b + " : [Team B]";
+        String outcome = "Winner : "+ w;
+        String scoreTwo = nameTeamA.getText().toString() +": "+ a + "-" + b + " : "+nameTeamB.getText().toString();
         String scoreThree = "";
         String scoreOne = "";
         String scoreFour = "";
