@@ -43,7 +43,7 @@ public class ResultActivity extends AppCompatActivity {
         resultViewModel.getAllResults().observe(this, new Observer<List<Result>>() {
             @Override
             public void onChanged(List<Result> results) {
-                adapter.setResults(results);
+                adapter.submitList(results);
             }
         });
 

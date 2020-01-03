@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.anmol.courtcounter.R;
@@ -13,9 +15,31 @@ import com.example.anmol.courtcounter.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultHolder> {
+public class ResultAdapter extends ListAdapter<Result, ResultAdapter.ResultHolder> {
 
-    private List<Result> results = new ArrayList<>();
+
+    public ResultAdapter() {
+        super(DIFF_CALLBACK);
+    }
+
+    public static final DiffUtil.ItemCallback<Result> DIFF_CALLBACK = new DiffUtil.ItemCallback<Result>() {
+        @Override
+        public boolean areItemsTheSame(@NonNull Result oldItem, @NonNull Result newItem) {
+            return oldItem.getId() == newItem.getId();
+        }
+
+        @Override
+        public boolean areContentsTheSame(@NonNull Result oldItem, @NonNull Result newItem) {
+            return  oldItem.getTitle().equals(newItem.getTitle()) &&
+                    oldItem.getOutcome().equals(newItem.getOutcome()) &&
+                    oldItem.getScoreOne().equals(newItem.getScoreOne())&&
+                    oldItem.getScoreTwo().equals(newItem.getScoreTwo())&&
+                    oldItem.getScoreThree().equals(newItem.getScoreThree())&&
+                    oldItem.getScoreFour().equals(newItem.getScoreFour())&&
+                    oldItem.getScoreFive().equals(newItem.getScoreFive())
+                    ;
+        }
+    };
 
     class ResultHolder extends RecyclerView.ViewHolder{
 
@@ -54,7 +78,7 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultHold
     @Override
     public void onBindViewHolder(@NonNull ResultHolder holder, int position) {
 
-        Result currentResult = results.get(position);
+        Result currentResult = getItem(position);
         holder.textView_title.setText(currentResult.getTitle());
         holder.textView_outcome.setText(currentResult.getOutcome());
         holder.textView_scoreOne.setText(currentResult.getScoreOne());
@@ -64,17 +88,8 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultHold
         holder.textView_scoreFive.setText(currentResult.getScoreFive());
     }
 
-    @Override
-    public int getItemCount() {
-        return results.size();
-    }
-
-    public void setResults(List<Result> results){
-        this.results = results;
-        notifyDataSetChanged();
-    }
     public Result getResultPosition(int position){
 
-        return results.get(position);
+        return getItem(position);
     }
 }

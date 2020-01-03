@@ -82,6 +82,7 @@
     <dimen name="One">1</dimen>
     <dimen name="TwentyFiveSP">25sp</dimen>
     <dimen name="ThirtyFiveSP">35sp</dimen>
-
-
+    <dimen name="fifteenSP">15sp</dimen>
+    <dimen name="fifteenDP">15dp</dimen>
+    <dimen name="eightyDP">80dp</dimen>
 </resources>
