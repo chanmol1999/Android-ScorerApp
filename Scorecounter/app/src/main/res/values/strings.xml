@@ -8,6 +8,10 @@
     <string name="basketball">Basketball</string>
     <string name="volleyball">Volleyball</string>
     <string name="badminton">Badminton</string>
+    <string name="cricket">Cricket</string>
+    <string name="tableTennis">Table Tennis</string>
+    <string name="football">Football</string>
+    <string name="kabaddi">Kabaddi</string>
     <string name="real_time_scorer">Real Time Scorer</string>
     <string name="_0">0</string>
     <string name="team_b">Team B</string>
@@ -15,10 +19,51 @@
     <string name="reset">reset</string>
     <string name="original_score">0</string>
     <string name="add_one_point">score</string>
-    <string name="game_one">game 1</string>
-    <string name="game_two">game 2</string>
-    <string name="game_three">game 3</string>
+    <string name="game_one">Set 1</string>
+    <string name="game_two">Set 2</string>
+    <string name="game_three">Set 3</string>
+    <string name="game_four">Set 4</string>
+    <string name="game_five">Set 5</string>
     <string name="reset_game">reset</string>
     <string name="winner_greetings">congratulations ! the winner is</string>
     <string name="reset_confirmation">To confirm RESET, please click it one more time!</string>
+    <string name="zero">0</string>
+    <string name="bonus">Bonus</string>
+    <string name="allout">All Out</string>
+    <string name="multiPoints">Multi-Points</string>
+    <string name="redCard">Red Card</string>
+    <string name="yellowCard">Yellow Card</string>
+    <string name="over">Overs : </string>
+    <string name="wicket">Wickets : </string>
+    <string name="extra">Extras : </string>
+    <string name="wide">WIDE</string>
+    <string name="no_ball">NO BALL</string>
+    <string name="runs">Runs : </string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="boundary">Boundary : </string>
+    <string name="four">+4</string>
+    <string name="six">+6</string>
+    <string name="wicket_fall">Wicket!</string>
+    <string name="next_ball">Next Ball</string>
+    <string name="select_format">Select match format.</string>
+    <string name="t20">T20</string>
+    <string name="odi">ODI</string>
+    <string name="select_team">Select team to bat first.</string>
+    <string name="start">Start</string>
+    <string name="tennis">Lawn Tennis</string>
+    <string name="menu_about">About</string>
+    <string name="menu_setting">Settings</string>
+
+    <string name="app_logo">Real Time Scorer Logo</string>
+    <string name="about_details">The Real Time Scorer app is an open-source app, developed and maintained by the NJACK Winter of Code participants. The motive of the app is to store score of many sports in realtime for fair results.</string>
+    <string name="more_details">Currently there are 7 games in the application, for which you can store the score of the every match locally and get your result after clicking the finish button.</string>
+    <string name="project_link">Click below, to contribute in this app</string>
+    <string name="app_github">Github.com</string>
+
+    <string name="deleteMenu">Delete All Results</string>
+    <string name="savedResults">Saved Results</string>
+    <string name="model">[Team A] : 0-0 : [Team B]</string>
+    <string name="modelResult">Result : Team A wins!</string>
 </resources>
+

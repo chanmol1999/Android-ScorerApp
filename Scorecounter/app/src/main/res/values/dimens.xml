@@ -10,7 +10,9 @@
     <dimen name="basket_blank_layout">1dp</dimen>
     <dimen name="basket_text_margin_L">10dp</dimen>
     <dimen name="basket_text_margin_R">10dp</dimen>
-    <dimen name="basket_annote_padding">4dp</dimen>
+    <dimen name="four_dp">4dp</dimen>
+    <dimen name="eight_dp">8dp</dimen>
+    <dimen name="twenty_dp">20dp</dimen>
     <dimen name="basket_text_size">20sp</dimen>
     <dimen name="basket_annote_width">20dp</dimen>
     <dimen name="basket_annote_height">20dp</dimen>
@@ -52,4 +54,35 @@
     <dimen name="volley_counter_text">80sp</dimen>
     <dimen name="volley_score_text">45sp</dimen>
     <dimen name="volley_team_text">25sp</dimen>
+    //Table Tennis Activity
+    <dimen name="tt_margin">20dp</dimen>
+    <dimen name="tableLayoutHeight">1dp</dimen>
+    <dimen name="text30">30sp</dimen>
+    <dimen name="text20">20sp</dimen>
+    <dimen name="text15">15sp</dimen>
+    <dimen name="text72">72sp</dimen>
+    <dimen name="text38">38sp</dimen>
+    <dimen name="tt_mar">8dp</dimen>
+    <dimen name="tt_mar_top">10dp</dimen>
+    <dimen name="text36">36sp</dimen>
+    <dimen name="headings">36sp</dimen>
+    <dimen name="mainScore">72sp</dimen>
+    <dimen name="setsVB">48sp</dimen>
+    <dimen name="buttons">16sp</dimen>
+    <dimen name="TableText1">16sp</dimen>
+    <dimen name="TableText2">20sp</dimen>
+    <dimen name="TableText3">30sp</dimen>
+    <dimen name="TableTextMargin">4dp</dimen>
+    <dimen name="smallTextWithoutBG">24sp</dimen>
+    <dimen name="smallTextWithBG">16sp</dimen>
+    <dimen name="zeroDP">0dp</dimen>
+    <dimen name="fiveDP">5dp</dimen>
+    <dimen name="tenDP">10dp</dimen>
+    <dimen name="twoHundredSP">200sp</dimen>
+    <dimen name="One">1</dimen>
+    <dimen name="TwentyFiveSP">25sp</dimen>
+    <dimen name="ThirtyFiveSP">35sp</dimen>
+    <dimen name="fifteenSP">15sp</dimen>
+    <dimen name="fifteenDP">15dp</dimen>
+    <dimen name="eightyDP">80dp</dimen>
 </resources>

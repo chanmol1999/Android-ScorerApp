@@ -8,11 +8,45 @@
         android:label="Real Time SCORER"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight">
-        <activity android:name=".Badminton.BadmintonActivity"
-            android:screenOrientation="portrait"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".SaveResults.ResultActivity"></activity>
         <activity
-            android:name=".splash"
+            android:name=".LawnTennis.LawnTennisActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Cricket.SelectFormat"
+            android:label="Cricket"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name=".Cricket.FirstTeam"
+            android:label="Cricket"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name=".Kabaddi.KabaddiActivity"
+            android:label="Kabaddi"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name=".Football.FootballActivity"
+            android:label="Football"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name=".TableTennis.TableTennisAcitivity"
+            android:label="Table Tennis"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name=".Cricket.CricketActivity"
+            android:label="Cricket"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name=".Badminton.BadmintonActivity"
+            android:label="Badminton"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name=".Splash"
+            android:screenOrientation="sensor"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,9 +54,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Volleyball.VolleyballActivity" />
-        <activity android:name=".Basketball.BasketballActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity
+            android:name=".Volleyball.VolleyballActivity"
+            android:label="Volleyball"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name=".Basketball.BasketballActivity"
+            android:label="Basketball"
+            android:screenOrientation="sensor" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="sensor" />
     </application>
 
 </manifest>

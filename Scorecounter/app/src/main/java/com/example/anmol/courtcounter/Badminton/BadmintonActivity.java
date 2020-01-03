@@ -1,13 +1,21 @@
 package com.example.anmol.courtcounter.Badminton;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.content.DialogInterface;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
+import android.os.Bundle;
+import android.text.InputType;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.example.anmol.courtcounter.Basketball.BasketballActivity;
 import com.example.anmol.courtcounter.R;
+import com.example.anmol.courtcounter.SaveResults.Result;
+import com.example.anmol.courtcounter.SaveResults.ResultViewModel;
 
 public class BadmintonActivity extends AppCompatActivity {
 
@@ -25,15 +33,24 @@ public class BadmintonActivity extends AppCompatActivity {
     TextView gameTwoTeamB;
     TextView gameThreeTeamA;
     TextView gameThreeTeamB;
-    TextView winnerTeam;
-    RelativeLayout winnerMessage;
+    TextView teamAHeading;
+    TextView teamBHeading;
+    Button resetButton;
+    String SetOneA;
+    String SetOneB;
+    String SetTwoA;
+    String SetTwoB;
+    String SetThreeA;
+    String SetThreeB;
+    String result;
+    ResultViewModel resultViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_badminton);
 
-
+        resultViewModel = ViewModelProviders.of(this).get(ResultViewModel.class);
         scoreForTeamA = findViewById(R.id.team_a_score);
         scoreForTeamB = findViewById(R.id.team_b_score);
         gameOneTeamA = findViewById(R.id.game1_a);
@@ -42,8 +59,65 @@ public class BadmintonActivity extends AppCompatActivity {
         gameTwoTeamB = findViewById(R.id.game2_b);
         gameThreeTeamA = findViewById(R.id.game3_a);
         gameThreeTeamB = findViewById(R.id.game3_b);
-        winnerTeam = findViewById(R.id.winner_team);
-        winnerMessage = findViewById(R.id.winner_message);
+        resetButton = findViewById(R.id.resetB);
+        teamAHeading = findViewById(R.id.TeamA_Textview);
+        teamBHeading = findViewById(R.id.TeamB_Textview);
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetScore();
+            }
+        });
+
+        teamAHeading.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder( BadmintonActivity.this );
+                alertBuilder.setTitle( "Edit Team Name" );
+
+                final EditText input = new EditText( BadmintonActivity.this );
+                input.setInputType( InputType.TYPE_CLASS_TEXT );
+                alertBuilder.setView( input );
+                alertBuilder.setPositiveButton( "Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        teamAHeading.setText( input.getText() );
+                    }
+                } );
+                alertBuilder.setNegativeButton( "Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                } );
+                alertBuilder.show();
+            }
+        } );
+
+        teamBHeading.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder( BadmintonActivity.this );
+                alertBuilder.setTitle( "Edit Team Name" );
+
+                final EditText input = new EditText( BadmintonActivity.this );
+                input.setInputType( InputType.TYPE_CLASS_TEXT );
+                alertBuilder.setView( input );
+                alertBuilder.setPositiveButton( "Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        teamBHeading.setText( input.getText() );
+                    }
+                } );
+                alertBuilder.setNegativeButton( "Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                } );
+                alertBuilder.show();
+            }
+        } );
 
     }
     public void displayScore() {
@@ -74,12 +148,96 @@ public class BadmintonActivity extends AppCompatActivity {
     }
     public void winnerMessage() {
         if (gameA > 1) {
-            winnerTeam.setText(R.string.team_a);
-            winnerMessage.setVisibility(View.VISIBLE);
-        }
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setTitle("Winner : "+teamAHeading.getText().toString());
+            result = "Winner : "+teamAHeading.getText().toString();
+            SetOneA = gameOneTeamA.getText().toString();
+            SetOneB = gameOneTeamB.getText().toString();
+            SetTwoA = gameTwoTeamA.getText().toString();
+            SetTwoB = gameTwoTeamB.getText().toString();
+            SetThreeA = gameThreeTeamA.getText().toString();
+            SetThreeB =gameThreeTeamB.getText().toString();
+
+
+            dialog.setMessage("Final Scoreline : \n"
+                            +"\n["+teamAHeading.getText().toString() +"] " + gameOneTeamA.getText().toString() +" - "+gameOneTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-1)"
+                            +"\n["+teamAHeading.getText().toString() +"] " + gameTwoTeamA.getText().toString() +" - "+gameTwoTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-2)"
+                            +"\n["+teamAHeading.getText().toString() +"] " + gameThreeTeamA.getText().toString() +" - "+gameThreeTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-3)");
+            resetScore();
+           dialog.setNegativeButton("Play Again?", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User clicked the "Keep editing" button, so dismiss the dialog
+                    // and continue editing the pet.
+                    if (dialog != null) {
+                        resetScore();
+                        dialog.dismiss();
+                    }
+                }
+            });
+           dialog.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User clicked the "Keep editing" button, so dismiss the dialog
+                    // and continue editing the pet.
+                    if (dialog != null) {
+                        finish();
+
+                    }
+                }
+            });
+           dialog.setNeutralButton("Save and Exit", new DialogInterface.OnClickListener() {
+               @Override
+               public void onClick(DialogInterface dialogInterface, int i) {
+                   addItems();
+                   finish();
+               }
+           });
+            AlertDialog alertDialog = dialog.create();
+            dialog.show();}
         if (gameB > 1) {
-            winnerTeam.setText(R.string.team_b);
-            winnerMessage.setVisibility(View.VISIBLE);
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setTitle("Winner : "+teamBHeading.getText().toString());
+            result = "Winner : "+teamBHeading.getText().toString();
+            SetOneA = gameOneTeamA.getText().toString();
+            SetOneB = gameOneTeamB.getText().toString();
+            SetTwoA = gameTwoTeamA.getText().toString();
+            SetTwoB = gameTwoTeamB.getText().toString();
+            SetThreeA = gameThreeTeamA.getText().toString();
+            SetThreeB =gameThreeTeamB.getText().toString();
+            dialog.setMessage("Final Scoreline : \n"
+
+                    +"\n["+teamAHeading.getText().toString() +"] " + gameOneTeamA.getText().toString() +" - "+gameOneTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-1)"
+                    +"\n["+teamAHeading.getText().toString() +"] " + gameTwoTeamA.getText().toString() +" - "+gameTwoTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-2)"
+                    +"\n["+teamAHeading.getText().toString() +"] " + gameThreeTeamA.getText().toString() +" - "+gameThreeTeamB.getText().toString()+" ["+teamBHeading.getText().toString()+"]"+"\t (Set-3)");
+            resetScore();
+            dialog.setNegativeButton("Play Again?", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User clicked the "Keep editing" button, so dismiss the dialog
+                    // and continue editing the pet.
+                    if (dialog != null) {
+                        resetScore();
+                        dialog.dismiss();
+                    }
+                }
+            });
+            dialog.setPositiveButton("Exit", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User clicked the "Keep editing" button, so dismiss the dialog
+                    // and continue editing the pet.
+                    if (dialog != null) {
+                        finish();
+
+                    }
+                }
+            });
+            dialog.setNeutralButton("Save and Exit", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    addItems();
+                    finish();
+                }
+            });
+            dialog.show();
+
         }
     }
     public void checkGameWinner() {
@@ -103,9 +261,7 @@ public class BadmintonActivity extends AppCompatActivity {
         }
         displayScore();
     }
-    public void resetScore(View view) {
-        resetCounter += 1;
-        if (resetCounter > 1) {
+    public void resetScore() {
             scoreA = 0;
             scoreB = 0;
             gameA = 0;
@@ -117,13 +273,18 @@ public class BadmintonActivity extends AppCompatActivity {
             gameTwoTeamB.setText(String.valueOf(scoreB));
             gameOneTeamA.setText(String.valueOf(scoreA));
             gameOneTeamB.setText(String.valueOf(scoreB));
-            winnerMessage.setVisibility(View.INVISIBLE);
-            resetCounter = 0;
-        } else {
 
-            Toast.makeText(this, R.string.reset_confirmation, Toast.LENGTH_SHORT).show();
-        }
-
+    }
+    public void addItems(){
+        String title = "Badminton";
+        String outcome = result;
+        String scoreOne = "";
+        String scoreTwo = teamAHeading.getText().toString() +": " + SetOneA + "-" +SetOneB + " :" +teamBHeading.getText().toString();
+        String scoreThree=teamAHeading.getText().toString() +": " + SetTwoA + "-" +SetTwoB + " :" +teamBHeading.getText().toString();
+        String scoreFour= teamAHeading.getText().toString() +": " + SetThreeA + "-" +SetThreeB + " :" +teamBHeading.getText().toString();
+        String scoreFive = "";
+        Result result = new Result(title,outcome,scoreOne,scoreTwo,scoreThree,scoreFour,scoreFive);
+        resultViewModel.insert(result);
     }
 }
 

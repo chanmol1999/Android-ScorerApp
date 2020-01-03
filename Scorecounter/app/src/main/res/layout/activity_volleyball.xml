@@ -1,121 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Volleyball.VolleyballActivity">
+    android:background="@drawable/volleyball"
+    android:padding="4dp">
 
-    <TextView
-        android:id="@+id/teamAname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/volley_margin_top"
-        android:text="@string/team_a"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="@dimen/volley_text"
-        app:layout_constraintBottom_toTopOf="@+id/teamA_ScoreTextView"
-        app:layout_constraintEnd_toEndOf="@+id/teamA_ScoreTextView"
-        app:layout_constraintStart_toStartOf="@+id/teamA_ScoreTextView"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/teamA_ScoreTextView"
-        android:layout_width="@dimen/volley_counter_width"
-        android:layout_height="@dimen/volley_counter_height"
-        android:layout_marginStart="@dimen/volley_counter_margin_S"
-        android:layout_marginLeft="@dimen/volley_counter_margin_L"
-        android:background="@drawable/border"
-        android:padding="@dimen/volley_counter_padding"
-        android:text="@string/_0"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="@dimen/volley_counter_text"
-        app:layout_constraintEnd_toStartOf="@+id/team_b_score"
-        app:layout_constraintHorizontal_bias="0.225"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/teamAname" />
+        <RelativeLayout style="@style/mainLayout">
 
-    <TextView
-        android:id="@+id/teamA-setScoreTextView"
-        android:layout_width="@dimen/volley_score_width"
-        android:layout_height="@dimen/volley_score_height"
-        android:layout_marginTop="@dimen/volley_score_margin_top"
-        android:background="@drawable/border"
-        android:padding="@dimen/volley_score_padding"
-        android:text="@string/_0"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="@dimen/volley_score_text"
-        app:layout_constraintEnd_toEndOf="@+id/teamA_ScoreTextView"
-        app:layout_constraintHorizontal_bias="0.542"
-        app:layout_constraintStart_toStartOf="@+id/teamA_ScoreTextView"
-        app:layout_constraintTop_toBottomOf="@+id/teamA_ScoreTextView" />
+            <LinearLayout
+                android:id="@+id/ScoreBoxVB"
+                style="@style/Box1">
 
-    <TextView
-        android:id="@+id/teamBname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/volley_counter_margin_top"
-        android:text="@string/team_b"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="@dimen/volley_team_text"
-        app:layout_constraintBottom_toTopOf="@+id/teamB-ScoreTextView"
-        app:layout_constraintEnd_toEndOf="@+id/teamB-ScoreTextView"
-        app:layout_constraintStart_toStartOf="@+id/teamB-ScoreTextView"
-        app:layout_constraintTop_toTopOf="parent" />
+                <LinearLayout style="@style/LinearColumn">
 
-    <TextView
-        android:id="@+id/teamB-ScoreTextView"
-        android:layout_width="@dimen/volley_counter_width"
-        android:layout_height="@dimen/volley_counter_height"
-        android:layout_marginEnd="@dimen/volley_counter_margin_E"
-        android:layout_marginRight="@dimen/volley_counter_margin_R"
-        android:background="@drawable/border"
-        android:padding="@dimen/volley_counter_padding"
-        android:text="@string/_0"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="@dimen/volley_counter_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/teamBname" />
+                    <TextView
+                        android:id="@+id/teamAname"
+                        style="@style/headings"
+                        android:text="@string/team_a"
+                        android:textColor="@color/headingBlue" />
 
-    <TextView
-        android:id="@+id/teamB-setScoreTextView"
-        android:layout_width="@dimen/volley_score_width"
-        android:layout_height="@dimen/volley_score_height"
-        android:layout_marginTop="@dimen/volley_score_margin_top"
-        android:background="@drawable/border"
-        android:padding="@dimen/volley_score_padding"
-        android:text="@string/_0"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_red_light"
-        android:textSize="@dimen/volley_score_text"
-        app:layout_constraintEnd_toEndOf="@+id/teamB-ScoreTextView"
-        app:layout_constraintHorizontal_bias="0.471"
-        app:layout_constraintStart_toStartOf="@+id/teamB-ScoreTextView"
-        app:layout_constraintTop_toBottomOf="@+id/teamB-ScoreTextView" />
+                    <TextView
+                        android:id="@+id/teamA_ScoreTextView"
+                        style="@style/mainScore"
+                        android:background="@drawable/border"
+                        android:text="@string/_0"
+                        android:textColor="@color/scoreBlue" />
 
-    <Button
-        android:id="@+id/switchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/volley_switch_b_margin_T"
-        android:layout_marginEnd="@dimen/volley_switch_b_margin_E"
-        android:layout_marginRight="@dimen/volley_switch_b_margin_R"
-        android:text="@string/switch_sides"
-        app:layout_constraintEnd_toEndOf="@+id/teamB-setScoreTextView"
-        app:layout_constraintTop_toBottomOf="@+id/teamB-setScoreTextView" />
+                    <TextView
+                        android:id="@+id/teamA_setScoreTextView"
+                        style="@style/sets"
+                        android:background="@drawable/border"
+                        android:text="@string/_0"
+                        android:textColor="@color/scoreBlue" />
+                </LinearLayout>
 
-    <Button
-        android:id="@+id/resetButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/volley_reset_b_margin_T"
-        android:text="@string/reset"
-        app:layout_constraintEnd_toEndOf="@+id/switchButton"
-        app:layout_constraintHorizontal_bias="0.586"
-        app:layout_constraintStart_toStartOf="@+id/switchButton"
-        app:layout_constraintTop_toBottomOf="@+id/switchButton" />
+                <LinearLayout style="@style/LinearColumn">
 
-</android.support.constraint.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/teamBname"
+                        style="@style/headings"
+                        android:text="@string/team_b"
+                        android:textColor="@color/headingRed" />
+
+                    <TextView
+                        android:id="@+id/teamB_ScoreTextView"
+                        style="@style/mainScore"
+                        android:background="@drawable/border"
+                        android:text="@string/_0"
+                        android:textColor="@color/headingRed" />
+
+                    <TextView
+                        android:id="@+id/teamB_setScoreTextView"
+                        style="@style/sets"
+                        android:background="@drawable/border"
+                        android:text="@string/_0"
+                        android:textColor="@color/scoreRed" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/switchButton"
+                style="@style/button"
+                android:layout_below="@id/ScoreBoxVB"
+                android:background="@drawable/rounded_button_green"
+                android:text="@string/switch_sides" />
+
+            <Button
+                android:id="@+id/resetButton"
+                style="@style/button"
+                android:layout_below="@id/switchButton"
+                android:background="@drawable/rounded_button_green"
+                android:text="@string/reset" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
